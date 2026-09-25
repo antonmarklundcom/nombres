@@ -63,6 +63,11 @@ const V = {
   css: lfHash('assets/site.css'), js: lfHash('assets/app.js'),
   json: lfHash('assets/names.json'), og: binHash('assets/og.png'), ico: lfHash('assets/favicon.svg'),
 };
+// Self-hosted OFL fonts (licences in assets/fonts); inline @font-face so preload and CSS share the hashed URL.
+const FONT = f => `/assets/fonts/${f}?v=${binHash('assets/fonts/' + f)}`;
+const FONT_HEAD = `<link rel="preload" href="${FONT('instrument-serif-400.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${FONT('dm-sans-400.woff2')}" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Instrument Serif';font-weight:400;font-display:swap;src:url('${FONT('instrument-serif-400.woff2')}') format('woff2')}@font-face{font-family:'DM Sans';font-weight:400;font-display:swap;src:url('${FONT('dm-sans-400.woff2')}') format('woff2')}@font-face{font-family:'DM Sans';font-weight:700;font-display:swap;src:url('${FONT('dm-sans-700.woff2')}') format('woff2')}</style>`;
 
 // ---------- piezas de HTML ----------
 const HEART = '<svg class="sprite" aria-hidden="true" focusable="false"><symbol id="h" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol></svg>';
@@ -72,7 +77,7 @@ const card = n => `<li class="card g-${n.gender}"><a class="card-link" href="/no
 const cards = list => `<ul class="cards">${list.map(card).join('')}</ul>`;
 const azBar = (current) => `<nav class="az" aria-label="Nombres por letra inicial"><ul>${'abcdefghijklmnopqrstuvwxyz'.split('').map(l => LETTERS.includes(l) ? `<li><a href="/letra/${l}/"${l === current ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a></li>` : `<li><span aria-hidden="true">${l.toUpperCase()}</span></li>`).join('')}</ul></nav>`;
 const faqHtml = faq => `<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Preguntas frecuentes</h2>${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</section>`;
-const bsBlock = () => `<aside class="bs" aria-label="Baby shower"><p><strong>${C.BS_TEXT}</strong> Mirá ideas y combos en <a href="${C.BABYSHOWER.home}">babyshower.com.py</a>, y si estás pensando en la sorpresa, también hay ideas de <a href="${C.BABYSHOWER.reveal}">revelación de género</a>.</p></aside>`;
+const bsBlock = (name) => `<aside class="bs" aria-label="Baby shower"><div class="bs-copy"><p class="bs-kicker">babyshower.com.py</p><p class="bs-title">${name ? `¿${esc(name)} es el nombre elegido? Anuncialo en el baby shower` : '¿Ya tienen el nombre? Anuncialo en el baby shower'}</p><p>${C.BS_TEXT} Decoración, mesa dulce y cartel con el nombre en Asunción y Gran Asunción, con precios estimados a la vista.</p></div><div class="bs-actions"><a class="btn" href="${C.BABYSHOWER.home}">Ver combos de baby shower</a><a class="btn btn-ghost" href="${C.BABYSHOWER.reveal}">Revelación de género</a><a class="btn btn-ghost" href="${C.BABYSHOWER.welcome}">Bienvenida de bebé</a></div></aside>`;
 const crumbsHtml = crumbs => `<nav class="crumbs" aria-label="Ruta"><ol>${crumbs.map((c, i) => i === crumbs.length - 1 ? `<li aria-current="page">${esc(c.name)}</li>` : `<li><a href="${c.route}">${esc(c.name)}</a></li>`).join('')}</ol></nav>`;
 const listLinks = (exclude) => `<nav class="lists" aria-label="Listas de nombres"><ul>${C.LISTS.filter(l => l.route !== exclude).map(l => `<li><a href="${l.route}">${esc(l.short)}</a></li>`).join('')}</ul></nav>`;
 
@@ -120,23 +125,26 @@ ${canonical ? `<meta property="og:url" content="${canonical}">\n` : ''}<meta pro
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#fbf6f0">
 <link rel="icon" href="/assets/favicon.svg?v=${V.ico}" type="image/svg+xml">
+${FONT_HEAD}
 <link rel="stylesheet" href="/assets/site.css?v=${V.css}">
 ${page.crumbs ? `<script type="application/ld+json">${jsonLd(page)}</script>\n` : ''}<script src="/assets/app.js?v=${V.js}" defer></script>
 </head>
 <body data-names="/assets/names.json?v=${V.json}"${page.bodyAttr ? ' ' + page.bodyAttr : ''}>
 ${HEART}
 <a class="skip" href="#main">Saltar al contenido</a>
-<header class="site-header"><div class="wrap">
-<a class="brand" href="/">nombres<span>.com.py</span></a>
+<header class="site-header"><div class="wrap hdr">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#h"/></svg>nombres<span>.com.py</span></a>
 <nav class="nav" aria-label="Principal"><ul>
-<li><a href="/nombres-de-nina/">Niña</a></li><li><a href="/nombres-de-varon/">Varón</a></li><li><a href="/nombres-guaranies/">Guaraníes</a></li><li><a href="/elegir/">Elegí</a></li><li><a class="nav-list" href="/mi-lista/">Mi lista <span class="count" data-fav-count>0</span></a></li>
+<li><a href="/nombres-de-nina/"${page.route === '/nombres-de-nina/' ? ' aria-current="page"' : ''}>Niña</a></li><li><a href="/nombres-de-varon/"${page.route === '/nombres-de-varon/' ? ' aria-current="page"' : ''}>Varón</a></li><li><a href="/nombres-guaranies/"${page.route === '/nombres-guaranies/' ? ' aria-current="page"' : ''}>Guaraníes</a></li><li><a href="/nombres-unisex/"${page.route === '/nombres-unisex/' ? ' aria-current="page"' : ''}>Unisex</a></li><li><a href="/elegir/"${page.route === '/elegir/' ? ' aria-current="page"' : ''}>Buscador</a></li><li><a href="${C.GUIDE.route}"${page.route === C.GUIDE.route ? ' aria-current="page"' : ''}>Cómo elegir</a></li>
 </ul></nav>
+<a class="hdr-list" href="/mi-lista/"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#h"/></svg>Mi lista <span class="count" data-fav-count>0</span></a>
 </div></header>
 <main id="main" class="wrap">
 ${page.crumbs && page.crumbs.length > 1 ? crumbsHtml(page.crumbs) : ''}
 ${page.body}
 </main>
 <footer class="site-footer"><div class="wrap">
+<div class="foot-top"><a class="brand brand-foot" href="/">nombres<span>.com.py</span></a><p>Nombres de bebé para familias paraguayas, con significado, origen y herramientas para decidir en pareja.</p></div>
 <nav aria-label="Pie de página"><ul>
 ${C.LISTS.map(l => `<li><a href="${l.route}">${esc(l.h1)}</a></li>`).join('\n')}
 <li><a href="/elegir/">Buscador de nombres</a></li>
@@ -161,7 +169,7 @@ const HOME_CRUMB = { name: 'Inicio', route: '/' };
   const listCards = C.LISTS.map(l => `<li><a href="${l.route}"><strong>${esc(l.h1)}</strong><span>${NAMES.filter(n => matches(n, l.filter)).length} nombres</span></a></li>`).join('');
   page({
     route: '/', title: C.HOME.title, description: C.HOME.description, h1: C.HOME.h1, crumbs: [HOME_CRUMB], faq: C.HOME.faq,
-    body: `<section class="hero"><h1>${esc(C.HOME.h1)}</h1><p class="lead">${esc(C.HOME.lead)}</p></section>
+    body: `<section class="hero"><div class="hero-copy"><p class="kicker">Nombres de bebé · Paraguay</p><h1>${esc(C.HOME.h1)}</h1><p class="lead">${esc(C.HOME.lead)}</p><p class="hero-cta"><a class="btn" href="/nombres-de-nina/">Nombres de niña</a><a class="btn" href="/nombres-de-varon/">Nombres de varón</a><a class="btn btn-ghost" href="/nombres-guaranies/">Guaraníes</a></p><ul class="stats"><li><strong>${NAMES.length}</strong> nombres</li><li><strong>${NAMES.filter(n => n.tags.includes('guarani')).length}</strong> guaraníes</li><li><strong>${LETTERS.length}</strong> letras</li></ul></div><div class="hero-art" aria-hidden="true">${['arami', 'mateo', 'jasy', 'sofia', 'yvoty', 'santiago'].map(s => NAMES.find(n => n.slug === s)).filter(Boolean).map((n, i) => `<div class="tile t${i}"><span class="tile-name">${esc(n.name)}</span><span class="tile-mean">${esc(n.meaning.split(/[.(;]/)[0])}</span></div>`).join('')}</div></section>
 <section class="tool-wrap" aria-labelledby="tool-h"><h2 id="tool-h">Buscá y guardá nombres</h2>
 <noscript><p class="note">Para usar los filtros y guardar favoritos activá JavaScript. Igual podés recorrer todas las listas de abajo.</p></noscript>
 ${TOOL('/elegir/')}
@@ -304,7 +312,7 @@ for (const n of NAMES) {
     route: `/nombre/${n.slug}/`, title, description, h1: title, ogType: 'article',
     crumbs: [HOME_CRUMB, { name: GENDER_LIST_NAME[n.gender], route: gl }, { name: n.name, route: `/nombre/${n.slug}/` }],
     body: `<article class="name-page g-${n.gender}">
-<header class="name-head"><h1>${esc(n.name)}: significado y origen del nombre</h1>${favBtn(n).replace('class="fav"', 'class="fav fav-lg"')}</header>
+<header class="name-head"><div><p class="kicker">Nombre ${g} · origen ${esc(n.origin)}</p><h1><span class="big-name">${esc(n.name)}</span><span class="h1-rest"><span class="vh">: </span>significado y origen del nombre</span></h1><p class="big-mean">${esc(n.meaning)}</p></div>${favBtn(n).replace('class="fav"', 'class="fav fav-lg"')}</header>
 <p class="lead">${esc(n.name)} es un nombre ${g} de origen ${esc(n.origin)}. ${esc(n.meaning)} ${tagSentence(n)}</p>
 <dl class="facts">${dl.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
 ${n.note ? `<p class="note">${esc(n.note)}</p>` : ''}
@@ -314,7 +322,8 @@ ${n.note ? `<p class="note">${esc(n.note)}</p>` : ''}
 <p>¿Querés verlo con tu apellido? Guardalo con el corazón y abrí <a href="/mi-lista/">Mi lista</a> para probarlo.</p></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Nombres parecidos a ${esc(n.name)}</h2>${cards(rel)}</section>
 <p class="more"><a href="/letra/${letterOf(n)}/">Más nombres con ${letterOf(n).toUpperCase()}</a> · <a href="${gl}">${GENDER_LIST_NAME[n.gender]}</a>${n.tags.includes('guarani') ? ' · <a href="/nombres-guaranies/">Nombres guaraníes</a>' : ''}</p>
-</article>`,
+</article>
+${bsBlock(n.name)}`,
   });
 }
 

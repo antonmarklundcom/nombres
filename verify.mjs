@@ -84,7 +84,7 @@ section('sitemap y rutas', () => {
 // ---------- assets ----------
 const lfHash = p => createHash('sha256').update(read(p).replace(/\r\n/g, '\n')).digest('hex').slice(0, 10);
 const binHash = p => createHash('sha256').update(readFileSync(p)).digest('hex').slice(0, 10);
-const HASH = { '/assets/site.css': lfHash('assets/site.css'), '/assets/app.js': lfHash('assets/app.js'), '/assets/names.json': lfHash('assets/names.json'), '/assets/og.png': binHash('assets/og.png'), '/assets/favicon.svg': lfHash('assets/favicon.svg') };
+const HASH = { '/assets/site.css': lfHash('assets/site.css'), '/assets/app.js': lfHash('assets/app.js'), '/assets/names.json': lfHash('assets/names.json'), '/assets/og.png': binHash('assets/og.png'), '/assets/favicon.svg': lfHash('assets/favicon.svg'), ...Object.fromEntries(['instrument-serif-400.woff2', 'dm-sans-400.woff2', 'dm-sans-700.woff2'].map(f => ['/assets/fonts/' + f, binHash('assets/fonts/' + f)])) };
 section('assets', () => {
   const css = statSync('assets/site.css').size, js = statSync('assets/app.js').size;
   check(css < 30 * 1024, `CSS pesa ${css} bytes (>= 30 KB)`);
@@ -191,7 +191,7 @@ section('contenido (intros, guía, nombres, cruce con babyshower)', () => {
   check(/Registro Civil/.test(art), 'la guía debe remitir al Registro Civil');
   for (const n of NAMES) {
     const html = read(`nombre/${n.slug}/index.html`);
-    check(html.includes(`<h1>${n.name.replace(/&/g, '&amp;')}: significado y origen del nombre</h1>`), `${n.slug}: h1 incorrecto`);
+    check(((html.match(/<h1>([\s\S]*?)<\/h1>/) || [])[1] || '').replace(/<[^>]+>/g, '') === `${n.name.replace(/&/g, '&amp;')}: significado y origen del nombre`, `${n.slug}: h1 incorrecto`);
     check((html.match(/<section aria-labelledby="rel-h">[\s\S]*?<\/section>/)[0].match(/<li class="card /g) || []).length === 6, `${n.slug}: se esperaban 6 nombres parecidos`);
     check(html.includes('Cómo combina'), `${n.slug}: falta Cómo combina`);
     if (n.saint) check(html.includes(n.saint), `${n.slug}: falta santo`);

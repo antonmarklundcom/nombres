@@ -12,6 +12,8 @@ export const SITE = {
 export const BABYSHOWER = {
   home: 'https://babyshower.com.py/',
   reveal: 'https://babyshower.com.py/revelacion-de-genero/',
+  services: 'https://babyshower.com.py/servicios/',
+  welcome: 'https://babyshower.com.py/bienvenida-de-bebe/',
 };
 
 export const APELLIDOS = ['González', 'Benítez', 'Martínez', 'Giménez', 'Ramírez', 'Ortiz', 'Duarte', 'Villalba', 'López', 'Fernández', 'Rodríguez', 'Báez', 'Acosta', 'Cáceres', 'Rojas', 'Sosa'];
