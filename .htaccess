@@ -1,0 +1,46 @@
+# Generado por build.mjs. Hostinger sirve la raíz del repo tal cual.
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?nombres\.com\.py$ [NC]
+RewriteRule ^ https://nombres.com.py%{REQUEST_URI} [R=301,L,NE]
+
+# Código fuente, datos y documentación no son públicos.
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule (^|/)\. - [F,L]
+RewriteRule ^(data|docs|node_modules)(/|$) - [F,L,NC]
+RewriteRule \.(mjs|md|log)$ - [F,L,NC]
+</IfModule>
+
+<FilesMatch "(?i)\.(mjs|md|log)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg
+  AddType application/json .json
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Los assets llevan ?v=<hash>; el HTML se revalida seguido.
+  Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_URI} =~ m#^/assets/#"
+  <FilesMatch "(?i)\.html$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain text/xml application/javascript text/javascript application/json application/xml application/ld+json image/svg+xml
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json application/xml application/ld+json image/svg+xml
+</IfModule>
