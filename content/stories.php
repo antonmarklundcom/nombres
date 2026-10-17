@@ -2,6 +2,23 @@
 declare(strict_types=1);
 // Editorial content: prepared 2026-10-17. Statistical snapshots stay in rankings.php.
 return [
+    '/nombres-para-gemelos/' => [
+        'kind'=>'twins','title'=>'Nombres para gemelos y mellizos: ideas para combinar',
+        'description'=>'Ideas de nombres para gemelos y mellizos: dos niñas, dos niños o niña y niño. Compará pares, iniciales y sonidos con los apellidos y guardá tus favoritos.',
+        'h1'=>'Nombres para gemelos y mellizos',
+        'lead'=>'Dos bebés pueden compartir una historia familiar y tener cada uno un nombre propio. Probá pares que te gusten juntos, pero también por separado y con los dos apellidos.',
+        'pairs'=>[
+            ['h'=>'Para dos niñas','items'=>[['sofia','valentina'],['ana','lucia'],['emma','alma'],['jasy','yvoty']]],
+            ['h'=>'Para dos niños','items'=>[['mateo','lucas'],['daniel','samuel'],['gael','enzo'],['juan','pedro']]],
+            ['h'=>'Para niña y niño','items'=>[['sofia','mateo'],['lucia','daniel'],['alma','leo'],['julia','luca']]],
+        ],
+        'sections'=>[
+            ['h'=>'Que cada nombre funcione por separado','p'=>['Decí un nombre sin el otro y sumale los apellidos. Después cambiá de orden el par. Una combinación puede gustarte como conjunto y dejar de convencerte cuando imaginás a cada hijo presentándose por su cuenta.','Los pares de esta página son ideas editoriales, sin posiciones de popularidad. Compartir un estilo no obliga a compartir significado, inicial ni una terminación. Abrí las fichas para revisar cada historia.']],
+            ['h'=>'¿Conviene que rimen o empiecen con la misma letra?','p'=>['Depende del gusto de tu familia. Una inicial compartida puede ser un detalle lindo; también conviene pensar en cómo vas a distinguir sus cosas, documentos o nombres al llamarlos. Probá el par rápido y despacio, sin dar por hecho que la rima es una ventaja.']],
+            ['h'=>'Dos nombres de familia sin copiar toda la combinación','p'=>['Si querés honrar a dos personas, podés conservar una inicial, usar un segundo nombre o elegir una forma relacionada. Escuchá cómo queda cada nombre completo. No hace falta que tengan la misma cantidad de letras ni que se acorten del mismo modo.']],
+            ['h'=>'Guardá opciones antes de elegir el par','p'=>['Armá una lista con varias opciones, no sólo con una pareja cerrada. En Mi lista podés probar cada nombre con los apellidos y compartir los favoritos. Los apellidos quedan en tu navegador y no se incluyen en el enlace compartido.']],
+        ],
+    ],
     '/historias-de-nombres/' => [
         'kind'=>'hub','title'=>'Historias, tendencias y nombres de bebé en el mundo',
         'description'=>'Explorá nombres de bebé en otros países, rankings con fuente y año, cambios entre generaciones y las historias detrás de las palabras y sus variantes.',

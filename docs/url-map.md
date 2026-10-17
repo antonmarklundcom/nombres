@@ -1,6 +1,6 @@
 # URL map
 
-The complete pre-migration indexable manifest is [legacy-routes.json](legacy-routes.json). It contains **584** URLs. Every one remains a canonical HTTP 200 route. The expanded sitemap has **718** URLs: the original 584, `/fuentes/`, two pet pages, 126 new name pages, and five editorial routes: `/historias-de-nombres/`, `/nombres-en-estados-unidos/`, `/nombres-en-francia/`, `/tendencias-de-nombres/`, `/historia-de-los-nombres/`. `/mi-lista/` still works, stays `noindex, follow`, and stays out of the sitemap.
+The complete pre-migration indexable manifest is [legacy-routes.json](legacy-routes.json). It contains **584** URLs. Every one remains a canonical HTTP 200 route. The expanded sitemap has **725** URLs: the original 584, `/fuentes/`, two pet pages, 128 added name pages, six editorial routes (including `/nombres-para-gemelos/`), and four new collections: `/nombres-biblicos-para-ninas/`, `/nombres-biblicos-para-ninos/`, `/nombres-italianos/`, `/nombres-arabes/`. `/mi-lista/` still works, stays `noindex, follow`, and stays out of the sitemap.
 
 | Old or alternate URL | Result |
 |---|---|
@@ -20,3 +20,7 @@ The complete pre-migration indexable manifest is [legacy-routes.json](legacy-rou
 No content was previously deployed according to the owner's brief, but known URLs are preserved anyway. The old static HTML files are removed from the branch; `DirectoryIndex index.php` ensures there is one live renderer. The public JSON endpoint retains `/assets/names.json` for the original picker contract, now derived from the selected PHP/SQL catalog with a content-derived ETag. Search query/pagination variants are noindex and canonicalize to the clean picker URL; they are not extra sitemap landing pages.
 
 `verify.sh` crawls the complete old manifest, checks both alternate forms for every page, and checks sitemap membership. The production host redirects were also exercised through local Apache with Host headers. HTTPS termination and LiteSpeed behavior still need the post-deployment check on Hostinger.
+
+## Keyword-intent aliases
+
+`/nombres-para-ninas/`, `/nombres-para-nena/` and `/nombres-para-nenas/` redirect directly to the existing `/nombres-de-nina/`. `/nombres-para-ninos/` redirects to `/nombres-de-varon/`. `/nombre/emmanuel/` redirects to `/nombre/emanuel/`, whose explicit alternate spelling also works in JS/no-JS search. Slashless and `index.html` forms redirect in one hop with queries preserved. Aliases stay out of the sitemap. Original canonical URLs remain HTTP 200. No typo-targeted content pages or separate gender-letter combinations are created; linked sections serve those narrower choices.

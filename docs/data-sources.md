@@ -44,3 +44,9 @@ python3 tests/rankings.py
 The extractor writes the two CSV extracts and the requested JSON. The PHP converter only writes to stdout. Do not replace researched content blindly on startup. An annual update must inspect official methodology, year/edition, spelling/tie rules and changes in precision; record new pinned sources/hashes, revise Spanish titles/copy and check tables. Keep useful stable URLs instead of making yearly near-duplicate pages. Historical claims need consistent coverage; neither a foreign ranking nor Google search demand is a Paraguay birth count.
 
 For the original 546 names and the Guaraní limitations, see `name-audit.md`. Specialist review and independent etymology sources remain the highest-value data improvement.
+
+## Keyword-driven catalog follow-up
+
+The original 126 additions came from the top-100 usage extracts. Two later additions, Aitana and Alaia, use exact rows from the full pinned SSA 2024 file. Existing Emanuel and Gael also have explicitly scoped spelling/usage references. `data/name-usage-followup-2024.csv` records these four rows and ranks; they are separate from the original 400-row top-100 extract. The Emanuel reference documents the spelling Emmanuel, as its scope says. No usage row independently verifies etymology or Paraguay frequency.
+
+The supplied Keyword Planner Markdown is a different source, used for discovery priorities only. See `seo/paraguay-keyword-analysis.md` for source hash, parsing and grouping limits. The 6,600 estimate is potentially shared between broader baby-name intents and is not attributed exclusively to girls.

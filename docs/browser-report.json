@@ -1,19 +1,25 @@
 {
-  "layout_and_privacy_checks": 146,
+  "layout_and_privacy_checks": 226,
   "uncaught_errors": [],
   "third_party_requests": [],
   "screenshots": [
     "arami-1440.png",
     "arami-360.png",
+    "biblicos-ninas-1440.png",
+    "biblicos-ninas-360.png",
     "favorites-360.png",
     "francia-1440.png",
     "francia-360.png",
+    "gemelos-1440.png",
+    "gemelos-360.png",
     "guarani-1440.png",
     "guarani-360.png",
     "historias-1440.png",
     "historias-360.png",
     "home-1440.png",
-    "home-360.png"
+    "home-360.png",
+    "italianos-1440.png",
+    "italianos-360.png"
   ],
   "browser": "Chromium",
   "interactions": [

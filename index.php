@@ -20,6 +20,7 @@ if ($path === '/robots.php') $redirect('/robots.txt');
 if (isset($site['redirects'][$path])) $redirect($site['redirects'][$path]);
 if (str_ends_with($path, '/index.html')) {
     $target = substr($path, 0, -10);
+    if (isset($site['redirects'][$target])) $redirect($site['redirects'][$target]);
     if (in_array($target,$allRoutes,true) || $target === '/mi-lista/') $redirect($target);
 }
 if (!str_ends_with($path,'/') && (in_array($path.'/',$allRoutes,true) || $path==='/mi-lista')) $redirect($path.'/');
@@ -42,7 +43,7 @@ if ($path === '/assets/names.json') {
     header('Cache-Control: public, max-age=300, must-revalidate');
     $etag='"names-'.$catalogVersion.'"';header('ETag: '.$etag);
     if (($_SERVER['HTTP_IF_NONE_MATCH']??'')===$etag) { http_response_code(304);exit; }
-    echo json_safe(['tags'=>NAME_TAGS, 'n'=>array_map(static fn($n)=>[$n['slug'],$n['name'],$n['gender'],$n['origin'],$n['meaning'],implode('',array_map(static fn($t)=>(string)array_search($t,NAME_TAGS,true),$n['tags']))],$sorted)]);
+    echo json_safe(['tags'=>NAME_TAGS, 'aliases'=>$aliasesBySlug, 'n'=>array_map(static fn($n)=>[$n['slug'],$n['name'],$n['gender'],$n['origin'],$n['meaning'],implode('',array_map(static fn($t)=>(string)array_search($t,NAME_TAGS,true),$n['tags']))],$sorted)]);
     exit;
 }
 header('Content-Type: text/html; charset=utf-8');
@@ -61,7 +62,7 @@ if ($path === '/') {
         if ($args['t'] !== '' && !in_array($args['t'],$n['tags'],true)) return false;
         if ($args['l'] !== '' && $args['l'] !== $n['slug'][0]) return false;
         if ((int)$args['n']>0 && preg_match_all('/\p{L}/u',$n['name'])>(int)$args['n']) return false;
-        return $args['q']==='' || str_contains(fold($n['name']),fold(trim($args['q'])));
+        return $args['q']==='' || str_contains(name_search_text($n),fold(trim($args['q'])));
     }));
     $page['resultCount']=count($matchingNames);
     $maxPage=max(1,(int)ceil(count($matchingNames)/48));
@@ -85,10 +86,10 @@ if ($path === '/') {
     }
     if ($template==='not-found' && preg_match('#^/letra/([a-z])/$#D',$path,$m) && in_array($m[1],$letters,true)) {
         $letter=$m[1]; $upper=strtoupper($letter); $page['letter']=$letter;
-        $page['title']="Nombres con $upper para bebé: niñas y varones"; $page['h1']="Nombres de bebé con $upper";
+        $page['title']="Nombres con $upper para niñas y niños: significado"; $page['h1']="Nombres con $upper para niñas y niños";
         $page['description']=description("Nombres de bebé que empiezan con $upper, con significado y origen. Explorá opciones de niña, de varón y unisex y guardá tus favoritos en tu lista.");
         $page['intro']=["¿Te gusta la inicial $upper? Explorá nombres con esa letra, con sus significados y orígenes. Guardá los que te gustan y probá cómo quedan con tus apellidos."];
-        $page['items']=array_values(array_filter($sorted,static fn($n)=>$n['slug'][0]===$letter)); $template='list';
+        $page['items']=array_values(array_filter($sorted,static fn($n)=>$n['slug'][0]===$letter));$page['splitGender']=true; $template='list';
     }
     if ($path===$copy['GUIDE']['route']) {
         $page=array_merge($page,$copy['GUIDE']); $page['ogType']='article'; $template='article';
@@ -105,11 +106,7 @@ if ($path === '/') {
             ['h'=>'Antes de la inscripción','p'=>['Confirmá la grafía elegida y los requisitos con el Registro Civil. Para el santoral, consultá también con tu parroquia: un nombre puede tener varias celebraciones. Este catálogo orienta la búsqueda; no brinda asesoramiento legal ni médico.']],
         ]; $template='article';
     } elseif (in_array($path,['/nombres-para-perros/','/nombres-para-gatos/'],true)) {
-        $animal=$path==='/nombres-para-perros/'?'perros':'gatos';
-        $page['title']="Nombres para $animal: ideas cortas para tu mascota"; $page['h1']="Ideas de nombres para $animal";
-        $page['description']=description("Ideas de nombres para $animal: opciones cortas, inspiradas en la naturaleza y fáciles de llamar. Elegí con calma y encontrá un nombre para tu mascota.");
-        $page['intro']=["La llegada de una mascota también merece un nombre. Para $animal, ayuda elegir uno que puedas decir claramente y usar siempre de la misma forma. Estas ideas son para mascotas; no son una lista de nombres de bebé ni un ranking de popularidad.", 'Probá el nombre en voz alta, evitá que se confunda con una orden y fijate si toda la familia lo pronuncia de forma parecida.'];
-        $page['petGroups']=['Cortos y fáciles de llamar'=> $animal==='perros'?['Coco','Milo','Nala','Toby','Lola','Roco','Kira','Bruno']:['Milo','Mimi','Nina','Coco','Lila','Teo','Lola','Tom'], 'Inspirados en la naturaleza'=>['Luna','Sol','Nube','Brisa','Río','Mora','Oliva','Nieve'], 'Un toque divertido'=> $animal==='perros'?['Chipa','Miel','Pipo','Maní','Pecas','Canela']:['Chipa','Mochi','Miel','Canela','Bigotes','Pecas']];
+        $petPages=require __DIR__.'/content/pets.php';$page=array_merge($page,$petPages[$path]);
         $template='pets';
     }
 }
@@ -118,11 +115,16 @@ if (isset($stories[$path])) {
     $page['ogType']=$page['kind']==='hub'?'website':'article';
 }
 if ($template==='not-found') { http_response_code(404); $page['route']=null; $page['noindex']=true; }
+if (!empty($page['splitGender'])) {
+    $items=$page['items'];$page['items']=[];
+    foreach (['f','m','u'] as $gender) $page['items']=array_merge($page['items'],array_values(array_filter($items,static fn($n)=>$n['gender']===$gender)));
+}
 $page['description']=description($page['description']);
 $crumbs=[['name'=>'Inicio','route'=>'/']];
 if ($page['route'] && $page['route']!=='/') {
-    if ($template==='name') $crumbs[]=['name'=>['f'=>'Nombres de niña','m'=>'Nombres de varón','u'=>'Nombres unisex'][$n['gender']],'route'=>$genderRoutes[$n['gender']]];
+    if ($template==='name') $crumbs[]=['name'=>['f'=>'Nombres para niñas','m'=>'Nombres para niños','u'=>'Nombres unisex'][$n['gender']],'route'=>$genderRoutes[$n['gender']]];
     if ($template==='story' && $page['kind']!=='hub') $crumbs[]=['name'=>'Historias de nombres','route'=>'/historias-de-nombres/'];
+    if ($template==='list' && isset($page['parent'])) foreach ($copy['LISTS'] as $parent) if ($parent['route']===$page['parent']) $crumbs[]=['name'=>$parent['h1'],'route'=>$parent['route']];
     $crumbs[]=['name'=>$template==='name'?$n['name']:$page['h1'],'route'=>$page['route']];
 }
 $graph=[['@type'=>'WebSite','@id'=>$site['origin'].'/#website','name'=>$site['name'],'url'=>$site['origin'].'/','inLanguage'=>$site['lang']]];
@@ -130,8 +132,15 @@ if ($page['route']!==null) $graph[]=['@type'=>'BreadcrumbList','itemListElement'
 if (!empty($page['items'])) $graph[]=['@type'=>'ItemList','name'=>$page['h1'],'numberOfItems'=>count($page['items']),'itemListElement'=>array_map(static fn($n,$i)=>['@type'=>'ListItem','position'=>$i+1,'name'=>$n['name'],'url'=>$site['origin'].name_url($n)],$page['items'],array_keys($page['items']))];
 if ($page['faq']) $graph[]=['@type'=>'FAQPage','mainEntity'=>array_map(static fn($f)=>['@type'=>'Question','name'=>$f['q'],'acceptedAnswer'=>['@type'=>'Answer','text'=>$f['a']]],$page['faq'])];
 if ($template==='story' && $page['kind']!=='hub') {
-    $citations=$page['kind']==='country'?[$rankings[$page['country']]['official_url'],$rankings[$page['country']]['mirror_url']]:($page['kind']==='trends'?array_column($rankings,'official_url'):['https://github.com/sugarlabs/diccionario-guarani-castellano-activity/blob/f0001d16948e07227880cebc9be208473c652990/lang/guarani/dic.txt']);
-    $graph[]=['@type'=>'Article','headline'=>$page['h1'],'description'=>$page['description'],'mainEntityOfPage'=>$site['origin'].$page['route'],'inLanguage'=>$site['lang'],'publisher'=>['@type'=>'Organization','name'=>$site['name'],'url'=>$site['origin'].'/'],'citation'=>$citations];
+    $citations=match($page['kind']) {
+        'country'=>[$rankings[$page['country']]['official_url'],$rankings[$page['country']]['mirror_url']],
+        'trends'=>array_column($rankings,'official_url'),
+        'history'=>['https://github.com/sugarlabs/diccionario-guarani-castellano-activity/blob/f0001d16948e07227880cebc9be208473c652990/lang/guarani/dic.txt'],
+        default=>[],
+    };
+    $article=['@type'=>'Article','headline'=>$page['h1'],'description'=>$page['description'],'mainEntityOfPage'=>$site['origin'].$page['route'],'inLanguage'=>$site['lang'],'publisher'=>['@type'=>'Organization','name'=>$site['name'],'url'=>$site['origin'].'/']];
+    if ($citations) $article['citation']=$citations;
+    $graph[]=$article;
 }
 $schema=['@context'=>'https://schema.org','@graph'=>$graph];
 require __DIR__ . '/partials/head.php'; require __DIR__ . '/partials/header.php';

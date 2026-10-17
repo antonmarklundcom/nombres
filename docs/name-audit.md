@@ -4,7 +4,7 @@ Baseline: `20da13d0b0e6ea0317b247a3430dabdfbeb35612`. The original build produce
 
 ## Scope and results
 
-The original **546** records were structurally audited. The expanded catalog has **672**: **354** categorized as niña, **301** as varón, **17** as unisex; **20** linked to Guaraní. No duplicate slugs were found. No original name slug was removed. The JSON audit preserves the original correction log and separately lists added slugs: [name-audit.json](name-audit.json). The spreadsheet-ready review queue has one row per record: [name-review-queue.csv](name-review-queue.csv).
+The original **546** records were structurally audited. The expanded catalog has **674**: **356** categorized as niña, **301** as varón, **17** as unisex; **20** linked to Guaraní. No duplicate slugs were found. No original name slug was removed. The JSON audit preserves the original correction log and separately lists added slugs: [name-audit.json](name-audit.json). The spreadsheet-ready review queue has one row per record: [name-review-queue.csv](name-review-queue.csv).
 
 **53 records** have editorial changes or added spelling qualifications. Maria compounds no longer inherit an unsupported literal “amada” claim. Catalina/Karen, Elena, Mónica, Arturo, Ignacio/Ignacia, Luana and others now qualify uncertain explanations. Alessia is linked to Alessio rather than incorrectly being called the Italian form of Alejandra. Verónica separates the Berenice connection from the later “vera icon” interpretation. Francisco and its related text distinguish “French” from the broad “free” gloss.
 
@@ -14,13 +14,17 @@ Guaraní edits remove invented Spanish-style phonetic spellings and automatic eq
 
 Thirteen lexical senses were checked against the educational [Sugar Labs Guaraní-Castellano dictionary](https://github.com/sugarlabs/diccionario-guarani-castellano-activity/blob/f0001d16948e07227880cebc9be208473c652990/lang/guarani/dic.txt): Jasy, Yvoty, Kuarahy, Mainumby, Arandú/arandu, Ñasaindy, Mbyja, Mburucuyá/mburukuja, Ysapy, Arapoty, Poty, Araí/arai and Yerutí/jeruti. Each record has a commit-pinned source link to its entry, consultation date and evidence scope. This is a secondary educational source, not a government naming registry or an expert endorsement. No software or dictionary database was copied into the runtime; references support short lexical facts.
 
-Direct requests to SPL, RAE, Wiktionary and Behind the Name were blocked by the cloud network policy. GitHub-hosted reference material was accessible. We therefore do **not** claim that all 672 meanings, saint dates, gender assignments, historical variants or personal-name usage in Paraguay have been independently verified. Current states are 482 `legacy`, 190 `qualified`, zero `verified`. The site exposes its limits and does not fabricate popularity or search volumes.
+Direct requests to SPL, RAE, Wiktionary and Behind the Name were blocked by the cloud network policy. GitHub-hosted reference material was accessible. We therefore do **not** claim that all 674 meanings, saint dates, gender assignments, historical variants or personal-name usage in Paraguay have been independently verified. Current states are 479 `legacy`, 195 `qualified`, zero `verified`. The site exposes its limits and does not fabricate popularity or search volumes.
 
 ## International additions
 
 The 126 new records were selected from checked 2024 U.S./France top-100 rows. Their sources identify spelling, country, recorded category, year and rank. They establish usage there, not the meaning/origin claimed by an etymology or frequency in Paraguay. New explanations qualify disputed origins and remain pending independent documentary review. No extra Guaraní names were invented to inflate the catalog. See [data-sources.md](data-sources.md) for pinned copies, hashes and reproducible extracts.
 
-The JSON audit preserves the original 53-record correction log and separately lists the 126 added slugs. The regenerated 672-row CSV distinguishes lexical sources from statistical usage sources.
+The JSON audit preserves the original 53-record correction log and separately lists the 128 added slugs. The regenerated 674-row CSV distinguishes lexical sources from statistical usage sources.
+
+## Paraguay keyword follow-up
+
+Aitana and Alaia fill two genuine gaps found in the owner's export. Their etymologies remain qualified; exact SSA usage rows support only the stated U.S. spelling/year/category. Emmanuel stays with the existing Emanuel record and redirects/searches to that canonical. Gael no longer asserts a demonstrated Gaélico translation, and Benjamín distinguishes a traditional interpretation from the broader “predilecto” gloss. The original correction log is preserved and these follow-up changes are recorded separately in JSON. Four scoped SSA rows are in `data/name-usage-followup-2024.csv`.
 
 ## Content depth
 

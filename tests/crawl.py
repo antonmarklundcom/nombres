@@ -71,6 +71,11 @@ for path in paths+['/mi-lista/']:
         check('Antes de elegir Yvoty' in text and '/nombre/poty/' in text,'checked lexical entry has practical context and an intentional comparison link')
     if path=='/nombre/ana-belen/':
         check('Cada parte tiene su historia' in text and '/nombre/ana/' in text and '/nombre/belen/' in text,'compound names link to existing parts')
+    if path=='/nombres-de-nina/':check('Nombres para niñas' in page.h1[0] and 'poco-comunes' in page.ids,'girls intent and useful uncommon-name section share the existing canonical')
+    if path=='/nombres-de-varon/':check('Nombres para niños' in page.h1[0],'boys intent retains the varón canonical')
+    if path in ['/letra/a/','/nombres-italianos/','/nombres-arabes/','/nombres-guaranies/']:
+        check({'nombres-para-ninas','nombres-para-ninos'}<=page.ids,f'{path}: gender sections have linkable anchors')
+    if path=='/nombres-guaranies/':check('pronunciación' not in page.meta.get('description',''),'Guaraní metadata does not promise validated pronunciation')
     check(0<len(page.title)<=60,f'{path}: title length {len(page.title)}')
     check(page.title not in titles,f'{path}: unique title');titles.add(page.title)
     desc=page.meta.get('description','');check(120<=len(desc)<=160,f'{path}: description length {len(desc)}')
@@ -88,11 +93,16 @@ for path in paths+['/mi-lista/']:
     check({'WebSite','BreadcrumbList'}<=types,f'{path}: WebSite and breadcrumbs')
     crumb=next(s for s in graph if s['@type']=='BreadcrumbList')
     check(crumb['itemListElement'][-1]['item']==origin+path,f'{path}: current breadcrumb')
-    if path.startswith('/letra/') or path in ['/elegir/']+['/nombres-'+x+'/' for x in ['de-nina','de-varon','guaranies','biblicos','clasicos','modernos','cortos','compuestos','unisex']]:
+    if path.startswith('/letra/') or path in ['/elegir/','/nombres-biblicos-para-ninas/','/nombres-biblicos-para-ninos/','/nombres-italianos/','/nombres-arabes/']+['/nombres-'+x+'/' for x in ['de-nina','de-varon','guaranies','biblicos','clasicos','modernos','cortos','compuestos','unisex']]:
         check('ItemList' in types,f'{path}: ItemList')
         items=next(s for s in graph if s['@type']=='ItemList')
         check(items['numberOfItems']==len(items['itemListElement']),f'{path}: ItemList count')
         check(all(item['url'].removeprefix(origin) in paths for item in items['itemListElement']),f'{path}: ItemList targets')
+        cards=re.findall(r'<a class="card-link" href="([^"]+)"',text)
+        check(cards==[item['url'].removeprefix(origin) for item in items['itemListElement']],f'{path}: ItemList matches visible card order')
+    if path=='/nombres-para-gemelos/':
+        article=next(s for s in graph if s['@type']=='Article')
+        check('/nombre/mateo/' in text and '/nombre/sofia/' in text and 'citation' not in article,'twins guide uses real names and does not claim an unrelated dictionary citation')
     check('Set-Cookie' not in headers,f'{path}: no cookies')
     check('app.embarazo.com.py/' in text,f'{path}: Mi Bebé footer')
     check('babyshower.com.py' not in text and 'wa.me' not in text,f'{path}: no old sales or WhatsApp links')
@@ -123,6 +133,13 @@ for path in paths[1:]+['/mi-lista/']:
     status,headers,_=get(path+'index.html');check(status==301 and headers.get('Location')==path,'legacy HTML '+path)
 for path,target in [('/index.html','/'),('/index.php','/'),('/sitemap.php','/sitemap.xml'),('/robots.php','/robots.txt'),('/nombre/arami?x=1','/nombre/arami/?x=1')]:
     status,headers,_=get(path);check(status==301 and headers.get('Location')==target,'explicit redirect '+path)
+for alias,target in [('/nombres-para-ninas','/nombres-de-nina/'),('/nombres-para-nenas','/nombres-de-nina/'),('/nombres-para-nena','/nombres-de-nina/'),('/nombres-para-ninos','/nombres-de-varon/'),('/nombre/emmanuel','/nombre/emanuel/')]:
+    for suffix in ['','/','/index.html']:
+        status,headers,_=get(alias+suffix+'?q=prueba')
+        check(status==301 and headers.get('Location')==target+'?q=prueba','one-hop intent alias '+alias+suffix)
+        check(alias+'/' not in paths,'alias excluded from sitemap '+alias)
+status,headers,raw=get('/elegir/?q=emmanuel');alias_page=raw.decode()
+check(status==200 and re.findall(r'<a class="card-link" href="([^"]+)"',alias_page)==['/nombre/emanuel/'],'no-JS alternate spelling finds exactly the canonical name')
 for path in ['/missing-page/','/404.html','/.git/config','/content/names.php','/lib/bootstrap.php','/lib/storage.php','/config.local.php','/database/schema.sql','/partials/head.php','/templates/name.php','/tools/names.php','/tools/database.php','/tests/browser.py','/deploy/make-zip.py','/docs/legacy-routes.json','/router.php','/tools/legacy/names.mjs','/assets/../content/names.php','/assets/%2e%2e/content/names.php']:
     status,headers,raw=get(path);check(status in [403,404],f'{path}: source denied (got {status})')
     check(b'<?php' not in raw and b'Canonical name catalog' not in raw,f'{path}: no source disclosure')

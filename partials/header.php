@@ -2,6 +2,6 @@
 <header class="site-header" data-header><div class="wrap hdr">
 <a class="brand" href="/" aria-label="nombres.com.py, inicio"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#h"/></svg>nombres<span>.com.py</span></a>
 <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle hidden>Explorá nombres e historias <span aria-hidden="true">+</span></button>
-<nav id="primary-nav" class="nav" aria-label="Principal"><ul><?php foreach (['/nombres-de-nina/'=>'Niña','/nombres-de-varon/'=>'Varón','/nombres-guaranies/'=>'Guaraníes','/nombres-unisex/'=>'Unisex','/elegir/'=>'Buscador','/historias-de-nombres/'=>'Historias','/como-elegir-nombre-de-bebe/'=>'Cómo elegir'] as $url=>$label): ?><li><a href="<?= e($url) ?>"<?= $page['route']===$url ? ' aria-current="page"' : '' ?>><?= e($label) ?></a></li><?php endforeach ?></ul></nav>
+<nav id="primary-nav" class="nav" aria-label="Principal"><ul><?php foreach (['/nombres-de-nina/'=>'Niñas','/nombres-de-varon/'=>'Niños','/nombres-guaranies/'=>'Guaraníes','/nombres-unisex/'=>'Unisex','/elegir/'=>'Buscador','/historias-de-nombres/'=>'Historias','/como-elegir-nombre-de-bebe/'=>'Cómo elegir'] as $url=>$label): ?><li><a href="<?= e($url) ?>"<?= $page['route']===$url ? ' aria-current="page"' : '' ?>><?= e($label) ?></a></li><?php endforeach ?></ul></nav>
 <a class="hdr-list" href="/mi-lista/"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#h"/></svg>Mi lista <span class="count" data-fav-count>0</span></a>
 </div></header>

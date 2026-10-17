@@ -1,12 +1,12 @@
 # SEO and traffic roadmap
 
-The goal is a trusted baby-name resource for Paraguay, with pets secondary and Mi Bebé as the main promotion. No Keyword Library project, Keyword Planner export or verified Paraguay birth-name dataset was available. No volumes, difficulty scores, national popularity figures or first-position guarantees are invented. A 672-name catalog and passing checks do not establish authority or rankings.
+The goal is a trusted baby-name resource for Paraguay, with pets secondary and Mi Bebé as the main promotion. The owner supplied a Paraguay/Spanish Keyword Planner export dated 17 October 2026. All 9,300 selected rows were parsed and 41 priority intents mapped. Google variant-group identifiers, the full monthly series and a verified Paraguay birth-name dataset remain unavailable. A 674-name catalog and passing checks do not establish authority or rankings.
 
 ## Implemented foundations
 
-All 584 original indexable URLs remain. The expanded sitemap contains 718 intended URLs, with unique titles/descriptions, one h1, HTTPS apex canonicals, OG metadata, breadcrumbs and relevant list/article structured data. Unknown/private paths remain denied; query variants and favorites do not create an indexable crawl trap. Search works without JavaScript and returns 48 names per page. Local assets, lazy picker data, compression/cache rules and optional cached SQL reads keep runtime requirements small. There are no third-party trackers or render-blocking remote assets.
+All 584 original indexable URLs remain. The expanded sitemap contains 725 intended URLs, with unique titles/descriptions, one h1, HTTPS apex canonicals, OG metadata, breadcrumbs and relevant list/article structured data. Unknown/private paths remain denied; query variants and favorites do not create an indexable crawl trap. Search works without JavaScript and returns 48 names per page. Local assets, lazy picker data, compression/cache rules and optional cached SQL reads keep runtime requirements small. There are no third-party trackers or render-blocking remote assets.
 
-The main navigation/home focus on babies. The catalog includes 126 additions supported by country-usage evidence. Five connected editorial routes cover U.S./France 2024 tables, generational changes and name history. They link back to useful name choices and disclose scope/year. Pet content is separate and subordinate. See `data-sources.md` for evidence and `validation.md` for the actual checks.
+The main navigation/home focus on babies. The catalog includes 128 additions supported by scoped country-usage evidence. Six connected editorial routes cover U.S./France 2024 tables, generational changes, name history and twins/mellizos. Four new substantive collections address biblical girls, biblical boys, Italian names and Arabic names. They link back to useful name choices and disclose scope/year. Pet content is separate and subordinate. See `data-sources.md` for evidence and `validation.md` for the actual checks.
 
 ## Highest-value next work
 
@@ -15,15 +15,21 @@ The main navigation/home focus on babies. The catalog includes 126 additions sup
 | Launch | Verify Hostinger release and Search Console ownership; submit sitemap | HTTPS/redirects/404s work live; intended URLs are discoverable; no private files exposed |
 | Paraguay evidence | Find an inspectable Civil Registry/official publication with names, year, coverage and methodology | Exact source/citation and reproducible extraction; no Paraguay ranking before evidence exists |
 | Guaraní quality | Review all 20 linked entries with a competent speaker/current dictionary | Record actual spelling, lexical sense, personal-name adaptation, source and review scope; no invented phonetics or endorsements |
-| Catalog credibility | Independently review etymology/origin, disputed variants and saint dates | Source evidence supports each claim; 482 legacy and 190 qualified records remain candidly labeled until review |
-| Real demand | Export Planner data and review Search Console query/page reports | Prioritize useful parent questions and impressions, without treating searches as birth counts |
+| Catalog credibility | Independently review etymology/origin, disputed variants and saint dates | Source evidence supports each claim; 479 legacy and 195 qualified records remain candidly labeled until review |
+| Real demand | Initial export analysis and implementation completed; inspect Search Console after launch | Use the documented 41-intent map; resolve ambiguous grouping with original exports and live query evidence |
 | Country expansion | Research Spain, Argentina, Brazil and nearby cultures where reliable datasets permit | Official source/copy, exact year, geography, treatment of compound names/spellings and refresh procedure before publishing |
 | Deeper content | Improve pages answering real parent questions | Specific explanations/examples/citations; no template padding, mass city pages or fake year trends |
 | Performance | Measure actual Hostinger mobile LCP/INP/CLS and transfer behavior | Fix measured bottlenecks; test SQL changes through any hosting cache; retain small local assets |
 
 Search Console is enough to begin measuring search visibility without visitor pixels. Review intended indexed pages, Paraguay queries, clicks/impressions, CTR and position by topic after meaningful crawling. Inspect excluded/duplicate/soft-404 cases before deciding to consolidate variants or noindex thin pages. Do not blindly submit more pages as a substitute for stronger information.
 
-## Keyword Planner export seeds
+## Supplied Paraguay data and uncertainty
+
+Read [the evidence report](seo/paraguay-keyword-analysis.md) and [41-intent CSV](seo/paraguay-keyword-map.csv). The three 6,600 rows may share a broader baby-name bucket, including boy-name intent; they are not added or assigned exclusively to girls. Lower explicit boy rows report 880, 590 and 210. The exact natural phrases “nombres para niñas” and “nombres para niños” are absent from the selected table, which does not establish zero demand. Main keyword wording is editorial, not an invented exact-match measurement.
+
+The homepage covers girls and boys; existing gender URLs keep separate useful content. Typo/singular/plural aliases redirect to those canonicals. No misspellings are inserted into copy, no city pages are derived from the misclassified personal names Pilar/Trinidad/Jesús, and no Japanese collection is published without catalog support. Uncommon-name content explains the lack of verified local rarity statistics.
+
+## Original Keyword Planner export seeds
 
 The current owner research batch has [exactly 80 seeds](keyword-planner-seeds-80.md), ten categories of eight. [Flat paste list](keyword-planner-seeds-80.txt); [categorized CSV](keyword-planner-seeds-80.csv). Seventy-two concern babies/names and eight concern pets. They are prioritized discovery seeds, not known top-volume keywords. Run batches separately and keep all relevant related ideas for the subsequent clustering/content plan.
 

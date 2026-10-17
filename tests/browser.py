@@ -24,12 +24,12 @@ with sync_playwright() as p:
     # Check layout with overflow clipping disabled too; do not hide a width bug.
     for width in [360,375,768,1024,1440]:
         page.set_viewport_size({'width':width,'height':900})
-        for path in ['/','/nombre/arami/','/nombre/yvoty/','/nombre/mael/','/nombre/maria-de-los-angeles/','/nombres-guaranies/','/historias-de-nombres/','/nombres-en-francia/','/nombres-en-estados-unidos/','/tendencias-de-nombres/','/elegir/','/mi-lista/','/nombres-para-gatos/']:
+        for path in ['/','/nombre/arami/','/nombre/yvoty/','/nombre/mael/','/nombre/maria-de-los-angeles/','/nombres-de-nina/','/nombres-de-varon/','/nombres-guaranies/','/nombres-italianos/','/nombres-arabes/','/nombres-biblicos-para-ninas/','/nombres-biblicos-para-ninos/','/nombres-para-gemelos/','/letra/a/','/historias-de-nombres/','/nombres-en-francia/','/nombres-en-estados-unidos/','/tendencias-de-nombres/','/elegir/','/mi-lista/','/nombres-para-gatos/']:
             visit(path)
             page.add_style_tag(content='body { overflow-x: visible !important; }')
             check(not page.evaluate('document.documentElement.scrollWidth > innerWidth'),f'Unclipped width {width}: {path}')
-            if width in [360,1440] and path in ['/','/nombre/arami/','/nombres-guaranies/','/historias-de-nombres/','/nombres-en-francia/']:
-                label={'/':'home','/nombre/arami/':'arami','/nombres-guaranies/':'guarani','/historias-de-nombres/':'historias','/nombres-en-francia/':'francia'}[path]
+            if width in [360,1440] and path in ['/','/nombre/arami/','/nombres-guaranies/','/historias-de-nombres/','/nombres-en-francia/','/nombres-italianos/','/nombres-para-gemelos/','/nombres-biblicos-para-ninas/']:
+                label={'/':'home','/nombre/arami/':'arami','/nombres-guaranies/':'guarani','/historias-de-nombres/':'historias','/nombres-en-francia/':'francia','/nombres-italianos/':'italianos','/nombres-para-gemelos/':'gemelos','/nombres-biblicos-para-ninas/':'biblicos-ninas'}[path]
                 page.screenshot(path=str(args.screenshots/f'{label}-{width}.png'),full_page=True)
     page.set_viewport_size({'width':360,'height':800})
     visit('/nombres-en-francia/')
@@ -44,6 +44,11 @@ with sync_playwright() as p:
     page.locator('[data-nav-toggle]').press('Escape')
     expect(page.locator('[data-nav-toggle]')).to_have_attribute('aria-expanded','false')
     visit('/elegir/')
+    page.locator('#q').fill('emmanuel')
+    expect(page.locator('[data-tool-results] .card')).to_have_count(1)
+    expect(page.locator('[data-tool-results] .card-link')).to_have_attribute('href','/nombre/emanuel/')
+    page.locator('#q').fill('aitana')
+    expect(page.locator('[data-tool-results] .card')).to_have_count(1)
     page.locator('#q').fill('sofía')
     expect(page.locator('[data-tool-results] .card')).to_have_count(2)
     check(page.locator('[data-tool-results]').inner_text().find('Sofía')>=0,'accented search')
@@ -108,6 +113,9 @@ with sync_playwright() as p:
     expect(plain.locator('[data-tool-results]')).to_contain_text('página 2')
     plain.goto(args.base+'/elegir/?q=raphael')
     expect(plain.locator('[data-tool-results]')).to_contain_text('Raphaël')
+    plain.goto(args.base+'/elegir/?q=emmanuel')
+    expect(plain.locator('[data-tool-results] .card')).to_have_count(1)
+    expect(plain.locator('[data-tool-results] .card-link')).to_have_attribute('href','/nombre/emanuel/')
     check(not context.cookies(),'No cookies created')
     check(not external,'No third-party requests: '+str(external))
     check(all(r['method']=='GET' for r in requests),'No data submission requests')

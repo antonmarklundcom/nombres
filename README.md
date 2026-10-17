@@ -32,7 +32,7 @@ git diff -- content/names.php
 
 Dry run is the default. Updates preserve all other records; deletion is a manual review decision. The file CLI always edits the packaged file, even if the website uses MySQL. For database editing, use `php tools/database.php export`, `upsert records.json [--write]`, `check` and `snapshot`; see [database operations](docs/database.md).
 
-The catalog has **672 records**, including **126 additions with scoped 2024 international usage evidence**. These are not 672 independently verified etymologies. Thirteen Guaraní lexical meanings have an educational dictionary reference; specialist language review remains outstanding. See [the content model](docs/content-model.md), [data audit](docs/name-audit.md), [review queue](docs/name-review-queue.csv), and [statistical sources](docs/data-sources.md).
+The catalog has **674 records**, including **128 additions with scoped 2024 international usage evidence** (126 in the initial expansion, then Aitana and Alaia). These are not 674 independently verified etymologies. Thirteen Guaraní lexical meanings have an educational dictionary reference; specialist language review remains outstanding. See [the content model](docs/content-model.md), [data audit](docs/name-audit.md), [review queue](docs/name-review-queue.csv), and [statistical sources](docs/data-sources.md).
 
 Country tables for the United States and France use checked 2024 data copies. A history/trends section compares selected years, explains spelling differences and keeps foreign statistics separate from Paraguay. Pet ideas remain secondary.
 
@@ -51,6 +51,7 @@ All previous indexable URLs are retained. Extension and slash variants receive 3
 | `index.php`, `.htaccess`, `router.php` | Production front controller and matching local router |
 | `content/names.php` | Packaged catalog, review state and source evidence |
 | `database/`, `lib/storage.php`, `config.example.php` | Optional SQL schema, cached public reads and private configuration example |
+| `content/collections.php`, `content/pets.php` | Keyword-informed baby collections and separate pet suggestions |
 | `content/rankings.php`, `content/stories.php` | Dated country data and Spanish editorial content |
 | `content/editorial.php`, `content/site.php` | Spanish copy and fixed public destinations |
 | `lib/`, `partials/`, `templates/` | Shared catalog helpers, metadata, design and page templates |
@@ -63,7 +64,7 @@ The structure follows the `antonmarklundcom/php-site-template` repository's cont
 
 The original babyshower promotion linked to `https://babyshower.com.py/`, `/revelacion-de-genero/` and `/bienvenida-de-bebe/`. It has been replaced in rendered pages by Mi Bebé. Archived legacy source under `tools/legacy/` retains the migration input and is never served or included in the ZIP.
 
-The original Windows brief, manuals and custom skills were unavailable in the cloud. [The handoff](docs/manuals/nombres/README.md) includes proposed registry entries for your laptop; no claim is made that `C:` or `E:` was changed. No keyword volumes are invented; [SEO seeds](docs/seo-plan.md) are ready for a Keyword Planner export.
+The original Windows brief, manuals and custom skills were unavailable in the cloud. [The handoff](docs/manuals/nombres/README.md) includes proposed registry entries for your laptop; no claim is made that `C:` or `E:` was changed. The owner has now supplied Paraguay keyword data. See [the evidence and 41-intent map](docs/seo/paraguay-keyword-analysis.md); overlapping estimates are not added or treated as birth statistics.
 
 For the current research round, use [80 categorized seeds](docs/keyword-planner-seeds-80.md), [a flat paste list](docs/keyword-planner-seeds-80.txt), or [the categorized CSV](docs/keyword-planner-seeds-80.csv). These are discovery inputs, not measured top-80 keywords.
 

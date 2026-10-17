@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
-// Spanish editorial copy, shared by the route templates.
+// Versioned editorial data. Sources and refresh procedure: docs/data-sources.md.
 return array (
   'HOME' =>
   array (
-    'title' => 'Nombres de bebé para Paraguay: significado y origen',
+    'title' => 'Nombres para bebés en Paraguay: niñas, niños y guaraníes',
     'description' => 'Nombres de bebé para Paraguay con significado y origen: niñas, varones, guaraníes, cortos y compuestos. Guardá tus favoritos y probalos con tu apellido.',
     'h1' => 'Nombres de bebé para Paraguay',
-    'lead' => 'El primer regalo es su nombre. Explorá ideas de niña, de varón y en guaraní, compará significados y guardá los que te hacen imaginar a tu bebé.',
+    'lead' => 'El primer regalo es su nombre. Explorá nombres para niñas y niños, ideas de raíz guaraní y formas de otras lenguas. Compará significados y guardá los que te hacen imaginar a tu bebé.',
     'guide' =>
     array (
       0 =>
@@ -41,7 +41,7 @@ return array (
       1 =>
       array (
         'q' => '¿Tienen datos de cuántos bebés llevan cada nombre?',
-        'a' => 'No. Este catálogo no utiliza estadísticas de nacimientos verificadas para ordenar los nombres. Incluimos nombres que se escuchan en Paraguay y otros que las familias suelen considerar.',
+        'a' => 'No tenemos una serie verificada de nacimientos por nombre para Paraguay. Las tablas de Estados Unidos y Francia indican su propio país, año y fuente; no describen la frecuencia de los nombres acá.',
       ),
       2 =>
       array (
@@ -62,7 +62,7 @@ return array (
   ),
   'ELEGIR' =>
   array (
-    'title' => 'Elegí el nombre de tu bebé: buscador y filtros',
+    'title' => 'Buscador de nombres para bebés: significado y filtros',
     'description' => 'Buscador de nombres de bebé con filtros por género, origen, letra inicial, largo y estilo. Guardá favoritos, probalos con tu apellido y compartí tu lista.',
     'h1' => 'Elegí el nombre de tu bebé',
     'lead' => 'Filtrá por género, origen, estilo, letra inicial y largo. Tocá el corazón para guardar un nombre en tu lista; después podés probarlo con tu apellido y hacer el duelo de nombres.',
@@ -83,12 +83,12 @@ return array (
         'gender' => 'f',
       ),
       'short' => 'Niña',
-      'title' => 'Nombres de niñas: significado y origen',
-      'description' => 'Nombres de niñas con significado y origen: clásicos, modernos, bíblicos, guaraníes y compuestos que se escuchan en Paraguay. Guardá tus favoritos.',
-      'h1' => 'Nombres de niñas con significado',
+      'title' => 'Nombres para niñas y nenas: significado y origen',
+      'description' => 'Nombres para niñas y nenas en Paraguay: significado, origen e ideas bíblicas, guaraníes, cortas y compuestas. Compará opciones y guardá tus favoritas.',
+      'h1' => 'Nombres para niñas con significado',
       'intro' =>
       array (
-        0 => 'Elegir el nombre de una niña es una de las primeras decisiones grandes de la familia, y en Paraguay suele venir con historia: la abuela que se llamaba Ramona, la promesa a la Virgen de Caacupé, la santa del día en que nació. En esta lista reunimos nombres de niña que se escuchan en Paraguay y en toda la región, junto con opciones que muchas familias consideran hoy.',
+        0 => '¿Buscás nombres para niñas o para nenas? Acá encontrás una misma colección para explorar: formas clásicas, bíblicas, guaraníes, compuestas y de otras lenguas. Cada tarjeta te lleva al significado orientativo y a las notas de su ficha.',
         1 => 'Vas a encontrar nombres clásicos como María, Ana, Lucía o Rosa, nombres de advocaciones marianas como Guadalupe, Pilar, Rosario o Asunción, nombres modernos y breves como Mía, Zoe o Luna, y nombres guaraníes como Aramí, Jasy o Yvoty. Cada tarjeta muestra el significado como orientación etimológica y el origen del nombre.',
         2 => 'Un consejo práctico: antes de decidir, decí el nombre completo con los dos apellidos, imaginá cómo suena cuando la llamen en la escuela y pensá si te gusta también el diminutivo que seguramente le van a poner. Guardá los que te gusten con el corazón y después usá el duelo de nombres para decidir en pareja.',
       ),
@@ -107,12 +107,87 @@ return array (
         2 =>
         array (
           'q' => '¿Hay nombres de niña en guaraní?',
-          'a' => 'Sí. Aramí (pedacito de cielo), Jasy (luna), Yvoty (flor), Yerutí (paloma), Arasy (madre del cielo) o Irupé son algunos. Prestá atención a la escritura y a las notas de cada ficha.',
+          'a' => 'Podés explorar Aramí, Jasy, Yvoty, Yerutí e Irupé. Revisá las notas: una palabra guaraní, una adaptación personal y un nombre ligado a un relato no tienen necesariamente la misma escritura ni una traducción demostrada.',
         ),
         3 =>
         array (
           'q' => '¿Cómo elijo entre dos nombres que nos gustan?',
           'a' => 'Guardalos en tu lista y hacé el duelo de nombres: elegís entre dos por vez hasta que queda un ganador. También ayuda probarlos con el apellido en voz alta.',
+        ),
+      ),
+      'discovery' =>
+      array (
+        0 =>
+        array (
+          'id' => 'poco-comunes',
+          'h' => 'Si buscás nombres para niñas poco comunes',
+          'p' =>
+          array (
+            0 => 'Lo poco común depende del lugar y de la generación. Sin una estadística paraguaya verificada no podemos asegurar que una opción sea rara. Para salir de tu lista habitual, compará otras escrituras y tradiciones, y elegí por lo que te gusta del nombre.',
+            1 => 'Aitana y Alaia son nombres diferentes, aunque empiecen y terminen con las mismas letras. En sus fichas señalamos qué parte de la explicación sigue pendiente de revisión. No hace falta inventar una grafía para que un nombre se sienta propio.',
+          ),
+          'names' =>
+          array (
+            0 => 'aitana',
+            1 => 'alaia',
+            2 => 'bianca',
+            3 => 'chiara',
+            4 => 'inaya',
+            5 => 'nour',
+          ),
+          'links' =>
+          array (
+            0 =>
+            array (
+              'route' => '/nombres-italianos/#nombres-para-ninas',
+              'label' => 'Formas italianas para niñas',
+            ),
+            1 =>
+            array (
+              'route' => '/nombres-arabes/#nombres-para-ninas',
+              'label' => 'Opciones de tradición árabe',
+            ),
+          ),
+        ),
+        1 =>
+        array (
+          'id' => 'estilos',
+          'h' => 'Nombres bíblicos, cortos y compuestos para nenas',
+          'p' =>
+          array (
+            0 => 'Si ya sabés qué querés comparar, elegí una lista más concreta. Para lo corto, mirá nombres como Ana, Luz o Zoe. Si preferís dos nombres, probá la combinación completa con los apellidos; no sumes sus significados como una traducción nueva.',
+          ),
+          'names' =>
+          array (
+            0 => 'ana',
+            1 => 'luz',
+            2 => 'zoe',
+            3 => 'maria-jose',
+            4 => 'ana-belen',
+          ),
+          'links' =>
+          array (
+            0 =>
+            array (
+              'route' => '/nombres-biblicos-para-ninas/',
+              'label' => 'Nombres bíblicos para niñas',
+            ),
+            1 =>
+            array (
+              'route' => '/nombres-cortos/',
+              'label' => 'Nombres cortos',
+            ),
+            2 =>
+            array (
+              'route' => '/nombres-compuestos/',
+              'label' => 'Nombres compuestos',
+            ),
+            3 =>
+            array (
+              'route' => '/nombres-para-gemelos/',
+              'label' => 'Nombres para gemelas y mellizas',
+            ),
+          ),
         ),
       ),
     ),
@@ -124,12 +199,12 @@ return array (
         'gender' => 'm',
       ),
       'short' => 'Varón',
-      'title' => 'Nombres para bebés varones: significado y origen',
-      'description' => 'Nombres para bebés varones con significado y origen: clásicos, bíblicos, modernos, compuestos y guaraníes que se escuchan en Paraguay. Guardá tus favoritos.',
-      'h1' => 'Nombres para bebés varones',
+      'title' => 'Nombres para niños y bebés varones con significado',
+      'description' => 'Nombres para niños y bebés varones en Paraguay, con significado y origen. Explorá ideas bíblicas, cortas, guaraníes y compuestas y guardá tus favoritos.',
+      'h1' => 'Nombres para niños y bebés varones',
       'intro' =>
       array (
-        0 => 'Buscar nombres para un bebé varón suele empezar con una lista corta y terminar con muchas dudas: ¿seguimos la tradición familiar o elegimos algo nuevo?, ¿un nombre bíblico o uno moderno?, ¿simple o compuesto? En esta página juntamos nombres de varón que se escuchan en Paraguay y en toda la región, con su significado y su origen.',
+        0 => 'Si buscás nombres para niños, para nenes o para un bebé varón, empezá por las opciones que te gustan al decirlas. Esta lista reúne distintas tradiciones y escrituras; las fichas explican el significado orientativo, el origen y las dudas que hay que tener en cuenta.',
         1 => 'Encontrás clásicos que atraviesan generaciones, como José, Juan, Pedro o Francisco; nombres bíblicos como Mateo, Tomás, Benjamín o Elías; opciones modernas y cortas como Teo, Liam o Gael; compuestos de tradición fuerte como Juan Pablo o José María, y nombres guaraníes como Kuarahy (sol) o Arandú (sabio). Cuando conocemos con certeza el día del santo, lo indicamos en la ficha, como San Blas, patrono del Paraguay, el 3 de febrero.',
         2 => 'Probá cada opción con los dos apellidos, pensá cómo se va a abreviar y fijate que las iniciales no formen algo raro. Tocá el corazón para guardar los que más te gusten y compartí la lista con un enlace con tu pareja o la familia.',
       ),
@@ -143,7 +218,7 @@ return array (
         1 =>
         array (
           'q' => '¿Hay nombres de varón en guaraní?',
-          'a' => 'Sí, aunque son menos que los de niña. Kuarahy (sol) y Arandú (sabio) se usan como nombre de varón; Ara (cielo) y Mainumby (picaflor) se usan para ambos.',
+          'a' => 'El catálogo ofrece Kuarahy y Arandú en esa categoría, entre otras opciones. La clasificación sirve para explorar: no acredita su frecuencia como nombre ni expresa una regla gramatical del guaraní. Revisá las fuentes y la escritura.',
         ),
         2 =>
         array (
@@ -154,6 +229,80 @@ return array (
         array (
           'q' => '¿Conviene un nombre compuesto?',
           'a' => 'Depende del apellido y del gusto de la familia. Los compuestos permiten homenajear a dos personas, pero con doble apellido el nombre completo puede quedar largo; probalo en voz alta antes de decidir.',
+        ),
+      ),
+      'discovery' =>
+      array (
+        0 =>
+        array (
+          'id' => 'estilos',
+          'h' => 'Nombres para varones por estilo y tradición',
+          'p' =>
+          array (
+            0 => 'Podés empezar por la tradición bíblica, mirar formas italianas como Luca o Enzo, o comparar nombres breves como Teo y Gael. Son caminos para elegir, sin convertir la colección en un ranking de los más inscriptos.',
+          ),
+          'names' =>
+          array (
+            0 => 'mateo',
+            1 => 'daniel',
+            2 => 'gael',
+            3 => 'luca',
+            4 => 'enzo',
+            5 => 'teo',
+          ),
+          'links' =>
+          array (
+            0 =>
+            array (
+              'route' => '/nombres-biblicos-para-ninos/',
+              'label' => 'Nombres bíblicos para niños',
+            ),
+            1 =>
+            array (
+              'route' => '/nombres-italianos/#nombres-para-ninos',
+              'label' => 'Formas italianas para niños',
+            ),
+            2 =>
+            array (
+              'route' => '/nombres-arabes/#nombres-para-ninos',
+              'label' => 'Opciones de tradición árabe',
+            ),
+            3 =>
+            array (
+              'route' => '/nombres-guaranies/#nombres-para-ninos',
+              'label' => 'Opciones vinculadas al guaraní',
+            ),
+          ),
+        ),
+        1 =>
+        array (
+          'id' => 'combinar',
+          'h' => 'Un nombre solo, un segundo nombre o dos hermanos',
+          'p' =>
+          array (
+            0 => 'Mateo y Matías son nombres que podés comparar, pero para la inscripción conviene decidir una escritura concreta. Si elegís un compuesto, probá también qué parte usarías todos los días. Para dos bebés, buscá dos nombres que te gusten por separado.',
+          ),
+          'names' =>
+          array (
+            0 => 'mateo',
+            1 => 'matias',
+            2 => 'emanuel',
+            3 => 'juan-pablo',
+            4 => 'jose-luis',
+          ),
+          'links' =>
+          array (
+            0 =>
+            array (
+              'route' => '/nombres-compuestos/',
+              'label' => 'Nombres compuestos',
+            ),
+            1 =>
+            array (
+              'route' => '/nombres-para-gemelos/',
+              'label' => 'Nombres para gemelos y mellizos',
+            ),
+          ),
         ),
       ),
     ),
@@ -189,7 +338,7 @@ return array (
         2 =>
         array (
           'q' => '¿Se puede inscribir un nombre unisex en Paraguay?',
-          'a' => 'En general, sí. Si tenés dudas sobre algún nombre en particular, consultá directamente con el Registro Civil antes de la inscripción.',
+          'a' => 'La inscripción y los requisitos de una grafía concreta los confirma el Registro Civil. Consultá antes de decidir; la categoría editorial de esta lista no es una autorización legal.',
         ),
       ),
     ),
@@ -202,7 +351,7 @@ return array (
       ),
       'short' => 'Guaraníes',
       'title' => 'Nombres guaraníes para bebés y su significado',
-      'description' => 'Nombres guaraníes para bebés con su significado literal y pronunciación: Aramí, Jasy, Yvoty, Kuarahy, Mainumby y más, para niñas, varones y unisex.',
+      'description' => 'Nombres guaraníes para niñas y niños: Jasy, Yvoty, Kuarahy y otras ideas, con significados orientativos, fuentes y notas sobre las distintas escrituras.',
       'h1' => 'Nombres guaraníes para bebés',
       'intro' =>
       array (
@@ -228,6 +377,7 @@ return array (
           'a' => 'No. Marcamos las interpretaciones que necesitan revisión y no ofrecemos una pronunciación fonética validada. Consultá un diccionario actualizado y una persona hablante antes de decidir.',
         ),
       ),
+      'splitGender' => true,
     ),
     4 =>
     array (
@@ -315,13 +465,13 @@ return array (
       ),
       'short' => 'Bíblicos',
       'title' => 'Nombres bíblicos para bebés y su significado',
-      'description' => 'Nombres bíblicos para bebés con su significado y origen: Mateo, Tomás, Santiago, Sara, Ana, Belén, Abigail y más, para niñas y varones, con su santo.',
+      'description' => 'Nombres bíblicos para bebés con significado y origen: opciones para niñas y niños, formas relacionadas y notas para elegir con tus apellidos en Paraguay.',
       'h1' => 'Nombres bíblicos para bebés',
       'intro' =>
       array (
         0 => 'Los nombres bíblicos atraviesan siglos y culturas, y en Paraguay tienen un peso especial por la tradición católica y la creciente presencia de otras iglesias cristianas. Muchos siguen sonando actuales: Mateo, Tomás, Benjamín, Sara o Abigail conviven con clásicos de siempre como José, María, Juan o Ana.',
-        1 => 'En esta lista incluimos nombres que aparecen en el Antiguo o el Nuevo Testamento, o que se refieren directamente a personajes y lugares bíblicos, como Belén o Magdalena. La mayoría vienen del hebreo, pero también hay nombres de origen griego, latino o arameo, como Tomás (gemelo), Andrés (valiente) o Pablo (pequeño). Cuando conocemos con certeza la fecha del santo, la indicamos.',
-        2 => 'Si te gusta un nombre bíblico pero querés algo menos frecuente, mirá opciones como Noa, Rebeca, Tobías, Jonás, Eliseo o Bernabé. También podés combinarlo con un segundo nombre moderno o guaraní. Guardá tus favoritos con el corazón y probalos con tu apellido.',
+        1 => 'En esta lista incluimos nombres que aparecen en el Antiguo o el Nuevo Testamento, o que se refieren directamente a personajes y lugares bíblicos, como Belén o Magdalena. La mayoría vienen del hebreo, pero también hay nombres de origen griego, latino o arameo, como Tomás (gemelo), Andrés (valiente) o Pablo (pequeño). Cuando hay una fecha tradicional registrada, la indicamos.',
+        2 => 'Si te gusta un nombre bíblico y querés comparar otras opciones, mirá opciones como Noa, Rebeca, Tobías, Jonás, Eliseo o Bernabé. También podés combinarlo con un segundo nombre moderno o guaraní. Guardá tus favoritos con el corazón y probalos con tu apellido.',
       ),
       'faq' =>
       array (
@@ -341,6 +491,31 @@ return array (
           'a' => 'No. Muchos lo son, pero Tomás es arameo, Andrés y Felipe son griegos, y Pablo y Marcos son latinos.',
         ),
       ),
+      'discovery' =>
+      array (
+        0 =>
+        array (
+          'id' => 'elegir-lista',
+          'h' => 'Elegí una lista de nombres bíblicos para tu bebé',
+          'p' =>
+          array (
+            0 => 'Para comparar una selección más concreta, abrí la lista de niñas o la de niños. El vínculo con la Biblia, la lengua de origen y una celebración del santoral son datos diferentes.',
+          ),
+          'links' =>
+          array (
+            0 =>
+            array (
+              'route' => '/nombres-biblicos-para-ninas/',
+              'label' => 'Nombres bíblicos para niñas',
+            ),
+            1 =>
+            array (
+              'route' => '/nombres-biblicos-para-ninos/',
+              'label' => 'Nombres bíblicos para niños',
+            ),
+          ),
+        ),
+      ),
     ),
     7 =>
     array (
@@ -356,7 +531,7 @@ return array (
       'intro' =>
       array (
         0 => 'Los nombres clásicos son los que pasan de generación en generación sin pasar de moda del todo. En Paraguay muchos llegan con la tradición católica y el santoral, o con las advocaciones de la Virgen que se celebran en todo el país: Asunción, Rosario, Pilar, Guadalupe, Concepción. Otros vienen de abuelos y bisabuelos y vuelven a aparecer cada tanto con aire renovado.',
-        1 => 'En esta lista vas a encontrar nombres de niña como María, Ana, Carmen, Rosa, Lucía o Teresa, y nombres de varón como José, Juan, Pedro, Francisco, Ramón o Blas. También hay compuestos tradicionales. Cada ficha muestra el significado, el origen y, cuando la conocemos con certeza, la fecha del santo.',
+        1 => 'En esta lista vas a encontrar nombres de niña como María, Ana, Carmen, Rosa, Lucía o Teresa, y nombres de varón como José, Juan, Pedro, Francisco, Ramón o Blas. También hay compuestos tradicionales. Cada ficha muestra el significado, el origen y, cuando hay una fecha tradicional registrada, la fecha del santo.',
         2 => 'Un nombre clásico tiene una ventaja práctica: todo el mundo lo sabe escribir y pronunciar. Si te preocupa que suene antiguo, probá combinarlo con un segundo nombre más actual o con un nombre guaraní. También podés revisar la lista de nombres modernos para comparar estilos antes de decidir.',
       ),
       'faq' =>

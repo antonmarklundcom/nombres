@@ -55,7 +55,7 @@
     if (!dataPromise) {
       dataPromise = fetch(document.body.getAttribute('data-names')).then(function (r) { if (!r.ok) throw new Error('No se pudo cargar el catálogo.'); return r.json(); }).then(function (d) {
         var list = d.n.map(function (r) {
-          return { s: r[0], n: r[1], g: r[2], o: r[3], m: r[4], t: r[5].split('').map(function (i) { return d.tags[+i]; }), k: fold(r[1]) };
+          return { s: r[0], n: r[1], g: r[2], o: r[3], m: r[4], t: r[5].split('').map(function (i) { return d.tags[+i]; }), k: fold(r[1] + ' ' + ((d.aliases || {})[r[0]] || []).join(' ')) };
         });
         var by = Object.create(null); list.forEach(function (n) { by[n.s] = n; });
         return { list: list, by: by };

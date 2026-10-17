@@ -11,5 +11,5 @@
   "related_project": "Mi Bebé / embarazo.2.1 (links only; not edited)",
   "deployment": "Owner hPanel Git integration after approved merge",
   "secrets": "Only optional SQL mode: database credentials in private ../nombres-config.php; never in Git",
-  "catalog_records": 672
+  "catalog_records": 674
 }

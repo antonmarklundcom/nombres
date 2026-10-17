@@ -10,7 +10,7 @@ The repository root deploys on Apache/LiteSpeed with PHP 8.2+. There is no build
 
 1. Review the branch, screenshots, name-audit limitations and GitHub CI; open/merge the PR when satisfied. GitHub API access was blocked here, so the prepared description is in `docs/review-summary.md` and no PR number is claimed.
 2. Set PHP to 8.2 or newer, with PDO MySQL if using SQL. Keep HTTPS enabled. Do not change DNS, email, domain registration or hosting plan.
-3. For SQL: create a blank database/user and import the separate catalog SQL through phpMyAdmin. Check 672 rows, schema version 1 and accents. Keep credentials private. Do not reimport automatically over subsequent editorial edits.
+3. For SQL: create a blank database/user and import the separate catalog SQL through phpMyAdmin. Check 674 rows, schema version 1 and accents. Keep credentials private. Do not reimport automatically over subsequent editorial edits.
 4. In Hostinger's Git integration, select `antonmarklundcom/nombres`, branch `master`, deployment directory `public_html`. Use the existing integration authorization; do not commit a token. No build/install command is needed.
 5. If `public_html` contains only Hostinger's default page, follow hPanel's prompt to prepare it for the checkout. Back up and inspect any files first if it contains anything else. Do not blindly delete existing files.
 6. Use Git deployment **once** after the approved merge. The root `.htaccess` is part of the release; include dotfiles. If auto-deploy already ran, verify that release instead of uploading a duplicate ZIP.

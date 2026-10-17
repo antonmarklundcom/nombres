@@ -4,17 +4,23 @@ require_once __DIR__ . '/catalog.php';
 require_once __DIR__ . '/storage.php';
 $site = require __DIR__ . '/../content/site.php';
 $copy = require __DIR__ . '/../content/editorial.php';
+$copy['LISTS']=array_merge($copy['LISTS'],require __DIR__.'/../content/collections.php');
 $stories = require __DIR__ . '/../content/stories.php';
 $rankings = require __DIR__ . '/../content/rankings.php';
 try { $runtimeConfig=runtime_config(); }
 catch (Throwable) { error_log('nombres: invalid private configuration; using packaged catalog.');$runtimeConfig=default_runtime_config(); }
 $names = defined('NOMBRES_FORCE_FILE_CATALOG') && NOMBRES_FORCE_FILE_CATALOG ? require __DIR__.'/../content/names.php' : load_public_catalog($runtimeConfig);
-$catalogVersion=substr(hash('sha256',json_encode($names,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR)),0,10);
+$catalogVersion=substr(hash('sha256',json_encode([$names,$site['name_aliases']??[]],JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR)),0,10);
 $bySlug = [];
 $byDisplayName = [];
 foreach ($names as $n) {
     $bySlug[$n['slug']] = $n;
     $byDisplayName[fold($n['name'])] = $n;
+}
+$aliasesBySlug=[];
+foreach ($site['name_aliases']??[] as $alias=>$slug) if (isset($bySlug[$slug])) {
+    $aliasesBySlug[$slug][]=$alias;
+    $byDisplayName[fold($alias)]=$bySlug[$slug];
 }
 $sorted = $names;
 usort($sorted, static fn($a, $b) => strcmp(fold($a['name']), fold($b['name'])) ?: strcmp($a['slug'], $b['slug']));
@@ -26,7 +32,8 @@ $genderRoutes = ['f'=>'/nombres-de-nina/','m'=>'/nombres-de-varon/','u'=>'/nombr
 function e(mixed $s): string { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
 function json_safe(mixed $v): string { return json_encode($v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_THROW_ON_ERROR); }
 function asset(string $path): string { return $path . '?v=' . substr(hash_file('sha256', __DIR__ . '/..' . $path), 0, 10); }
-function matches(array $n, array $filter): bool { return (!isset($filter['gender']) || $n['gender'] === $filter['gender']) && (!isset($filter['tag']) || in_array($filter['tag'], $n['tags'], true)); }
+function matches(array $n, array $filter): bool { return (!isset($filter['gender']) || $n['gender'] === $filter['gender']) && (!isset($filter['tag']) || in_array($filter['tag'], $n['tags'], true)) && (!isset($filter['slugs']) || in_array($n['slug'],$filter['slugs'],true)); }
+function name_search_text(array $n): string { global $aliasesBySlug;return fold($n['name'].' '.implode(' ',$aliasesBySlug[$n['slug']]??[])); }
 function name_url(array $n): string { return '/nombre/' . $n['slug'] . '/'; }
 function origin_parts(string $origin): array { return preg_split('/ (?:y|e) /u',$origin); }
 function existing_name(string $label): ?array {

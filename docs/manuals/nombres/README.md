@@ -14,7 +14,7 @@ Prepared 17 October 2026. This is a repository copy for the owner's operations m
 - Reciprocal app flag: `nombres_link`, currently off according to the owner. Enable only after the site is deployed and checked live.
 - Verification: `./verify.sh`; optional browser dependency setup then `python3 tests/browser.py`; `python3 deploy/make-zip.py`; `./verify.sh --root dist/nombres-hostinger`.
 - Privacy: local favorites and surname storage; new share links use a URL fragment; no tracking scripts/cookies, forms, CRM, WhatsApp CTA or medical advice.
-- Sources: structural audit all 672 records, 53 original editorial changes, 13 Guaraní lexical references and 126 additions with 2024 foreign usage evidence. U.S./France country tables and history/trends articles are sourced separately; complete expert/documentary review remains outstanding. See audit/review queue.
+- Sources: structural audit all 674 records, 53 original editorial changes, 13 Guaraní lexical references and 126 additions with 2024 foreign usage evidence. U.S./France country tables and history/trends articles are sourced separately; complete expert/documentary review remains outstanding. See audit/review queue.
 - Launch: `docs/launch-tomorrow.md`; deployment and rollback: `docs/deployment.md`. No DNS, email, hosting plan or Mi Bebé project changes made.
 
 ## Laptop registration still required

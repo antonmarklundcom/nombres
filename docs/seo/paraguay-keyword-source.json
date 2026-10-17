@@ -1,0 +1,15 @@
+{
+  "file_name": "nombres.com.py-keywords-for-ai.md",
+  "sha256": "60419a86574563883badb915116734e88499f54d894789eb035987f3779b752a",
+  "reported_geography": "Paraguay",
+  "reported_language": "Spanish",
+  "reported_export_date": "2026-10-17",
+  "selected_rows": 9300,
+  "unique_phrases_in_selected_table": 9300,
+  "sum_of_row_estimates_not_unique_demand": 193920,
+  "nonempty_grouping_cells": 0,
+  "nonzero_cpc_rows": 0,
+  "window": "Not specified in supplied Markdown",
+  "groups_mapped": 41,
+  "method": "Intent rules with possible parent/child overlap. Highest individual reported row is a prioritization proxy, NOT deduplicated monthly group demand. Do not sum these proxies."
+}

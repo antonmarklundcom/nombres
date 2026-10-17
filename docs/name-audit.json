@@ -1,8 +1,8 @@
 {
   "baseline_commit": "20da13d0b0e6ea0317b247a3430dabdfbeb35612",
-  "names": 672,
+  "names": 674,
   "gender_counts": {
-    "f": 354,
+    "f": 356,
     "m": 301,
     "u": 17
   },
@@ -11,8 +11,8 @@
   "removed_slugs": [],
   "records_with_lexical_sources": 13,
   "review_status_counts": {
-    "legacy": 482,
-    "qualified": 190
+    "legacy": 479,
+    "qualified": 195
   },
   "changed_records": 53,
   "changes": [
@@ -859,13 +859,13 @@
     }
   ],
   "limits": [
-    "Structural validation covers all 672 records.",
-    "53 inherited records corrected/qualified; not a complete documentary audit.",
+    "Structural validation covers all 674 records.",
+    "The original 53-record correction log is preserved; keyword follow-up changes are listed separately.",
     "13 Guarani lexical references support word senses, not personal-name usage.",
-    "126 additions have scoped 2024 country-usage evidence, not independent etymology verification.",
-    "482 legacy, 190 qualified, zero verified; specialist and documentary review remains outstanding."
+    "128 additions have scoped foreign usage evidence, not independent etymology verification.",
+    "479 legacy, 195 qualified, zero verified; specialist and documentary review remains outstanding."
   ],
-  "added_records": 126,
+  "added_records": 128,
   "added_slugs": [
     "charlotte",
     "sophia",
@@ -992,7 +992,103 @@
     "milo",
     "antoine",
     "alessio",
-    "alexandre"
+    "alexandre",
+    "aitana",
+    "alaia"
   ],
-  "records_with_country_usage_sources": 126
+  "records_with_country_usage_sources": 130,
+  "keyword_followup": {
+    "added": [
+      "aitana",
+      "alaia"
+    ],
+    "updated": [
+      {
+        "slug": "emanuel",
+        "fields": {
+          "context": {
+            "before": null,
+            "after": "Emmanuel es una grafía relacionada con Emanuel. Si te gusta esta forma, compará el nombre completo con tus apellidos y decidí si querés escribir una o dos emes. Una forma puede resultar más familiar para algunas personas; elegí la que quieras usar de manera consistente en los documentos."
+          },
+          "review": {
+            "before": {
+              "status": "legacy",
+              "sources": [],
+              "note": "Catálogo heredado con revisión editorial; pendiente de contraste documental independiente."
+            },
+            "after": {
+              "status": "qualified",
+              "sources": [
+                {
+                  "title": "SSA: la grafía Emmanuel, 2024",
+                  "url": "https://github.com/seattletravis/babynames/blob/81facbe5ad6acb40a3cdeb08f6d3c4534f4da863/babynames/yob2024.txt#L17842",
+                  "checked": "2026-10-17",
+                  "scope": "La grafía Emmanuel figura con 2047 apariciones en la categoría M de Estados Unidos en 2024. La evidencia corresponde a esa grafía; no verifica esta etimología ni un ranking de Paraguay."
+                }
+              ],
+              "note": "La referencia documenta la grafía relacionada Emmanuel, no verifica la etimología ni acredita frecuencia en Paraguay."
+            }
+          }
+        }
+      },
+      {
+        "slug": "gael",
+        "fields": {
+          "note": {
+            "before": null,
+            "after": "La relación con el pueblo gaélico no debe presentarse como una traducción demostrada."
+          },
+          "meaning": {
+            "before": "Nombre bretón; alude al pueblo gaélico.",
+            "after": "Nombre asociado a la tradición bretona; su etimología es discutida."
+          },
+          "review": {
+            "before": {
+              "status": "legacy",
+              "sources": [],
+              "note": "Catálogo heredado con revisión editorial; pendiente de contraste documental independiente."
+            },
+            "after": {
+              "status": "qualified",
+              "sources": [
+                {
+                  "title": "SSA: la grafía Gael, 2024",
+                  "url": "https://github.com/seattletravis/babynames/blob/81facbe5ad6acb40a3cdeb08f6d3c4534f4da863/babynames/yob2024.txt#L17750",
+                  "checked": "2026-10-17",
+                  "scope": "La grafía Gael figura con 3855 apariciones en la categoría M de Estados Unidos en 2024, puesto 89. La evidencia documenta uso; no verifica su etimología ni frecuencia en Paraguay."
+                }
+              ],
+              "note": "Interpretación etimológica cualificada; la referencia de uso no verifica el origen."
+            }
+          }
+        }
+      },
+      {
+        "slug": "benjamin",
+        "fields": {
+          "note": {
+            "before": null,
+            "after": "En castellano, Benjamín lleva tilde. Benja es una forma familiar; no es una traducción del nombre."
+          },
+          "meaning": {
+            "before": "Hijo de la mano derecha, hijo predilecto.",
+            "after": "Interpretado tradicionalmente como «hijo de la derecha»; «predilecto» es una extensión de sentido."
+          },
+          "review": {
+            "before": {
+              "status": "legacy",
+              "sources": [],
+              "note": "Catálogo heredado con revisión editorial; pendiente de contraste documental independiente."
+            },
+            "after": {
+              "status": "qualified",
+              "sources": [],
+              "note": "Se distingue una interpretación tradicional de una extensión de sentido; pendiente de contraste documental independiente."
+            }
+          }
+        }
+      }
+    ],
+    "limits": "Keyword volumes are discovery evidence, not birth statistics or etymology. All changed records remain qualified, never independently verified."
+  }
 }
