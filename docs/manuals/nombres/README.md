@@ -9,7 +9,7 @@ Prepared 17 October 2026. This is a repository copy for the owner's operations m
 - Public site: `https://nombres.com.py/`; deployment remains an owner hPanel action after approval/merge. Local validation does not establish live status.
 - Runtime: PHP 8.2+, Apache/LiteSpeed rewrite support; no Node runtime or package install. File mode needs no secrets; optional MySQL needs PDO MySQL, private credentials and a private writable cache.
 - Catalog: packaged `content/names.php`, optional `nombres_names` SQL table. File CLI: `tools/names.php`; SQL CLI: `tools/database.php`. Never auto-seed over database edits. See `docs/content-model.md` and `docs/database.md`.
-- Purpose: Spanish baby-name discovery for Paraguayan families, directing parents to Mi Bebé via plain links. Pet names are a secondary area.
+- Purpose: Spanish baby-name discovery for Paraguayan families, directing parents to Mi Bebé via plain nofollow links, with the owner's pregnancy website and a secondary Cuentos.com.py story-store link. Pet names are a secondary area.
 - App: `https://app.embarazo.com.py/`, free, Google account for personal tracking, installable web app. Install guide: `https://embarazo.com.py/instalar/`. Weekly pages: `https://embarazo.com.py/semana/<1-42>/`.
 - Reciprocal app flag: `nombres_link`, currently off according to the owner. Enable only after the site is deployed and checked live.
 - Verification: `./verify.sh`; optional browser dependency setup then `python3 tests/browser.py`; `python3 deploy/make-zip.py`; `./verify.sh --root dist/nombres-hostinger`.

@@ -1,6 +1,6 @@
 # Future name-product proposal — not implemented
 
-The active business goal is helping expecting parents discover Mi Bebé through plain links. Baby-name usefulness, source quality, speed and trust come first. No product storefront, affiliate, partner relationship, price, payment integration, ad, tracking pixel, order form or outreach has been activated.
+The main business goal is helping expecting parents discover Mi Bebé through plain nofollow links, alongside the owner's pregnancy website. A secondary nofollow footer link now points to the owner's existing Cuentos.com.py story store, as requested. This is an outbound link, without an embedded checkout, remote scripts, personal data transfer or tracking parameters. Baby-name usefulness, source quality, speed and trust come first. No new product storefront, affiliate, partner relationship, price, payment integration, ad, tracking pixel, order form or outreach has been activated on nombres.com.py.
 
 Potential later products include nursery name prints, birth-announcement templates, personalized baby blankets/clothes and a printable family favorites keepsake. Compare own print-on-demand production against a reviewed local partner for delivery, quality, returns and margins. Do not imply an existing partner, invent reviews or publish offers before there is a real product and fulfillment process.
 

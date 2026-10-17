@@ -12,15 +12,19 @@
 - SQL failure tests: socket outage serves stale valid cache, no cache falls back to packaged file, and malformed source data entered directly in SQL is rejected while the last valid snapshot remains public. Twelve consecutive warm name-page requests produced **zero additional SQL SELECTs**. These tests used only the isolated local `nombres_test` fixture.
 - Chromium through Apache: **146 explicit layout/privacy checks**, plus search/favorites/surname/duel/sharing/storage assertions. Widths **360, 375, 768, 1024, 1440**, including with body clipping disabled: no horizontal document overflow. Mobile menu, Escape/focus, French diacritics, actual country narrative/table rendering, no-JS search and 48-result second-page navigation are covered.
 - Browser sessions observed no uncaught JavaScript errors, cookies, third-party resource requests or data-submission requests. Screenshots/report are under `docs/screenshots/` and `docs/browser-report.json`.
-- Final runtime artifact: **37 files**, byte-identical to their runtime sources; ZIP **148,758 bytes**. Tools/tests/docs/schema/credentials/Git are excluded. Separate phpMyAdmin SQL artifact: **574,202 bytes**, never inside the public ZIP. Artifacts can be regenerated; minor archive compression/timestamp variation is possible.
+- Final runtime artifact: **37 files**, byte-identical to their runtime sources; ZIP **148,947 bytes**. Tools/tests/docs/schema/credentials/Git are excluded. Separate phpMyAdmin SQL artifact: **574,202 bytes**, never inside the public ZIP. Artifacts can be regenerated; minor archive compression/timestamp variation is possible.
 - Local production Host-header rules redirect HTTP/www to HTTPS apex with path/query preserved. Compression, versioned asset cache headers, private-path denial and ACME challenge routing were exercised through actual Apache rules.
+
+## Nofollow promotion and keyword follow-up
+
+The subsequent link/copy revision passed **149,113 crawl checks** across **719 pages / 718 sitemap URLs** against the source checkout and runtime artifact, plus **146 layout/privacy checks** in Chromium through Apache. A focused check verified **48 promotion links on nine representative routes**: all pregnancy website, app, install-guide and Cuentos.com.py links carry `rel="nofollow"` and no tracking query. No remote resources were added. The earlier real SQL integration and full Apache crawl above remain the storage/router evidence; this follow-up does not change either implementation. Exactly 80 unique research seeds are provided in ten categories of eight, with no invented volumes.
 
 ## Local transfer measurements
 
 | Response | Gzip body bytes |
 |---|---:|
-| Home HTML | 6,588 |
-| Picker HTML (48 initial results) | 6,559 |
+| Home HTML | 6,679 |
+| Picker HTML (48 initial results) | 6,660 |
 | CSS | 5,997 |
 | JavaScript | 4,304 |
 | Lazy public name JSON | 14,645 |

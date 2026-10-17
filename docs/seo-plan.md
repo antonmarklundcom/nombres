@@ -25,6 +25,8 @@ Search Console is enough to begin measuring search visibility without visitor pi
 
 ## Keyword Planner export seeds
 
+The current owner research batch has [exactly 80 seeds](keyword-planner-seeds-80.md), ten categories of eight. [Flat paste list](keyword-planner-seeds-80.txt); [categorized CSV](keyword-planner-seeds-80.csv). Seventy-two concern babies/names and eight concern pets. They are prioritized discovery seeds, not known top-volume keywords. Run batches separately and keep all relevant related ideas for the subsequent clustering/content plan.
+
 Target Paraguay, Spanish, and export raw CSV with location, language, date range, monthly trends and close-variant grouping. Keep accents and query variants. A separate worldwide/region comparison can clarify sparse local results; do not silently mix its volumes with Paraguay.
 
 | Cluster | Seeds |
@@ -45,4 +47,4 @@ Useful future pieces could explain Guaraní word versus adapted personal name, a
 
 A yearly source refresh should verify methodology and update the existing stable country URLs. Preserve original spellings and distinguish recorded sex categories from editorial gender labels. Never imply that a Spanish, Basque, Mapuche or foreign name is Guaraní merely because it occurs in Latin America.
 
-The only active promotion is Mi Bebé through plain links. Later name-print products are a separate proposal in `monetization-plan.md`; no storefront, affiliate links, ads, payments or data collection are implemented. Any outreach or commercial integration needs its own owner decision.
+The main promotion is Mi Bebé. The owner's pregnancy website and Cuentos.com.py story store also have plain `rel="nofollow"` links; the story link is secondary in the footer. Citations and internal name links retain their normal behavior. These link attributes do not guarantee a ranking benefit. Later name-print products are a separate proposal in `monetization-plan.md`; no storefront, affiliate links, ads, payments or data collection are implemented on this site. Any outreach or additional commercial integration needs its own owner decision.

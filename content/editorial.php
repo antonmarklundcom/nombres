@@ -544,7 +544,7 @@ return array (
       1 => 'Cuando guardás un nombre como favorito, o escribís tus apellidos en la herramienta Probá con tu apellido, esos datos se guardan sólo en tu navegador, con el almacenamiento local del dispositivo (localStorage). No se envían a ningún servidor nuestro. Si borrás los datos del navegador o usás el modo incógnito, la lista desaparece.',
       2 => 'Si copiás un enlace para compartir, incluye solamente los nombres elegidos. Cualquier persona que reciba el enlace puede verlos. Los apellidos quedan en tu navegador y nunca se incluyen en ese enlace.',
       3 => 'Como cualquier sitio web, el servidor de alojamiento puede registrar datos técnicos básicos de las visitas, como la dirección IP y el navegador, con fines de seguridad y funcionamiento.',
-      4 => 'Mi Bebé es una aplicación externa. Al abrir sus enlaces pasás a app.embarazo.com.py o embarazo.com.py, donde se aplican sus propias condiciones. Acá no usamos píxeles, parámetros de seguimiento ni scripts de terceros.',
+      4 => 'Los enlaces a Mi Bebé, embarazo.com.py y la tienda de Cuentos.com.py llevan a otros sitios, donde se aplican sus propias condiciones. Al abrirlos no compartimos tu lista de favoritos ni tus apellidos. Acá no usamos píxeles, parámetros de seguimiento ni scripts de terceros.',
     ),
   ),
   'NOT_FOUND' =>

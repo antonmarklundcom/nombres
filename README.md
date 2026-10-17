@@ -1,6 +1,6 @@
 # nombres.com.py
 
-A fast baby-name site for families in Paraguay. Spanish with voseo, PHP 8.2+, local fonts and assets, an editable PHP catalog and optional MySQL storage. No Composer or Node at runtime, analytics, tracking cookies, third-party scripts, lead forms or WhatsApp calls to action. The business goal is introducing expecting parents to **[Mi Bebé](https://app.embarazo.com.py/)** through plain links.
+A fast baby-name site for families in Paraguay. Spanish with voseo, PHP 8.2+, local fonts and assets, an editable PHP catalog and optional MySQL storage. No Composer or Node at runtime, analytics, tracking cookies, third-party scripts, lead forms or WhatsApp calls to action. The main business goal is introducing expecting parents to **[Mi Bebé](https://app.embarazo.com.py/)**. Plain `rel="nofollow"` links also promote the owner's pregnancy website and Cuentos.com.py story store; no shopping or tracking integration is loaded.
 
 ## Run and verify
 
@@ -64,5 +64,7 @@ The structure follows the `antonmarklundcom/php-site-template` repository's cont
 The original babyshower promotion linked to `https://babyshower.com.py/`, `/revelacion-de-genero/` and `/bienvenida-de-bebe/`. It has been replaced in rendered pages by Mi Bebé. Archived legacy source under `tools/legacy/` retains the migration input and is never served or included in the ZIP.
 
 The original Windows brief, manuals and custom skills were unavailable in the cloud. [The handoff](docs/manuals/nombres/README.md) includes proposed registry entries for your laptop; no claim is made that `C:` or `E:` was changed. No keyword volumes are invented; [SEO seeds](docs/seo-plan.md) are ready for a Keyword Planner export.
+
+For the current research round, use [80 categorized seeds](docs/keyword-planner-seeds-80.md), [a flat paste list](docs/keyword-planner-seeds-80.txt), or [the categorized CSV](docs/keyword-planner-seeds-80.csv). These are discovery inputs, not measured top-80 keywords.
 
 Higgsfield was requested with a 50-credit ceiling, but no callable Higgsfield MCP was available. No images were generated and no credits spent. [Art direction](docs/higgsfield-art-direction.md) records the proposed next step. [Future monetization ideas](docs/monetization-plan.md) are a separate proposal, with no products, partners or payment integrations activated.
