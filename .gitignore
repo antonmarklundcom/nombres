@@ -3,3 +3,5 @@ dist/
 __pycache__/
 *.pyc
 /.well-known/
+/config.local.php
+/storage/

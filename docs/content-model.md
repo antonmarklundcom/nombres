@@ -2,7 +2,7 @@
 
 ## Current storage
 
-`content/names.php` returns an array of records. This is the only live source of names. PHP reads it; no database connection exists. Shared hosting can cache compiled PHP with OPcache. There is no synchronization job, generated HTML or generated JSON to forget after an edit. `/assets/names.json` is generated from the same catalog and contains only public fields needed by the picker.
+`content/names.php` returns the packaged array of records. Default file mode reads it directly; optional MySQL mode reads the same model from `nombres_names`, with a private validated catalog cache. The selected catalog drives every page, list, filter, JSON response and sitemap. Shared hosting can cache compiled PHP with OPcache. There is no synchronization job or generated HTML/JSON to upload after an edit. `/assets/names.json` contains only public fields needed by the picker, with a content-derived version/ETag.
 
 Required keys:
 
@@ -24,14 +24,16 @@ The importer in `tools/import-legacy.mjs` records the one-time conversion and ex
 
 ## Add or update
 
-Use the export/upsert commands in the root README. Input is a JSON array of **complete** records to add or replace. Dry run validates without writing. `--write` validates the entire merged catalog and atomically replaces the PHP file. Review the Git diff, run `./verify.sh`, and merge through a PR. Keep an old slug when changing spelling. A slug change requires an explicit old-path redirect in `content/site.php`, plus a URL-map entry and tests; do not delete a known URL silently.
+Use the export/upsert commands in the root README. Input is a JSON array of **complete** records to add or replace. Dry run validates without writing. `tools/names.php --write` validates the entire merged catalog and atomically replaces the PHP file; this CLI always uses the file catalog regardless of the site's SQL setting. Review the Git diff, run `./verify.sh`, and merge through a PR. SQL operations use `tools/database.php` and prepared transactions; see [database.md](database.md). Keep an old slug when changing spelling. A slug change requires an explicit old-path redirect in `content/site.php`, plus a URL-map entry and tests; do not delete a known URL silently.
 
 The validation gate catches duplicate slugs, normalized-name duplicates, malformed paths, inconsistent unisex/compound/Guaraní/santoral tags, markup in public fields, and verified records without references. It does not establish linguistic truth. Human source review is still necessary.
 
 `docs/name-review-queue.csv` is the launch audit snapshot, not an editable source or an automatically maintained database. Keep it as provenance; regenerate it intentionally when doing another full audit. The route and JSON counts in tests derive from the live catalog and permit additions.
 
-## Database plan
+## SQL storage and research inputs
 
-At 546 names, a reviewed PHP array is small, fast, cheap to back up in Git, and has no credentials or public write surface. It directly satisfies this release's no-DB requirement. Start here. A database would not improve data quality by itself.
+The later request for Hostinger SQL readiness is implemented as an optional mode, with a schema, phpMyAdmin import, private config example, validated CLI and cache/fallback. It introduces no public write endpoint or default password. SQL-backed edits survive Git deployments. Choose one source of truth; seeding SQL from Git is explicit and must not overwrite live editorial work automatically. See [database.md](database.md) for backup and editing operations.
 
-If several nontechnical editors need frequent changes, introduce a separate authenticated editorial system in another task. Keep the same fields and stable slug IDs, add revision history, source records and approval state, then export a validated PHP snapshot for public serving. A future MySQL schema could separate `names`, `name_variants`, `tags`, `name_tags`, `sources`, `name_sources`, and `revisions`, with unique constraints on slug and validated status transitions. Do not introduce public write endpoints, a guessed admin password, or synchronization into this release.
+The catalog now contains 672 records. The 126 international additions have source evidence for 2024 usage, not independently verified etymologies. `tools/add_international_names.py` records the reviewed one-time expansion; rerunning it over the expanded catalog emits no new records. `tools/research_rankings.py` extracts dated statistical snapshots from checked copies and `tools/json-to-php.php` converts reviewed research JSON. These are development tools, not runtime dependencies. `content/rankings.php` and `content/stories.php` are separate from the infant catalog; country statistics and pet ideas must not be mistaken for Paraguay birth data.
+
+A future authenticated editorial interface could add permissions, preview, revision history and approval states. No web admin is implemented in this release. Storage does not establish data quality; documentary and specialist review remain necessary.

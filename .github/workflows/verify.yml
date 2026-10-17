@@ -18,4 +18,37 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: nombres-hostinger
-          path: dist/nombres-hostinger.zip
+          path: |
+            dist/nombres-hostinger.zip
+            dist/nombres-catalog.sql
+  mysql:
+    runs-on: ubuntu-latest
+    services:
+      mariadb:
+        image: mariadb:10.11
+        env:
+          MARIADB_ROOT_PASSWORD: root-test-only
+          MARIADB_DATABASE: nombres_test
+          MARIADB_USER: nombres_test
+          MARIADB_PASSWORD: nombres-test-only
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mariadb-admin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo_mysql
+          coverage: none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python3 tests/database_workflow.py
+        env:
+          NOMBRES_TEST_MYSQL_USER: nombres_test
+          NOMBRES_TEST_MYSQL_PASSWORD: nombres-test-only

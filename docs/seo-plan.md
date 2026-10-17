@@ -1,45 +1,48 @@
-# SEO next steps and Keyword Planner seeds
+# SEO and traffic roadmap
 
-No Keyword Library project or Keyword Planner export was available. No volumes, competition numbers, keyword difficulty scores or claims of Paraguayan popularity are fabricated. Technical foundations and URL preservation are implemented; indexing and traffic are not guaranteed.
+The goal is a trusted baby-name resource for Paraguay, with pets secondary and Mi Bebé as the main promotion. No Keyword Library project, Keyword Planner export or verified Paraguay birth-name dataset was available. No volumes, difficulty scores, national popularity figures or first-position guarantees are invented. A 672-name catalog and passing checks do not establish authority or rankings.
 
-## What “number one” requires
+## Implemented foundations
 
-The objective is to become a useful, trustworthy baby-name reference for Paraguay, with pet names secondary. There is no defensible “100% SEO” score or guaranteed first position. The technical checks establish that pages work; their count is not a ranking score. Likewise, 546 records is a catalog size, not an exhaustive census of possible names or proof that the content is authoritative.
+All 584 original indexable URLs remain. The expanded sitemap contains 718 intended URLs, with unique titles/descriptions, one h1, HTTPS apex canonicals, OG metadata, breadcrumbs and relevant list/article structured data. Unknown/private paths remain denied; query variants and favorites do not create an indexable crawl trap. Search works without JavaScript and returns 48 names per page. Local assets, lazy picker data, compression/cache rules and optional cached SQL reads keep runtime requirements small. There are no third-party trackers or render-blocking remote assets.
 
-| Area | Current evidence | Remaining work |
+The main navigation/home focus on babies. The catalog includes 126 additions supported by country-usage evidence. Five connected editorial routes cover U.S./France 2024 tables, generational changes and name history. They link back to useful name choices and disclose scope/year. Pet content is separate and subordinate. See `data-sources.md` for evidence and `validation.md` for the actual checks.
+
+## Highest-value next work
+
+| Priority | Action | Acceptance criteria |
 |---|---|---|
-| Crawlability and mobile usability | Local PHP/Apache crawls, redirects, metadata, schema and responsive browser checks pass | Verify the actual Hostinger release and production response times |
-| Data quality | 53 corrected/qualified records; 13 Guaraní lexical references | Independent documentary review of all 546 names, then specialist review of Guaraní entries and disputed origins |
-| Useful content | Baby-focused home, lists, filters, favorites; individual Guaraní context and links between name parts/variants | Research detailed explanations where real parent questions and search data justify them |
-| Search demand | Keyword export seeds prepared | Import a Paraguay-specific Planner export; prioritize by actual query intent and available demand |
-| Search visibility | Not measured; code has not been deployed by this task | Launch, verify Search Console ownership, submit the sitemap, inspect index coverage and query/page performance |
-| Reputation | No endorsements, links or expertise claims invented | Earn references through useful accurate material; any outreach requires a separate owner decision |
+| Launch | Verify Hostinger release and Search Console ownership; submit sitemap | HTTPS/redirects/404s work live; intended URLs are discoverable; no private files exposed |
+| Paraguay evidence | Find an inspectable Civil Registry/official publication with names, year, coverage and methodology | Exact source/citation and reproducible extraction; no Paraguay ranking before evidence exists |
+| Guaraní quality | Review all 20 linked entries with a competent speaker/current dictionary | Record actual spelling, lexical sense, personal-name adaptation, source and review scope; no invented phonetics or endorsements |
+| Catalog credibility | Independently review etymology/origin, disputed variants and saint dates | Source evidence supports each claim; 482 legacy and 190 qualified records remain candidly labeled until review |
+| Real demand | Export Planner data and review Search Console query/page reports | Prioritize useful parent questions and impressions, without treating searches as birth counts |
+| Country expansion | Research Spain, Argentina, Brazil and nearby cultures where reliable datasets permit | Official source/copy, exact year, geography, treatment of compound names/spellings and refresh procedure before publishing |
+| Deeper content | Improve pages answering real parent questions | Specific explanations/examples/citations; no template padding, mass city pages or fake year trends |
+| Performance | Measure actual Hostinger mobile LCP/INP/CLS and transfer behavior | Fix measured bottlenecks; test SQL changes through any hosting cache; retain small local assets |
 
-Immediate code improvements include a home headline that explicitly identifies baby names for Paraguay, links between existing related-name spellings and compound-name parts, and original practical context for the 13 Guaraní entries that already have checked lexical references. These improve clarity and discovery without pretending to complete the research audit. No extra landing pages were created merely to increase the URL count.
+Search Console is enough to begin measuring search visibility without visitor pixels. Review intended indexed pages, Paraguay queries, clicks/impressions, CTR and position by topic after meaningful crawling. Inspect excluded/duplicate/soft-404 cases before deciding to consolidate variants or noindex thin pages. Do not blindly submit more pages as a substitute for stronger information.
 
-After launch, review Search Console data once pages have been crawled and have meaningful impressions. Track indexed intended pages, relevant Paraguay queries, clicks, impressions, CTR and movement in average position by topic. Fix concrete issues and improve useful pages before expanding. Do not treat a single rank check or a fixed calendar deadline as evidence that the site has become the country's leading resource.
+## Keyword Planner export seeds
 
-## Export these seeds
-
-Use Google Keyword Planner, Paraguay targeting, Spanish, with a separate worldwide/region comparison if local data is sparse. Export the raw CSV with the location, language, date range, monthly trend columns and close-variant grouping visible. Preserve accents as well as query variants.
+Target Paraguay, Spanish, and export raw CSV with location, language, date range, monthly trends and close-variant grouping. Keep accents and query variants. A separate worldwide/region comparison can clarify sparse local results; do not silently mix its volumes with Paraguay.
 
 | Cluster | Seeds |
 |---|---|
-| Main intent | nombres de bebé, nombres para bebés, nombres de bebés Paraguay, nombres con significado |
+| Main | nombres de bebé, nombres para bebés, nombres de bebés Paraguay, nombres con significado |
 | Girls | nombres de niña, nombres para niñas, nombres de nena, nombres femeninos, nombres de niña y su significado |
 | Boys | nombres de varón, nombres para niños, nombres masculinos, nombres de niño y su significado |
 | Guaraní | nombres guaraníes, nombres en guaraní, nombres guaraníes para niñas, nombres guaraníes para varones, significado nombres guaraníes |
 | Style | nombres cortos, nombres compuestos, nombres bíblicos, nombres clásicos, nombres modernos, nombres unisex |
-| Individual meanings | Aramí significado, Jasy significado, Yvoty significado, Kuarahy significado, Ñasaindy significado, Mainumby significado, Mateo significado, Sofía significado, Benjamín significado, Thiago significado |
+| Meanings | Aramí significado, Jasy significado, Yvoty significado, Kuarahy significado, Ñasaindy significado, Mainumby significado, Mateo significado, Sofía significado, Benjamín significado, Thiago significado |
 | Decision | cómo elegir nombre de bebé, nombres que combinen con apellidos, nombres con A, nombres con M, nombres con S |
+| Editorial | nombres populares por país, nombres de bebé en Francia, nombres de bebé en Estados Unidos, historia de los nombres, tendencias de nombres, nombres de abuelos para bebés |
 | Secondary pets | nombres para perros, nombres para perritas, nombres para gatos, nombres para gatas, nombres de mascotas en guaraní |
 
-Start with demand and intent before extending routes. The existing catalog already offers Spanish classics, biblical names, compounds and regional/international choices; distinguish Mapuche, Basque, Hebrew and other traditions from Guaraní. Do not label every Latin American name indigenous to Paraguay. Prioritize individually sourced additions over bulk imports.
+## Content opportunities to validate
 
-## Editorial priorities
+Useful future pieces could explain Guaraní word versus adapted personal name, accents and pronunciation with reviewed recordings, compound names without invented combined meanings, matching names with both surnames, and family names across generations. Country articles can compare actual spelling traditions and dated records. A Paraguay naming-trends feature needs its own local evidence. Avoid year-stamped near-duplicates and unsupported celebrity causes. A surname-combination or popularity article should answer a real question before receiving a new URL.
 
-Complete the source review described in `name-audit.md`. Use real search data to decide which name pages need richer researched explanations, whether some variants should consolidate with redirects, and which useful lists are missing. Do not generate year-stamped “most popular” pages without a dated, relevant, verifiable source. Pet ideas stay subordinate to baby-name discovery and must not be mixed into the infant catalog.
+A yearly source refresh should verify methodology and update the existing stable country URLs. Preserve original spellings and distinguish recorded sex categories from editorial gender labels. Never imply that a Spanish, Basque, Mapuche or foreign name is Guaraní merely because it occurs in Latin America.
 
-## Separate future business proposal
-
-The only active promotion is Mi Bebé, linked plainly from name pages, lists and the footer. Later, the owner could review an editorial resources area for pregnancy/baby preparation and children’s products. Any ads, affiliate links, paid services, analytics, new data collection or outreach need a separate decision. None is implemented. There is no lead-capture form, CRM connection, WhatsApp CTA or calculator.
+The only active promotion is Mi Bebé through plain links. Later name-print products are a separate proposal in `monetization-plan.md`; no storefront, affiliate links, ads, payments or data collection are implemented. Any outreach or commercial integration needs its own owner decision.

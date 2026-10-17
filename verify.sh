@@ -8,6 +8,7 @@ php -r 'exit(PHP_VERSION_ID >= 80200 ? 0 : 1);'
 while IFS= read -r -d '' file; do php -l "$file" >/dev/null; done < <(find "$TARGET" -path '*/dist' -prune -o -path '*/.git' -prune -o -name '*.php' -print0)
 php -r 'require $argv[1]."/lib/bootstrap.php"; $errors=catalog_errors($names); if ($errors) {fwrite(STDERR,implode("\n",$errors)."\n"); exit(1);} echo "PASS: ".count($names)." valid catalog records in selected target\n";' "$TARGET"
 python3 "$ROOT/tests/catalog_workflow.py"
+python3 "$ROOT/tests/rankings.py"
 RUN_TMP="$(mktemp -d)"
 SERVER_PID=''
 cleanup() { if [[ -n "$SERVER_PID" ]]; then kill "$SERVER_PID" 2>/dev/null || true; wait "$SERVER_PID" 2>/dev/null || true; fi; rm -rf "$RUN_TMP"; }

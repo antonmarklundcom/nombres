@@ -6,9 +6,10 @@
   "default_branch": "master",
   "requested_checkout": "E:/ai work/Projects/nombres/main",
   "requested_manual": "C:/operation manuals/nombres/README.md",
-  "runtime": "PHP 8.2+ on Hostinger shared hosting; no database",
-  "content_source": "content/names.php",
+  "runtime": "PHP 8.2+ on Hostinger shared hosting; optional MySQL with PDO MySQL",
+  "content_source": "content/names.php by default; optional nombres_names SQL table",
   "related_project": "Mi Bebé / embarazo.2.1 (links only; not edited)",
   "deployment": "Owner hPanel Git integration after approved merge",
-  "secrets": "None required"
+  "secrets": "Only optional SQL mode: database credentials in private ../nombres-config.php; never in Git",
+  "catalog_records": 672
 }

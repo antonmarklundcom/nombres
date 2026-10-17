@@ -1,28 +1,41 @@
 # Release validation — 17 October 2026
 
-## Executed successfully
+## Passed locally
 
-- Original Node build in a temporary copy: identical to tracked output on two runs; original verifier passed 123,683 checks.
-- PHP **8.2.34** syntax checks across the new PHP files.
-- Catalog validation: **546** records, unique slugs, consistent categories and source-state requirements.
-- Editing workflow tests in a disposable copy: export, no-write dry run, update, add, automatic route inclusion, repeated import, and rejection of duplicate/invalid/markup-containing or unsupported “verified” data.
-- Source checkout and unzipped runtime artifact: full `verify.sh` gate, **77,321 crawl checks**, **588 pages**, **587 sitemap URLs**. Counts are for the launch catalog and can change when names are added.
-- Same full crawl through **Apache 2.4.68 + PHP 8.2 FastCGI**, using the actual repository `.htaccess`. Initial local FastCGI backend defaults and JSON authorization were diagnosed and corrected; the final complete crawl passed.
-- Production Host-header tests: HTTP apex and www redirect to HTTPS apex with path/query retained. Apache gzip and immutable cache headers checked on local assets.
-- Chromium through Apache: **77 explicit layout/privacy checks**, plus Playwright assertions for search with accents and ñ, filters, pagination, empty results, favorites, surname persistence, duel, fragment sharing, old query sharing, shared-list import, local-data clearing, escaped storage strings, unavailable localStorage and no-JavaScript server search.
-- Layout widths **360, 375, 768, 1440**: no horizontal document overflow, including with body clipping disabled. Home, a Guaraní name, a long compound name, a category, search, favorites and pets were covered.
-- Browser sessions observed no uncaught JavaScript errors, cookies, third-party resource requests or data-submission requests. Current screenshots and browser report are under `docs/screenshots/` and `docs/browser-report.json`.
-- Runtime ZIP is allowlisted: PHP, catalog, templates, local assets and `.htaccess`; no Git metadata, tools, tests, docs or old generated HTML. Final artifact details can be reproduced with `python3 deploy/make-zip.py`.
+- Original Node build in a temporary copy: identical to tracked output on two runs; original verifier passed 123,683 checks. The PHP runtime does not use Node.
+- PHP **8.2.34** lint and catalog validation: **672** records, unique slugs/names, consistent categories, bounded SQL fields and valid source state/shape. Review states: 482 legacy, 190 qualified, zero verified.
+- Disposable file-editing workflow: export, no-write dry run, update, add, automatic route inclusion, repeated import, and rejection of duplicates, invalid paths/tags/references/markup, malformed source fields/dates and unsupported verified claims.
+- **48 country/year/sex snapshot checks** against checked CSV excerpts; expected 2024 leaders, original distinct spellings and coverage statements. Statistical extracts do not verify etymology.
+- Full source checkout, unpacked runtime artifact, SQL-backed HTTP site, and **Apache 2.4.68 + PHP FastCGI**: each passed **142,651 crawl checks**, **719 pages**, **718 sitemap URLs**. All 584 original indexable URLs remain. Counts describe this catalog, not an SEO score.
+- Crawls verify response status, h1/title/meta/canonical/OG/1200×630 image, JSON-LD, links, assets, sitemap/robots, old URL alternates/301s, denied private files and unknown-path 404s. The gate also checks a clean PHP server log. A malformed editorial source anchor found during visual review was fixed; link-attribute and visible-narrative assertions prevent that regression.
+- Real **MariaDB 10.11.19** and **PDO MySQL**: repeatable schema install/seed, every field's Unicode/JSON round trip, execution of the actual phpMyAdmin import, prepared dry-run/upsert with apostrophes/backslashes/ñ/ã/ë, invalid comparison rejection, cache invalidation, and changed SQL content producing new picker data/ETags followed by HTTP 304 revalidation.
+- SQL failure tests: socket outage serves stale valid cache, no cache falls back to packaged file, and malformed source data entered directly in SQL is rejected while the last valid snapshot remains public. Twelve consecutive warm name-page requests produced **zero additional SQL SELECTs**. These tests used only the isolated local `nombres_test` fixture.
+- Chromium through Apache: **146 explicit layout/privacy checks**, plus search/favorites/surname/duel/sharing/storage assertions. Widths **360, 375, 768, 1024, 1440**, including with body clipping disabled: no horizontal document overflow. Mobile menu, Escape/focus, French diacritics, actual country narrative/table rendering, no-JS search and 48-result second-page navigation are covered.
+- Browser sessions observed no uncaught JavaScript errors, cookies, third-party resource requests or data-submission requests. Screenshots/report are under `docs/screenshots/` and `docs/browser-report.json`.
+- Final runtime artifact: **37 files**, byte-identical to their runtime sources; ZIP **148,758 bytes**. Tools/tests/docs/schema/credentials/Git are excluded. Separate phpMyAdmin SQL artifact: **574,202 bytes**, never inside the public ZIP. Artifacts can be regenerated; minor archive compression/timestamp variation is possible.
+- Local production Host-header rules redirect HTTP/www to HTTPS apex with path/query preserved. Compression, versioned asset cache headers, private-path denial and ACME challenge routing were exercised through actual Apache rules.
 
-## Performance evidence
+## Local transfer measurements
 
-Local Apache compressed CSS to about **5.4 KB**, JavaScript to **4.1 KB**, and the lazily loaded public name catalog to about **11.4 KB**. Initial home HTML was about **6 KB** compressed. Fonts total about **50 KB**. The home page does not fetch the name catalog until the picker needs it. Fonts/styles/scripts are local and versioned; there are no image-heavy home assets or runtime package downloads. These are local transfer measurements, not a claim about production Core Web Vitals or Paraguay mobile-network latency.
+| Response | Gzip body bytes |
+|---|---:|
+| Home HTML | 6,588 |
+| Picker HTML (48 initial results) | 6,559 |
+| CSS | 5,997 |
+| JavaScript | 4,304 |
+| Lazy public name JSON | 14,645 |
 
-## Not established here
+Fonts total **49,580 bytes**. The home does not fetch the full catalog until the picker/favorites interaction needs it. Styles/scripts/fonts are local and versioned; JSON revalidates instead of receiving immutable caching. There is no image-heavy hero, remote font service, runtime package download or third-party library.
 
-- A complete independent linguistic/onomastic review of all 546 names; 13 Guaraní lexical references do not establish personal-name usage. See `name-audit.md`.
-- Hostinger's live deployment, TLS renewal, LiteSpeed-specific behavior, Search Console indexing or real production speed. Apache testing provides useful evidence but does not replace live verification.
-- Laptop-only brief/manual requirements or actual registration in the owner's Windows registries. Proposed files are provided.
-- GitHub API access: the current cloud policy blocked `api.github.com`. A domain addition was saved in the cloud environment draft; saving it did not apply it to this running instance. Git read/push and API access are separate capabilities.
+These measurements are from local Apache, without a mobile network. They do **not** establish production Core Web Vitals, Hostinger TTFB or Paraguay mobile latency. Measure those after deployment.
 
-There was no merge, Hostinger deployment, DNS/email/plan change, paid service, image generation, outreach, CRM integration or edit to Mi Bebé.
+## Still outside this verification
+
+- Full independent onomastic review of all 672 entries and competent Guaraní specialist review. Thirteen lexical references and 126 country-usage records have explicitly limited evidence scope; see `name-audit.md` and `data-sources.md`.
+- Hostinger production deployment, actual database credentials, TLS/LiteSpeed behavior, Search Console ownership/indexing or ranking/traffic outcomes. Nothing was merged or deployed by this task.
+- Remote GitHub CI execution. CI includes file/artifact gates and a disposable MariaDB job, but the API was blocked here. Git push works separately; check CI on GitHub before merging. The PR body/screenshots are prepared, but no PR number is claimed.
+- Laptop-only full brief/manual requirements and actual changes to Windows registries. Proposed handoff/registration data are in the repository.
+- Higgsfield artwork: no callable MCP tool, **0/50 credits used**, no substituted provider. Existing local artwork/fonts remain.
+- Fresh-task cloud restoration/publication. Setup/startup/network changes were saved as a draft, not applied/published by the save operation; see `cloud-setup.md`.
+
+No DNS/email/hosting-plan changes, paid service, affiliate/partner activation, tracking/data-collection feature, outreach, or edit to Mi Bebé was performed.

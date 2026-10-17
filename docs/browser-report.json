@@ -1,13 +1,17 @@
 {
-  "layout_and_privacy_checks": 77,
+  "layout_and_privacy_checks": 146,
   "uncaught_errors": [],
   "third_party_requests": [],
   "screenshots": [
     "arami-1440.png",
     "arami-360.png",
     "favorites-360.png",
+    "francia-1440.png",
+    "francia-360.png",
     "guarani-1440.png",
     "guarani-360.png",
+    "historias-1440.png",
+    "historias-360.png",
     "home-1440.png",
     "home-360.png"
   ],

@@ -4,7 +4,7 @@ Baseline: `20da13d0b0e6ea0317b247a3430dabdfbeb35612`. The original build produce
 
 ## Scope and results
 
-All **546** records were structurally audited: **288** categorized as niña, **245** as varón, **13** as unisex; **20** linked to Guaraní. No duplicate slugs were found. No original name slug was removed. The JSON audit lists every changed field: [name-audit.json](name-audit.json). The spreadsheet-ready review queue has one row per record: [name-review-queue.csv](name-review-queue.csv).
+The original **546** records were structurally audited. The expanded catalog has **672**: **354** categorized as niña, **301** as varón, **17** as unisex; **20** linked to Guaraní. No duplicate slugs were found. No original name slug was removed. The JSON audit preserves the original correction log and separately lists added slugs: [name-audit.json](name-audit.json). The spreadsheet-ready review queue has one row per record: [name-review-queue.csv](name-review-queue.csv).
 
 **53 records** have editorial changes or added spelling qualifications. Maria compounds no longer inherit an unsupported literal “amada” claim. Catalina/Karen, Elena, Mónica, Arturo, Ignacio/Ignacia, Luana and others now qualify uncertain explanations. Alessia is linked to Alessio rather than incorrectly being called the Italian form of Alejandra. Verónica separates the Berenice connection from the later “vera icon” interpretation. Francisco and its related text distinguish “French” from the broad “free” gloss.
 
@@ -14,11 +14,17 @@ Guaraní edits remove invented Spanish-style phonetic spellings and automatic eq
 
 Thirteen lexical senses were checked against the educational [Sugar Labs Guaraní-Castellano dictionary](https://github.com/sugarlabs/diccionario-guarani-castellano-activity/blob/f0001d16948e07227880cebc9be208473c652990/lang/guarani/dic.txt): Jasy, Yvoty, Kuarahy, Mainumby, Arandú/arandu, Ñasaindy, Mbyja, Mburucuyá/mburukuja, Ysapy, Arapoty, Poty, Araí/arai and Yerutí/jeruti. Each record has a commit-pinned source link to its entry, consultation date and evidence scope. This is a secondary educational source, not a government naming registry or an expert endorsement. No software or dictionary database was copied into the runtime; references support short lexical facts.
 
-Direct requests to SPL, RAE, Wiktionary and Behind the Name were blocked by the cloud network policy. GitHub-hosted reference material was accessible. We therefore do **not** claim that all 546 meanings, saint dates, gender assignments, historical variants or personal-name usage in Paraguay have been independently verified. Current states are 482 `legacy`, 64 `qualified`, zero `verified`. The site exposes its limits and does not fabricate popularity or search volumes.
+Direct requests to SPL, RAE, Wiktionary and Behind the Name were blocked by the cloud network policy. GitHub-hosted reference material was accessible. We therefore do **not** claim that all 672 meanings, saint dates, gender assignments, historical variants or personal-name usage in Paraguay have been independently verified. Current states are 482 `legacy`, 190 `qualified`, zero `verified`. The site exposes its limits and does not fabricate popularity or search volumes.
+
+## International additions
+
+The 126 new records were selected from checked 2024 U.S./France top-100 rows. Their sources identify spelling, country, recorded category, year and rank. They establish usage there, not the meaning/origin claimed by an etymology or frequency in Paraguay. New explanations qualify disputed origins and remain pending independent documentary review. No extra Guaraní names were invented to inflate the catalog. See [data-sources.md](data-sources.md) for pinned copies, hashes and reproducible extracts.
+
+The JSON audit preserves the original 53-record correction log and separately lists the 126 added slugs. The regenerated 672-row CSV distinguishes lexical sources from statistical usage sources.
 
 ## Content depth
 
-The SEO follow-up adds specific practical context to the thirteen lexically referenced Guaraní entries, preserves all review states, and links existing related forms and compound-name parts. It does not add unsourced names or mark incomplete research as verified.
+The SEO follow-up adds specific practical context to the thirteen lexically referenced Guaraní entries, preserves all review states, and links existing related forms and compound-name parts. The later expansion adds 126 international choices with scoped usage evidence, without marking incomplete etymology research as verified.
 
 The old name pages relied heavily on a shared template. This release offers a useful individual meaning/origin summary, specific notes where available, source state, related forms, surname examples, local-only surname comparison, related names and category links. These are useful interactions, not proof that every page merits indexing. There is no automatic word-count padding or claim that related names share the same etymology. All old pages remain functional; no automatic mass noindex was applied without search evidence.
 

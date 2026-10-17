@@ -1,19 +1,20 @@
-# PHP baby-name site for Hostinger
+# Build the PHP baby-name site with country stories and optional Hostinger MySQL
 
-Replace the generated static pages with PHP 8.2 templates and one editable name catalog. Preserve every old name/list/letter URL, retain the warm premium design, and replace the babyshower promotion with plain Mi Bebé links. The repository root can deploy through Hostinger Git without a build step, database, Node runtime or credentials.
+Replace the generated static site with PHP 8.2 templates and a single selected catalog that drives pages, lists, search, JSON and the sitemap. Preserve all 584 original indexable URLs, retain the warm typographic design, and replace the babyshower promotion with plain Mi Bebé links. The repository root deploys through Hostinger Git with no build command, Composer or Node runtime.
 
-- Keep all 546 names and 584 original indexable URLs; add sources/criteria and two secondary pet-name pages. XML sitemap, picker data, lists and name pages derive from the PHP catalog.
-- Add a validated export/upsert workflow, source evidence and review states. Correct or qualify 53 records; link 13 Guaraní lexical senses to passages checked in the educational dictionary. Full specialist/data-source review is still outstanding.
-- Preserve browser-only favorites, surname previews, comparison and sharing. New share links use fragments. No analytics, tracking cookies, forms, WhatsApp CTA or third-party assets.
-- Include runtime-only ZIP tooling, CI, URL map, deployment checklist, review queue, Keyword Planner seeds and a proposed operations-manual handoff.
-- Make the home headline explicit about baby names for Paraguay; add practical context to 13 referenced Guaraní entries and links between existing variants, compound parts and intentional thematic comparisons. Pets stay outside primary navigation. The technical check count is not an SEO score or a promise of rankings.
+- Expand from 546 to 672 names. Correct/qualify 53 inherited records, reference 13 Guaraní lexical senses, and add 126 international choices with scoped 2024 country-usage evidence. All etymologies still need independent documentary review; none is falsely marked verified.
+- Add a connected Spanish history/trends section and U.S./France 2024 tables extracted from checked, pinned data copies. Keep country/year, spelling, precision and coverage explicit; no invented Paraguay popularity or 2026 rankings.
+- Add optional MySQL storage with utf8mb4 schema, private configuration example, phpMyAdmin import artifact, validated transactional editing CLI, public catalog cache and outage fallback. File mode remains a complete launch option. Database edits survive Git deploys; seeding is never automatic.
+- Limit server search to 48 results per page, retain accent-insensitive/no-JS search, add an accessible mobile menu and keep all assets local. Preserve local-only favorites, surnames, comparison and fragment sharing. Babies stay primary; pets are secondary.
+- Include CI, runtime ZIP/SQL packaging, source/audit evidence, screenshots, SEO export seeds, tomorrow's launch checklist and operations-manual proposals. Future printed-name products and pending Higgsfield art are private proposals, not active storefronts or external integrations.
 
-Validation: PHP 8.2 lint; catalog editing tests; 77,321 crawl checks over 588 pages against source, deployment artifact and local Apache/FastCGI; responsive/browser interaction tests at 360/375/768/1440. See `docs/validation.md` for scope and limits.
+Validation: PHP 8.2 lint, file catalog editing tests, statistical snapshot checks, full source/artifact/SQL crawls, real MariaDB imports/Unicode edits/cache invalidation/outage fallback, and Chromium interaction/layout checks at 360/375/768/1024/1440. See `docs/validation.md` for final counts and limitations. Remote CI and production Hostinger behavior must be checked separately.
 
 Screenshots:
 
 ![Home, mobile](https://raw.githubusercontent.com/antonmarklundcom/nombres/php-hostinger-rebuild/docs/screenshots/home-360.png)
 ![Home, desktop](https://raw.githubusercontent.com/antonmarklundcom/nombres/php-hostinger-rebuild/docs/screenshots/home-1440.png)
 ![Aramí, mobile](https://raw.githubusercontent.com/antonmarklundcom/nombres/php-hostinger-rebuild/docs/screenshots/arami-360.png)
+![France article, mobile](https://raw.githubusercontent.com/antonmarklundcom/nombres/php-hostinger-rebuild/docs/screenshots/francia-360.png)
 
-Review and merge are an owner decision. Hostinger Git deployment remains the owner's hPanel action after approval. Do not enable Mi Bebé's `nombres_link` flag until the deployed site passes live checks. Laptop `C:`/`E:` paths were unavailable; registry files are proposals, not applied changes. The named laptop skills were unavailable, so the listed checks were executed directly.
+No merge/deployment, DNS/email/plan change, analytics, customer-data form, partner integration or Mi Bebé app edit was performed. Higgsfield MCP was unavailable: zero credits spent. Laptop C:/E: paths were unavailable; manual registry changes remain proposals. GitHub API access was blocked in the current cloud, so this text is prepared for the PR creation link rather than claiming an existing PR number. After the owner merges and deploys, follow `docs/launch-tomorrow.md`, verify live, then enable Mi Bebé's reciprocal flag.

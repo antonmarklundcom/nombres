@@ -1,0 +1,9 @@
+# Future name-product proposal — not implemented
+
+The active business goal is helping expecting parents discover Mi Bebé through plain links. Baby-name usefulness, source quality, speed and trust come first. No product storefront, affiliate, partner relationship, price, payment integration, ad, tracking pixel, order form or outreach has been activated.
+
+Potential later products include nursery name prints, birth-announcement templates, personalized baby blankets/clothes and a printable family favorites keepsake. Compare own print-on-demand production against a reviewed local partner for delivery, quality, returns and margins. Do not imply an existing partner, invent reviews or publish offers before there is a real product and fulfillment process.
+
+Before launch of commerce: choose ownership/partner model; validate print quality, Guaraní/font coverage and accent handling; define delivery/returns, pricing and availability; obtain approval for payment/personal-data handling; and disclose any commercial/affiliate relationship plainly. Preview personalized names locally where practical, and collect only information required for an actual order. Copyright, privacy and product claims need their own review.
+
+Keep any future shop separate from editorial meanings and rankings. Product schema belongs only on real purchasable product pages with accurate offers. Do not add empty product landing pages, paid-link schemes, affiliate blocks across every name, or scripts that slow discovery. A small contextual link from favorites may be worth testing after the core site has real search visibility. No revenue assumptions or invented market volumes are included here.

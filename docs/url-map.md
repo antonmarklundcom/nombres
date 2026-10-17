@@ -1,6 +1,6 @@
 # URL map
 
-The complete pre-migration indexable manifest is [legacy-routes.json](legacy-routes.json). It contains **584** URLs. Every one remains a canonical HTTP 200 route. The new sitemap has **587** URLs: the original 584 plus `/fuentes/`, `/nombres-para-perros/`, and `/nombres-para-gatos/`. `/mi-lista/` still works, stays `noindex, follow`, and stays out of the sitemap.
+The complete pre-migration indexable manifest is [legacy-routes.json](legacy-routes.json). It contains **584** URLs. Every one remains a canonical HTTP 200 route. The expanded sitemap has **718** URLs: the original 584, `/fuentes/`, two pet pages, 126 new name pages, and five editorial routes: `/historias-de-nombres/`, `/nombres-en-estados-unidos/`, `/nombres-en-francia/`, `/tendencias-de-nombres/`, `/historia-de-los-nombres/`. `/mi-lista/` still works, stays `noindex, follow`, and stays out of the sitemap.
 
 | Old or alternate URL | Result |
 |---|---|
@@ -17,6 +17,6 @@ The complete pre-migration indexable manifest is [legacy-routes.json](legacy-rou
 | Production HTTP or `www.nombres.com.py` | 301 to `https://nombres.com.py` with path and query retained |
 | `/404.html`, unknown paths, private source paths | 404 or denied; never redirected to the home page as a soft 404 |
 
-No content was previously deployed according to the owner's brief, but known URLs are preserved anyway. The old static HTML files are removed from the branch; `DirectoryIndex index.php` ensures there is one live renderer. The public JSON endpoint retains `/assets/names.json` for the original picker contract, now derived directly from PHP.
+No content was previously deployed according to the owner's brief, but known URLs are preserved anyway. The old static HTML files are removed from the branch; `DirectoryIndex index.php` ensures there is one live renderer. The public JSON endpoint retains `/assets/names.json` for the original picker contract, now derived from the selected PHP/SQL catalog with a content-derived ETag. Search query/pagination variants are noindex and canonicalize to the clean picker URL; they are not extra sitemap landing pages.
 
 `verify.sh` crawls the complete old manifest, checks both alternate forms for every page, and checks sitemap membership. The production host redirects were also exercised through local Apache with Host headers. HTTPS termination and LiteSpeed behavior still need the post-deployment check on Hostinger.

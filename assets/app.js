@@ -4,6 +4,17 @@
   var FAV_KEY = 'nombres:favs', AP_KEY = 'nombres:apellidos';
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var header = $('[data-header]'), navToggle = $('[data-nav-toggle]');
+  if (header && navToggle) {
+    header.setAttribute('data-menu-ready', ''); navToggle.hidden = false;
+    var setMenu = function (open) {
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (open) header.setAttribute('data-menu-open', ''); else header.removeAttribute('data-menu-open');
+      $('span', navToggle).textContent = open ? '-' : '+';
+    };
+    navToggle.addEventListener('click', function () { setMenu(navToggle.getAttribute('aria-expanded') !== 'true'); });
+    header.addEventListener('keydown', function (event) { if (event.key === 'Escape') { setMenu(false); navToggle.focus(); } });
+  }
 
   // ---------- almacenamiento seguro ----------
   function load(key, fallback) {
@@ -94,7 +105,7 @@
           t = form.elements.t.value, l = form.elements.l.value, max = +form.elements.n.value || 0;
         var list = data.list.filter(function (n) {
           if (g && n.g !== g) return false;
-          if (o && n.o.split(' y ').indexOf(o) < 0) return false;
+          if (o && n.o.split(/ (?:y|e) /).indexOf(o) < 0) return false;
           if (t && n.t.indexOf(t) < 0) return false;
           if (l && n.s.charAt(0) !== l) return false;
           if (max && n.n.replace(/[^\p{L}]/gu, '').length > max) return false;

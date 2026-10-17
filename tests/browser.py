@@ -22,16 +22,27 @@ with sync_playwright() as p:
         page.evaluate('document.fonts.ready')
         check(not page.evaluate('document.documentElement.scrollWidth > innerWidth'),f'No horizontal overflow: {path}')
     # Check layout with overflow clipping disabled too; do not hide a width bug.
-    for width in [360,375,768,1440]:
+    for width in [360,375,768,1024,1440]:
         page.set_viewport_size({'width':width,'height':900})
-        for path in ['/','/nombre/arami/','/nombre/yvoty/','/nombre/maria-de-los-angeles/','/nombres-guaranies/','/elegir/','/mi-lista/','/nombres-para-gatos/']:
+        for path in ['/','/nombre/arami/','/nombre/yvoty/','/nombre/mael/','/nombre/maria-de-los-angeles/','/nombres-guaranies/','/historias-de-nombres/','/nombres-en-francia/','/nombres-en-estados-unidos/','/tendencias-de-nombres/','/elegir/','/mi-lista/','/nombres-para-gatos/']:
             visit(path)
             page.add_style_tag(content='body { overflow-x: visible !important; }')
             check(not page.evaluate('document.documentElement.scrollWidth > innerWidth'),f'Unclipped width {width}: {path}')
-            if width in [360,1440] and path in ['/','/nombre/arami/','/nombres-guaranies/']:
-                label={'/':'home','/nombre/arami/':'arami','/nombres-guaranies/':'guarani'}[path]
+            if width in [360,1440] and path in ['/','/nombre/arami/','/nombres-guaranies/','/historias-de-nombres/','/nombres-en-francia/']:
+                label={'/':'home','/nombre/arami/':'arami','/nombres-guaranies/':'guarani','/historias-de-nombres/':'historias','/nombres-en-francia/':'francia'}[path]
                 page.screenshot(path=str(args.screenshots/f'{label}-{width}.png'),full_page=True)
     page.set_viewport_size({'width':360,'height':800})
+    visit('/nombres-en-francia/')
+    expect(page.get_by_role('heading',name='Conservar la escritura también cuenta una historia')).to_be_visible()
+    expect(page.get_by_role('heading',name='De la historia a tu lista')).to_be_visible()
+    expect(page.locator('.ranking-table tbody tr')).to_have_count(20)
+    visit('/')
+    page.locator('[data-nav-toggle]').click()
+    expect(page.locator('[data-nav-toggle]')).to_have_attribute('aria-expanded','true')
+    expect(page.locator('#primary-nav a[href="/historias-de-nombres/"]')).to_be_visible()
+    check(not page.evaluate('document.documentElement.scrollWidth > innerWidth'),'Expanded mobile navigation fits')
+    page.locator('[data-nav-toggle]').press('Escape')
+    expect(page.locator('[data-nav-toggle]')).to_have_attribute('aria-expanded','false')
     visit('/elegir/')
     page.locator('#q').fill('sofía')
     expect(page.locator('[data-tool-results] .card')).to_have_count(2)
@@ -92,6 +103,11 @@ with sync_playwright() as p:
     plain=nojs.new_page();plain.goto(args.base+'/elegir/?q=kuarahy')
     expect(plain.locator('[data-tool-results] .card')).to_have_count(1)
     expect(plain.locator('[data-tool-results]')).to_contain_text('Kuarahy')
+    plain.goto(args.base+'/elegir/?p=2')
+    expect(plain.locator('[data-tool-results] .card')).to_have_count(48)
+    expect(plain.locator('[data-tool-results]')).to_contain_text('página 2')
+    plain.goto(args.base+'/elegir/?q=raphael')
+    expect(plain.locator('[data-tool-results]')).to_contain_text('Raphaël')
     check(not context.cookies(),'No cookies created')
     check(not external,'No third-party requests: '+str(external))
     check(all(r['method']=='GET' for r in requests),'No data submission requests')

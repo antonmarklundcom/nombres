@@ -65,7 +65,7 @@ for path in paths+['/mi-lista/']:
     check(len(page.h1)==1 and bool(page.h1[0].strip()),f'{path}: exactly one h1')
     if path=='/':
         check('Nombres de bebé para Paraguay' in page.h1[0], 'home clearly identifies baby-name and Paraguay intent')
-        nav=re.search(r'<header class="site-header">([\s\S]*?)</header>',text).group(1)
+        nav=re.search(r'<header class="site-header"[^>]*>([\s\S]*?)</header>',text).group(1)
         check('/nombres-para-perros/' not in nav and '/nombres-para-gatos/' not in nav,'pets stay out of primary navigation')
     if path=='/nombre/yvoty/':
         check('Antes de elegir Yvoty' in text and '/nombre/poty/' in text,'checked lexical entry has practical context and an intentional comparison link')
@@ -99,6 +99,7 @@ for path in paths+['/mi-lista/']:
     if path.startswith('/nombre/') or path.startswith('/letra/'):
         check('class="app-promo"' in text,f'{path}: app promotion')
     for tag,target,a in page.links:
+        check(not any(char in target for char in ['<','>','"','\n']),f'{path}: no markup swallowed into a link attribute')
         if target.startswith('#'):
             check(target[1:] in page.ids,f'{path}: valid anchor {target}');continue
         split=urllib.parse.urlsplit(target)
@@ -122,7 +123,7 @@ for path in paths[1:]+['/mi-lista/']:
     status,headers,_=get(path+'index.html');check(status==301 and headers.get('Location')==path,'legacy HTML '+path)
 for path,target in [('/index.html','/'),('/index.php','/'),('/sitemap.php','/sitemap.xml'),('/robots.php','/robots.txt'),('/nombre/arami?x=1','/nombre/arami/?x=1')]:
     status,headers,_=get(path);check(status==301 and headers.get('Location')==target,'explicit redirect '+path)
-for path in ['/missing-page/','/404.html','/.git/config','/content/names.php','/lib/bootstrap.php','/partials/head.php','/templates/name.php','/tools/names.php','/tests/browser.py','/deploy/make-zip.py','/docs/legacy-routes.json','/router.php','/tools/legacy/names.mjs','/assets/../content/names.php','/assets/%2e%2e/content/names.php']:
+for path in ['/missing-page/','/404.html','/.git/config','/content/names.php','/lib/bootstrap.php','/lib/storage.php','/config.local.php','/database/schema.sql','/partials/head.php','/templates/name.php','/tools/names.php','/tools/database.php','/tests/browser.py','/deploy/make-zip.py','/docs/legacy-routes.json','/router.php','/tools/legacy/names.mjs','/assets/../content/names.php','/assets/%2e%2e/content/names.php']:
     status,headers,raw=get(path);check(status in [403,404],f'{path}: source denied (got {status})')
     check(b'<?php' not in raw and b'Canonical name catalog' not in raw,f'{path}: no source disclosure')
 status,headers,raw=get('/elegir/?q=%3Cscript%3Ealert(1)%3C%2Fscript%3E')

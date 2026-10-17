@@ -1,9 +1,15 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/catalog.php';
+require_once __DIR__ . '/storage.php';
 $site = require __DIR__ . '/../content/site.php';
 $copy = require __DIR__ . '/../content/editorial.php';
-$names = require __DIR__ . '/../content/names.php';
+$stories = require __DIR__ . '/../content/stories.php';
+$rankings = require __DIR__ . '/../content/rankings.php';
+try { $runtimeConfig=runtime_config(); }
+catch (Throwable) { error_log('nombres: invalid private configuration; using packaged catalog.');$runtimeConfig=default_runtime_config(); }
+$names = defined('NOMBRES_FORCE_FILE_CATALOG') && NOMBRES_FORCE_FILE_CATALOG ? require __DIR__.'/../content/names.php' : load_public_catalog($runtimeConfig);
+$catalogVersion=substr(hash('sha256',json_encode($names,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR)),0,10);
 $bySlug = [];
 $byDisplayName = [];
 foreach ($names as $n) {
@@ -22,6 +28,7 @@ function json_safe(mixed $v): string { return json_encode($v, JSON_UNESCAPED_UNI
 function asset(string $path): string { return $path . '?v=' . substr(hash_file('sha256', __DIR__ . '/..' . $path), 0, 10); }
 function matches(array $n, array $filter): bool { return (!isset($filter['gender']) || $n['gender'] === $filter['gender']) && (!isset($filter['tag']) || in_array($filter['tag'], $n['tags'], true)); }
 function name_url(array $n): string { return '/nombre/' . $n['slug'] . '/'; }
+function origin_parts(string $origin): array { return preg_split('/ (?:y|e) /u',$origin); }
 function existing_name(string $label): ?array {
     global $byDisplayName;
     return $byDisplayName[fold($label)] ?? null;
@@ -44,8 +51,8 @@ function description(string $base): string {
     return $base;
 }
 function routes(): array {
-    global $copy, $sorted, $letters;
-    return array_merge(['/', '/elegir/', $copy['GUIDE']['route'], '/privacidad/', '/fuentes/', '/nombres-para-perros/', '/nombres-para-gatos/'], array_column($copy['LISTS'], 'route'), array_map(static fn($l) => "/letra/$l/", $letters), array_map('name_url', $sorted));
+    global $copy, $sorted, $letters,$stories;
+    return array_merge(['/', '/elegir/', $copy['GUIDE']['route'], '/privacidad/', '/fuentes/', '/nombres-para-perros/', '/nombres-para-gatos/'],array_keys($stories), array_column($copy['LISTS'], 'route'), array_map(static fn($l) => "/letra/$l/", $letters), array_map('name_url', $sorted));
 }
 function related_names(array $n): array {
     global $sorted;

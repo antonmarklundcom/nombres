@@ -2,27 +2,30 @@
 
 ## Prepared, not deployed
 
-This branch is deployable from its repository root on Apache/LiteSpeed with PHP 8.2+. It has no build step, database, Composer packages, Node runtime or secret configuration. The ZIP under ignored `dist/nombres-hostinger.zip` is an alternate artifact, not a second deployment to apply after Git. CI also builds and publishes that ZIP as a workflow artifact.
+The repository root deploys on Apache/LiteSpeed with PHP 8.2+. There is no build command, Node runtime or Composer install. File mode works immediately. Optional MySQL requires PDO MySQL, a private config and a private writable cache folder. See [launch-tomorrow.md](launch-tomorrow.md) for the short sequence and [database.md](database.md) for import/editing details.
+
+`python3 deploy/make-zip.py` creates two ignored artifacts: the runtime-only `dist/nombres-hostinger.zip` and separate `dist/nombres-catalog.sql`. The SQL is for phpMyAdmin, never a public upload. CI publishes both. The ZIP is an alternate deployment method; do not apply it after Git auto-deploy to the same release.
 
 ## Owner's hPanel actions
 
-1. Review the PR, screenshots and name-audit limitations; merge only when satisfied.
-2. Set the site's PHP version to 8.2 or newer. Keep HTTPS enabled. Do not change DNS, email, domain registration or hosting plan.
-3. In Hostinger's Git integration, select `antonmarklundcom/nombres`, branch `master`, deployment directory `public_html`. Use the existing integration authorization. Do not place a token in a committed file.
-4. If `public_html` contains only Hostinger's default page, follow hPanel's prompt to prepare the directory for the checkout. Back up and inspect any files first if it contains anything else. Do not blindly delete it.
-5. Enable/use the Git deployment **once** after the approved merge. No install command is needed. The root `.htaccess` is part of the release; make sure dotfiles are included.
-6. Verify the site live. If auto-deploy has already happened, verify that release; do not upload the ZIP as a duplicate deploy.
+1. Review the branch, screenshots, name-audit limitations and GitHub CI; open/merge the PR when satisfied. GitHub API access was blocked here, so the prepared description is in `docs/review-summary.md` and no PR number is claimed.
+2. Set PHP to 8.2 or newer, with PDO MySQL if using SQL. Keep HTTPS enabled. Do not change DNS, email, domain registration or hosting plan.
+3. For SQL: create a blank database/user and import the separate catalog SQL through phpMyAdmin. Check 672 rows, schema version 1 and accents. Keep credentials private. Do not reimport automatically over subsequent editorial edits.
+4. In Hostinger's Git integration, select `antonmarklundcom/nombres`, branch `master`, deployment directory `public_html`. Use the existing integration authorization; do not commit a token. No build/install command is needed.
+5. If `public_html` contains only Hostinger's default page, follow hPanel's prompt to prepare it for the checkout. Back up and inspect any files first if it contains anything else. Do not blindly delete existing files.
+6. Use Git deployment **once** after the approved merge. The root `.htaccess` is part of the release; include dotfiles. If auto-deploy already ran, verify that release instead of uploading a duplicate ZIP.
+7. For SQL: securely copy the example to `../nombres-config.php` outside `public_html`, set the actual database credentials and `storage=mysql`. Ensure the private cache directory is writable. Temporarily set diagnostics true and require `X-Nombres-Storage: mysql` or `mysql-cache` on fresh responses, then turn diagnostics off. See `database.md` for fallback states and troubleshooting. Leave file mode active if SQL setup is unfinished.
 
-The Git checkout contains tools/docs, but rewrite rules send private paths to a 404 and fail closed if rewriting is unavailable. The ZIP allowlists only runtime files. Deployment must update tracked files and remove obsolete tracked HTML; an unrelated unmanaged `index.html` should not be used (`index.php` is first), but inspect/remove only confirmed default leftovers in hPanel.
+The Git checkout includes docs/tools/schema, but rewrite rules deny private paths. The ZIP allowlists runtime files. Deployment must update tracked files and remove obsolete tracked HTML. `index.php` is first in DirectoryIndex; inspect/remove only confirmed unmanaged default leftovers in hPanel. Do not expose a test import script or phpinfo file in the web root.
 
-## Live verification after deployment
+## Live verification
 
-Check HTTPS `/`, a name such as `/nombre/arami/`, a category, `/elegir/`, `/mi-lista/`, `/sitemap.xml`, `/robots.txt`, and an unknown URL. Confirm name data, accent rendering, favorites and Mi Bebé links on a real phone. Confirm `/content/names.php`, `/.git/config`, `/tools/names.php` and `/docs/name-audit.json` are denied. Check that HTTP and www redirect to the HTTPS apex, missing slashes redirect once, and no route loops.
+Check HTTPS `/`, `/nombre/arami/`, `/nombre/mael/`, a category, both country pages, `/elegir/`, `/mi-lista/`, `/sitemap.xml`, `/robots.txt` and an unknown URL. Confirm accent rendering, favorites and Mi Bebé links on a real phone. Confirm `/content/names.php`, `/.git/config`, `/tools/database.php`, `/config.local.php`, `/database/schema.sql` and `/docs/name-audit.json` are denied. HTTP and www must redirect to the HTTPS apex, known missing-slash URLs must redirect once, and unknown URLs must remain 404.
 
-From a developer machine, run `python3 tests/crawl.py --base https://nombres.com.py` against the deployed branch. That command is read-only. TLS verification stays enabled. Search Console sitemap submission and a mobile live check are useful owner follow-ups; no account or tracking code was added here.
+From a developer machine at this revision, run `python3 tests/crawl.py --base https://nombres.com.py`. It is read-only and keeps TLS verification. Check actual mobile performance on the deployed site; local compression/timing is not field Core Web Vitals. Avoid an extra whole-page hosting cache until SQL edit invalidation is understood.
 
-Only after those checks pass is it appropriate to turn on Mi Bebé's `nombres_link` flag. This task did not edit that application or enable the flag. The site's actual live status must be established then, not inferred from a local server or a generated ZIP.
+After live checks pass, enable Mi Bebé's `nombres_link` flag in that separate project. This task did not edit the app or enable it. Search Console ownership and sitemap submission are owner follow-ups. No tracking code, pixel or analytics cookie was added; use Search Console's search/indexing reports to guide editorial work.
 
-## Rollback
+## Rollback and durable edits
 
-Keep the reviewed Git history and revert the merge if necessary, then deploy that reviewed revision once through the same Git integration. This migration has no database state to roll back. Keep any manual hPanel backup outside the public document root. Avoid enabling debug output or exposing tools on production.
+Keep reviewed Git history and a private database backup. Revert a bad merge and deploy the reviewed revision once through the same Git integration. Database changes are separate from Git and are not undone by a code revert. Restore a database backup only after assessing later edits, or switch to the reviewed file catalog as a temporary fallback while diagnosing. Never auto-seed on deploy: it overwrites matching SQL records. Cache refresh/invalidation and SQL editing commands are documented in `database.md`. Keep all backups outside the public document root and debug display off.

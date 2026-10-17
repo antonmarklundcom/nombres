@@ -2,11 +2,12 @@
 declare(strict_types=1);
 // CLI only. A JSON import is a content update, never a web endpoint.
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
+define('NOMBRES_FORCE_FILE_CATALOG',true);
 require __DIR__ . '/../lib/bootstrap.php';
 $command=$argv[1]??'validate';
 $catalog=__DIR__.'/../content/names.php';
-function finish_errors(array $records): void {
-    $errors=catalog_errors($records);
+function finish_errors(array $records,bool $checkReferences=true): void {
+    $errors=catalog_errors($records,$checkReferences);
     if ($errors) { fwrite(STDERR,implode("\n",$errors)."\n"); exit(1); }
 }
 if ($command==='validate') {
@@ -20,7 +21,7 @@ if ($command==='validate') {
     try { $incoming=json_decode(file_get_contents($path),true,64,JSON_THROW_ON_ERROR); }
     catch (Throwable $e) { fwrite(STDERR,"Invalid JSON: ".$e->getMessage()."\n"); exit(1); }
     if (!is_array($incoming) || !array_is_list($incoming)) { fwrite(STDERR,"Input must be a JSON array of complete name records\n"); exit(1); }
-    finish_errors($incoming);
+    finish_errors($incoming,false);
     $merged=$bySlug;
     foreach ($incoming as $n) $merged[$n['slug']]=$n;
     $records=array_values($merged);

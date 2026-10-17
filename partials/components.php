@@ -32,7 +32,7 @@ function mini_list(): void { ?>
 function search_form(): void {
     global $sorted, $copy, $letters;
     $origins = [];
-    foreach ($sorted as $n) foreach (explode(' y ', $n['origin']) as $o) $origins[$o] = $o;
+    foreach ($sorted as $n) foreach (origin_parts($n['origin']) as $o) $origins[$o] = $o;
     asort($origins);
     $value = static fn($k) => is_string($_GET[$k] ?? null) ? $_GET[$k] : '';
     $opt = static function ($v,$label,$key) use ($value): void { ?><option value="<?= e($v) ?>"<?= $value($key)===$v ? ' selected' : '' ?>><?= e($label) ?></option><?php }; ?>
