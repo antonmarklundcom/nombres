@@ -1,0 +1,21 @@
+name: Verify PHP site
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: ./verify.sh
+      - run: python3 deploy/make-zip.py
+      - run: ./verify.sh --root dist/nombres-hostinger
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nombres-hostinger
+          path: dist/nombres-hostinger.zip

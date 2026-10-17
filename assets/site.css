@@ -265,3 +265,25 @@ input:focus-visible, select:focus-visible { border-color: var(--focus); }
 .brand-foot { grid-area: auto; justify-self: start; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .crumbs li[aria-current] { padding: 10px 0; }
+
+/* Mi Bebé is a plain-link editorial promotion: no remote assets. */
+.app-promo { display: grid; gap: 24px; background: var(--sage-soft); border: 1px solid #cbdcd0; border-radius: 26px; margin: 56px 0; padding: 28px 22px; }
+.app-emblem { display: flex; align-items: center; gap: 12px; color: var(--sage); font-family: var(--serif); font-size: 2.3rem; }
+.app-emblem svg { width: 34px; height: 34px; fill: currentColor; }
+.app-copy h2 { margin: .4em 0; }
+.app-copy p { max-width: 62ch; }
+.app-copy .btn { background: var(--sage); border-color: var(--sage); gap: 10px; }
+.app-copy .btn:hover { background: #315342; }
+.app-copy .fine { margin-bottom: 0; color: #4d6054; }
+.app-text-link { display: inline-flex; align-items: center; min-height: 48px; padding: 0 10px; color: #315342; }
+.hero-link { font-weight: 700; }
+.hero .stats { align-items: center; }
+.hero .stats li:last-child { font-size: .83rem; }
+.section-kicker { margin-top: 2.8rem; }
+.source-note { border-bottom: 1px solid var(--line); padding: .8rem 0; font-size: .92rem; color: var(--muted); }
+.source-note summary { cursor: pointer; min-height: 44px; padding: .5rem 0; font-weight: 700; }
+.pet-names { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
+.pet-names li { background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 8px 20px; font-family: var(--serif); font-size: 1.5rem; }
+.tool > .row { grid-column: 1 / -1; }
+main { padding-bottom: 40px !important; }
+@media (min-width: 760px) { .app-promo { grid-template-columns: .6fr 1.4fr; gap: 40px; padding: 42px; } .app-emblem { flex-direction: column; justify-content: center; font-size: 3.2rem; } .app-emblem svg { width: 54px; height: 54px; } }

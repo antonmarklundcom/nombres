@@ -1,0 +1,14 @@
+{
+  "status": "proposal-only-not-applied-to-laptop",
+  "project": "nombres",
+  "domain": "nombres.com.py",
+  "repository": "https://github.com/antonmarklundcom/nombres",
+  "default_branch": "master",
+  "requested_checkout": "E:/ai work/Projects/nombres/main",
+  "requested_manual": "C:/operation manuals/nombres/README.md",
+  "runtime": "PHP 8.2+ on Hostinger shared hosting; no database",
+  "content_source": "content/names.php",
+  "related_project": "Mi Bebé / embarazo.2.1 (links only; not edited)",
+  "deployment": "Owner hPanel Git integration after approved merge",
+  "secrets": "None required"
+}

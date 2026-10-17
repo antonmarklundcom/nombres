@@ -1,0 +1,6 @@
+<?php declare(strict_types=1); ?>
+<article class="guide" data-guide><h1><?= e($page['h1']) ?></h1><?php foreach ($page['sections'] as $section): ?><?php if ($section['h'] ?? null): ?><h2><?= e($section['h']) ?></h2><?php endif ?><?php foreach ($section['p'] as $p): ?><p><?= e($p) ?></p><?php endforeach ?><?php endforeach ?></article>
+<?php if ($page['route']==='/fuentes/'): ?>
+<section class="guide"><h2>Una referencia que sí contrastamos</h2><p>El <a href="https://github.com/sugarlabs/diccionario-guarani-castellano-activity/blob/f0001d16948e07227880cebc9be208473c652990/lang/guarani/dic.txt">Diccionario Guaraní-Castellano de la actividad educativa publicada por Sugar Labs</a> permite contrastar sentidos léxicos como jasy, yvoty y kuarahy. Las fichas correspondientes enlazan a la entrada concreta consultada el 17 de octubre de 2026. Es una fuente educativa, no un registro de nombres de personas ni una validación institucional del sitio.</p><p>Para ampliar la revisión lingüística, podés consultar a la <a href="https://spl.gov.py/">Secretaría de Políticas Lingüísticas</a>. Sus materiales no se usaron como evidencia de una revisión completa de este catálogo.</p></section>
+<?php endif ?>
+<?php if ($page['route'] !== '/privacidad/'): list_links(); app_block(); endif; faq($page['faq'] ?? []); ?>

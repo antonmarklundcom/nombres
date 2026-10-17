@@ -1,0 +1,30 @@
+{
+  "layout_and_privacy_checks": 69,
+  "uncaught_errors": [],
+  "third_party_requests": [],
+  "screenshots": [
+    "arami-1440.png",
+    "arami-360.png",
+    "favorites-360.png",
+    "guarani-1440.png",
+    "guarani-360.png",
+    "home-1440.png",
+    "home-360.png"
+  ],
+  "browser": "Chromium",
+  "interactions": [
+    "search accents and \u00f1",
+    "empty results",
+    "pagination",
+    "Guaran\u00ed filter",
+    "save/remove/persist favorites",
+    "surname preview and persistence",
+    "duel",
+    "fragment and legacy query sharing",
+    "import shared list",
+    "clear local data",
+    "escaped storage",
+    "storage denied",
+    "no-JS server filtering"
+  ]
+}

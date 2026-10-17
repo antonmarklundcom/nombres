@@ -14,11 +14,11 @@
   }
   var favs = load(FAV_KEY, []);
   if (!Array.isArray(favs)) favs = [];
-  favs = favs.filter(function (f) { return f && typeof f.s === 'string' && /^[a-z0-9-]{1,60}$/.test(f.s); });
+  favs = favs.filter(function (f, i, all) { return f && typeof f.s === 'string' && /^[a-z0-9-]{1,60}$/.test(f.s) && typeof f.n === 'string' && all.findIndex(function (x) { return x && x.s === f.s; }) === i; }).slice(0, 60);
   function isFav(slug) { return favs.some(function (f) { return f.s === slug; }); }
   function toggleFav(slug, name) {
     if (isFav(slug)) favs = favs.filter(function (f) { return f.s !== slug; });
-    else favs.push({ s: slug, n: name });
+    else if (favs.length < 60) favs.push({ s: slug, n: name });
     save(FAV_KEY, favs);
     refresh();
   }
@@ -35,19 +35,18 @@
       '</span><span class="card-mean">' + esc(n.m) + '</span><span class="card-meta">' + esc(n.o) + ' · ' + GL[n.g] + '</span></a>' + favBtn(n.s, n.n) + '</li>';
   }
   function listUrl(slugs, winner) {
-    return location.origin + '/mi-lista/?n=' + slugs.join(',') + (winner ? '&g=' + winner : '');
+    return location.origin + '/mi-lista/#n=' + slugs.join(',') + (winner ? '&g=' + winner : '');
   }
-  function waUrl(text) { return 'https://wa.me/?text=' + encodeURIComponent(text); }
 
   // ---------- datos (carga perezosa) ----------
   var dataPromise = null;
   function getData() {
     if (!dataPromise) {
-      dataPromise = fetch(document.body.getAttribute('data-names')).then(function (r) { return r.json(); }).then(function (d) {
+      dataPromise = fetch(document.body.getAttribute('data-names')).then(function (r) { if (!r.ok) throw new Error('No se pudo cargar el catálogo.'); return r.json(); }).then(function (d) {
         var list = d.n.map(function (r) {
           return { s: r[0], n: r[1], g: r[2], o: r[3], m: r[4], t: r[5].split('').map(function (i) { return d.tags[+i]; }), k: fold(r[1]) };
         });
-        var by = {}; list.forEach(function (n) { by[n.s] = n; });
+        var by = Object.create(null); list.forEach(function (n) { by[n.s] = n; });
         return { list: list, by: by };
       });
     }
@@ -108,7 +107,7 @@
           '<p>No encontramos nombres con esos filtros. Probá con menos filtros o con otra búsqueda.</p>';
         if (list.length > shown) html += '<button type="button" class="btn btn-ghost more-btn" data-more>Mostrar más (' + (list.length - shown) + ')</button>';
         results.innerHTML = html;
-      });
+      }).catch(function () { dataPromise = null; countEl.textContent = 'No pudimos actualizar los resultados. Probá de nuevo o recorré las listas.'; });
     };
     var onChange = function () { shown = PAGE; touched = true; run(); };
     form.addEventListener('input', onChange);
@@ -125,7 +124,8 @@
   // ---------- Mi lista ----------
   var mine = $('[data-mine]');
   if (mine) {
-    var params2 = new URLSearchParams(location.search);
+    // Fragment sharing keeps new lists out of server access logs. Old query links still work.
+    var params2 = new URLSearchParams(location.hash ? location.hash.slice(1) : location.search);
     var sharedParam = params2.get('n');
     var shared = $('[data-shared]');
     if (sharedParam) {
@@ -139,7 +139,7 @@
         };
         draw(); renderers.push(draw);
         $('[data-save-all]').addEventListener('click', function () {
-          slugs.forEach(function (s) { if (!isFav(s)) favs.push({ s: s, n: data.by[s].n }); });
+          slugs.forEach(function (s) { if (!isFav(s) && favs.length < 60) favs.push({ s: s, n: data.by[s].n }); });
           save(FAV_KEY, favs); refresh();
         });
         $('[data-ml-title]').textContent = 'Lista de nombres compartida';
@@ -174,7 +174,6 @@
       if (favs.length) {
         var u = listUrl(favs.map(function (f) { return f.s; }));
         $('[data-share-url]').value = u;
-        $('[data-wa]').href = waUrl('Mi lista de nombres para el bebé: ' + u);
       }
       $('[data-duel-help]').textContent = favs.length < 2 ? 'Guardá al menos dos nombres para hacer el duelo.' :
         'Elegí entre dos favoritos por vez. El ganador sigue en juego contra el próximo, hasta que queda uno solo.';
@@ -182,6 +181,12 @@
       drawFullnames();
     };
     renderers.push(drawMine);
+    $('[data-clear]').addEventListener('click', function () {
+      favs = []; save(FAV_KEY, favs);
+      save(AP_KEY, { a: '', b: '' }); ap1.value = ''; ap2.value = '';
+      $('[data-duel-stage]').hidden = true; $('[data-duel-result]').hidden = true;
+      refresh();
+    });
     $('[data-copy]').addEventListener('click', function (e) {
       var inp = $('[data-share-url]'), btn = e.currentTarget;
       var done = function () { btn.textContent = '¡Copiado!'; setTimeout(function () { btn.textContent = 'Copiar enlace'; }, 2000); };
@@ -196,7 +201,6 @@
       if (!queue.length) {
         stage.hidden = true; result.hidden = false;
         $('[data-duel-winner]').textContent = 'Ganó ' + champ.n + '.';
-        $('[data-duel-wa]').href = waUrl('En nuestro duelo de nombres ganó ' + champ.n + '. Mirá la lista: ' + listUrl(favs.map(function (f) { return f.s; }), champ.s));
         result.scrollIntoView({ block: 'nearest' });
         return;
       }

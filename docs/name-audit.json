@@ -1,0 +1,762 @@
+{
+  "baseline_commit": "20da13d0b0e6ea0317b247a3430dabdfbeb35612",
+  "names": 546,
+  "gender_counts": {
+    "f": 288,
+    "m": 245,
+    "u": 13
+  },
+  "guarani": 20,
+  "duplicate_slugs": 0,
+  "removed_slugs": [],
+  "records_with_lexical_sources": 13,
+  "review_status_counts": {
+    "legacy": 482,
+    "qualified": 64
+  },
+  "changed_records": 53,
+  "changes": [
+    {
+      "slug": "catalina",
+      "fields": {
+        "meaning": {
+          "before": "Pura, limpia.",
+          "after": "Origen griego de interpretación discutida; se asocia tradicionalmente con «pura»."
+        },
+        "note": {
+          "before": null,
+          "after": "La asociación con la pureza es tradicional, no una traducción segura del nombre original."
+        }
+      }
+    },
+    {
+      "slug": "elena",
+      "fields": {
+        "meaning": {
+          "before": "Antorcha, la que brilla.",
+          "after": "Nombre griego relacionado tradicionalmente con la luz; etimología discutida."
+        },
+        "note": {
+          "before": null,
+          "after": "La traducción «antorcha» es una propuesta, no una certeza."
+        }
+      }
+    },
+    {
+      "slug": "francesca",
+      "fields": {
+        "meaning": {
+          "before": "Forma italiana de Francisca: francesa, libre.",
+          "after": "Forma italiana de Francisca: francesa."
+        }
+      }
+    },
+    {
+      "slug": "karen",
+      "fields": {
+        "meaning": {
+          "before": "Forma danesa de Catalina: pura.",
+          "after": "Forma danesa de Catalina, de etimología discutida."
+        },
+        "note": {
+          "before": null,
+          "after": "La interpretación «pura» viene de una asociación tradicional de Catalina."
+        }
+      }
+    },
+    {
+      "slug": "maria",
+      "fields": {
+        "meaning": {
+          "before": "De Miriam; se interpreta como amada, o señora.",
+          "after": "Forma de Miriam; su significado original es discutido."
+        },
+        "note": {
+          "before": null,
+          "after": "«Amada», «señora» y otras explicaciones son interpretaciones propuestas, no traducciones demostradas."
+        }
+      }
+    },
+    {
+      "slug": "miriam",
+      "fields": {
+        "meaning": {
+          "before": "Forma hebrea de María; se interpreta como amada.",
+          "after": "Nombre hebreo relacionado con María; significado original discutido."
+        },
+        "note": {
+          "before": null,
+          "after": "No hay una única etimología aceptada para Miriam."
+        }
+      }
+    },
+    {
+      "slug": "monica",
+      "fields": {
+        "meaning": {
+          "before": "Se interpreta como solitaria, dedicada a Dios.",
+          "after": "Nombre antiguo de etimología incierta."
+        },
+        "note": {
+          "before": null,
+          "after": "La relación con el griego monos, «solo», es una interpretación posterior."
+        },
+        "origin": {
+          "before": "griego",
+          "after": "incierto"
+        }
+      }
+    },
+    {
+      "slug": "nerea",
+      "fields": {
+        "meaning": {
+          "before": "Nereida, ninfa del mar.",
+          "after": "Forma vinculada a Nereo en la tradición griega; también tiene uso vasco."
+        },
+        "note": {
+          "before": null,
+          "after": "No debe confundirse sin explicación con nereida. El origen atribuido depende de la tradición."
+        },
+        "origin": {
+          "before": "griego",
+          "after": "griego o vasco"
+        }
+      }
+    },
+    {
+      "slug": "veronica",
+      "fields": {
+        "meaning": {
+          "before": "Se interpreta como verdadera imagen (vera icon); también vinculada a Berenice, portadora de victoria.",
+          "after": "Forma vinculada a Berenice, «portadora de victoria»."
+        },
+        "note": {
+          "before": null,
+          "after": "«Verdadera imagen», del latín vera icon, es una interpretación cristiana posterior."
+        }
+      }
+    },
+    {
+      "slug": "alessia",
+      "fields": {
+        "meaning": {
+          "before": "Forma italiana de Alejandra: protectora.",
+          "after": "Forma italiana femenina de Alessio: defensora, protectora."
+        },
+        "note": {
+          "before": null,
+          "after": "No es la forma italiana de Alejandra, que es Alessandra."
+        }
+      }
+    },
+    {
+      "slug": "ignacia",
+      "fields": {
+        "meaning": {
+          "before": "Femenino de Ignacio; se asocia con ignis, fuego.",
+          "after": "Femenino de Ignacio, de etimología incierta."
+        },
+        "note": {
+          "before": null,
+          "after": "La asociación con «fuego» es tradicional."
+        }
+      }
+    },
+    {
+      "slug": "luana",
+      "fields": {
+        "meaning": {
+          "before": "Nombre moderno de etimología discutida; se lo suele relacionar con luna o con luz.",
+          "after": "Nombre de distintas tradiciones y etimología discutida."
+        },
+        "note": {
+          "before": null,
+          "after": "No damos por demostrada una traducción como «luna» o «luz»."
+        },
+        "origin": {
+          "before": "latín",
+          "after": "discutido"
+        }
+      }
+    },
+    {
+      "slug": "francisco",
+      "fields": {
+        "meaning": {
+          "before": "Francés; por extensión, libre.",
+          "after": "Francés; nombre difundido por la tradición de san Francisco de Asís."
+        }
+      }
+    },
+    {
+      "slug": "samuel",
+      "fields": {
+        "meaning": {
+          "before": "Dios ha escuchado.",
+          "after": "Nombre hebreo interpretado tradicionalmente como «nombre de Dios» o «Dios ha escuchado»."
+        },
+        "note": {
+          "before": null,
+          "after": "Existen distintas propuestas de interpretación."
+        }
+      }
+    },
+    {
+      "slug": "arturo",
+      "fields": {
+        "meaning": {
+          "before": "Oso; también se relaciona con la estrella Arturo.",
+          "after": "Nombre de etimología discutida, relacionado con la tradición artúrica."
+        },
+        "note": {
+          "before": null,
+          "after": "La asociación con «oso» es una propuesta etimológica, no un significado seguro."
+        },
+        "origin": {
+          "before": "celta",
+          "after": "discutido"
+        }
+      }
+    },
+    {
+      "slug": "ignacio",
+      "fields": {
+        "meaning": {
+          "before": "De la familia romana Egnatia; se asocia con ignis, fuego.",
+          "after": "De Egnatius, nombre romano de etimología incierta."
+        },
+        "note": {
+          "before": null,
+          "after": "La asociación con ignis, «fuego», es tradicional y no demuestra el origen."
+        }
+      }
+    },
+    {
+      "slug": "oliver",
+      "fields": {
+        "meaning": {
+          "before": "Olivo.",
+          "after": "Nombre de etimología discutida; asociado tradicionalmente al olivo."
+        },
+        "note": {
+          "before": null,
+          "after": "La asociación con el latín oliva no es la única explicación propuesta."
+        },
+        "origin": {
+          "before": "latín",
+          "after": "europeo (discutido)"
+        }
+      }
+    },
+    {
+      "slug": "arami",
+      "fields": {
+        "meaning": {
+          "before": "Pedacito de cielo (ara, cielo, y el diminutivo -mi).",
+          "after": "Nombre interpretado tradicionalmente como «cielito» o «pedacito de cielo»."
+        },
+        "native_form": {
+          "before": null,
+          "after": "arami"
+        },
+        "note": {
+          "before": "El acento va en la última sílaba: a-ra-MÍ.",
+          "after": "Es una interpretación tradicional del nombre; su escritura y uso personal necesitan revisión independiente."
+        },
+        "variants": {
+          "before": [
+            "Arami"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "arasy",
+      "fields": {
+        "meaning": {
+          "before": "Madre del cielo (ara, cielo, y sy, madre).",
+          "after": "Nombre de tradición mitológica, interpretado como «madre del cielo»."
+        },
+        "native_form": {
+          "before": null,
+          "after": "Arasy"
+        },
+        "note": {
+          "before": "Se pronuncia a-ra-SÝ; en la tradición guaraní es una figura maternal celeste.",
+          "after": "La explicación es cultural; no presentamos la figura como parte de una tradición única compartida por todos los pueblos guaraníes."
+        },
+        "variants": {
+          "before": [
+            "Arací",
+            "Aracy"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "ara",
+      "fields": {
+        "meaning": {
+          "before": "Cielo; también día, tiempo.",
+          "after": "Día, tiempo; también cielo, según el contexto guaraní."
+        },
+        "native_form": {
+          "before": null,
+          "after": "ára"
+        },
+        "note": {
+          "before": "Palabra guaraní muy breve que se usa como nombre en niñas y varones.",
+          "after": "La inclusión como idea de nombre no acredita frecuencia de uso ni un género gramatical."
+        }
+      }
+    },
+    {
+      "slug": "jasy",
+      "fields": {
+        "meaning": {
+          "before": "Luna.",
+          "after": "Luna; también mes, según el contexto guaraní."
+        },
+        "native_form": {
+          "before": null,
+          "after": "jasy"
+        },
+        "note": {
+          "before": "Se pronuncia ya-SÝ; la y final es la sexta vocal del guaraní.",
+          "after": "La y guaraní es una vocal distinta de la i y de la y castellana. Consultá la pronunciación con una persona hablante."
+        },
+        "variants": {
+          "before": [
+            "Yasy",
+            "Yací"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "yvoty",
+      "fields": {
+        "meaning": {
+          "before": "Flor.",
+          "after": "Flor, en guaraní."
+        },
+        "native_form": {
+          "before": null,
+          "after": "yvoty"
+        },
+        "note": {
+          "before": "Se pronuncia con acento final: yvo-TÝ.",
+          "after": "Conservá la y de la escritura guaraní; reemplazarla por i no es una equivalencia ortográfica automática."
+        },
+        "variants": {
+          "before": [
+            "Ivoty"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "yeruti",
+      "fields": {
+        "meaning": {
+          "before": "Paloma torcaza, tortolita (jeruti).",
+          "after": "Nombre tradicional vinculado a jeruti, una paloma."
+        },
+        "native_form": {
+          "before": null,
+          "after": "jeruti"
+        },
+        "note": {
+          "before": null,
+          "after": "Yerutí es una adaptación como nombre propio. La palabra guaraní se escribe jeruti."
+        },
+        "variants": {
+          "before": [
+            "Jerutí"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "mainumby",
+      "fields": {
+        "native_form": {
+          "before": null,
+          "after": "mainumby"
+        },
+        "note": {
+          "before": "Se pronuncia mai-num-BÝ.",
+          "after": "Palabra o nombre vinculado al guaraní. Consultá la escritura y pronunciación con una persona hablante; el uso como nombre requiere revisión independiente."
+        }
+      }
+    },
+    {
+      "slug": "pora",
+      "fields": {
+        "meaning": {
+          "before": "Lindo, bello, bueno.",
+          "after": "Bello, bueno, según el contexto guaraní."
+        },
+        "native_form": {
+          "before": null,
+          "after": "porã"
+        },
+        "note": {
+          "before": "La ã es nasal; también forma parte de expresiones como tekoporã, buen vivir.",
+          "after": "La ã es nasal: Porã y Porá no son la misma escritura ni tienen la misma pronunciación."
+        },
+        "variants": {
+          "before": [
+            "Porá"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "kuarahy",
+      "fields": {
+        "native_form": {
+          "before": null,
+          "after": "kuarahy"
+        },
+        "note": {
+          "before": "Se pronuncia kua-ra-HÝ, con h aspirada suave.",
+          "after": "Palabra o nombre vinculado al guaraní. Consultá la escritura y pronunciación con una persona hablante; el uso como nombre requiere revisión independiente."
+        },
+        "variants": {
+          "before": [
+            "Cuarahy",
+            "Kuaray"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "irupe",
+      "fields": {
+        "meaning": {
+          "before": "Planta acuática de hojas enormes; literalmente plato o fuente del agua (y, agua, y rupe).",
+          "after": "Nombre de la planta acuática conocida como irupé."
+        },
+        "native_form": {
+          "before": null,
+          "after": "yrupe"
+        },
+        "note": {
+          "before": "Es la Victoria cruziana, típica de los esteros del Paraguay.",
+          "after": "La grafía guaraní yrupe y la adaptación castellana irupé deben distinguirse. Omitimos una descomposición literal no comprobada."
+        }
+      }
+    },
+    {
+      "slug": "arandu",
+      "fields": {
+        "meaning": {
+          "before": "Sabio, sabiduría, entendimiento.",
+          "after": "Sabiduría, conocimiento; sabio, según el contexto guaraní."
+        },
+        "native_form": {
+          "before": null,
+          "after": "arandu"
+        },
+        "note": {
+          "before": null,
+          "after": "Arandú es una adaptación con tilde castellana. La palabra guaraní arandu no necesita tilde al tener acento final."
+        },
+        "variants": {
+          "before": [
+            "Arandu"
+          ],
+          "after": null
+        }
+      }
+    },
+    {
+      "slug": "nasaindy",
+      "fields": {
+        "meaning": {
+          "before": "Claridad de la luna, luz de luna.",
+          "after": "Luz de luna, claridad lunar."
+        },
+        "native_form": {
+          "before": null,
+          "after": "ñasaindy"
+        },
+        "note": {
+          "before": "Se pronuncia ña-sain-DÝ.",
+          "after": "Conservá la ñ y la y. La ficha necesita una revisión lingüística independiente de su uso como nombre."
+        }
+      }
+    },
+    {
+      "slug": "mbyja",
+      "fields": {
+        "native_form": {
+          "before": null,
+          "after": "mbyja"
+        },
+        "note": {
+          "before": "Se pronuncia mby-JA, con acento en la última sílaba; la mb inicial suena como una m suave unida a la b.",
+          "after": "Palabra o nombre vinculado al guaraní. Consultá la escritura y pronunciación con una persona hablante; el uso como nombre requiere revisión independiente."
+        }
+      }
+    },
+    {
+      "slug": "mburucuya",
+      "fields": {
+        "meaning": {
+          "before": "Pasionaria, la flor de la pasión (mburukuja).",
+          "after": "Nombre tradicional vinculado a la pasionaria."
+        },
+        "native_form": {
+          "before": null,
+          "after": "mburukuja"
+        },
+        "note": {
+          "before": "Una leyenda popular de la región cuenta el origen de esta flor.",
+          "after": "Mburucuyá es una adaptación castellana; la forma guaraní es mburukuja."
+        }
+      }
+    },
+    {
+      "slug": "ysapy",
+      "fields": {
+        "native_form": {
+          "before": null,
+          "after": "ysapy"
+        },
+        "note": {
+          "before": "Se pronuncia ysa-PÝ.",
+          "after": "Palabra o nombre vinculado al guaraní. Consultá la escritura y pronunciación con una persona hablante; el uso como nombre requiere revisión independiente."
+        }
+      }
+    },
+    {
+      "slug": "arapoty",
+      "fields": {
+        "native_form": {
+          "before": null,
+          "after": "arapoty"
+        },
+        "note": {
+          "before": null,
+          "after": "Palabra o nombre vinculado al guaraní. Consultá la escritura y pronunciación con una persona hablante; el uso como nombre requiere revisión independiente."
+        }
+      }
+    },
+    {
+      "slug": "poty",
+      "fields": {
+        "meaning": {
+          "before": "Flor.",
+          "after": "Flor, floración, según el contexto guaraní."
+        },
+        "native_form": {
+          "before": null,
+          "after": "poty"
+        },
+        "note": {
+          "before": "Forma breve de yvoty; se pronuncia po-TÝ.",
+          "after": "No la presentamos como un simple apodo de Yvoty. Confirmá el sentido en el uso que te interesa."
+        }
+      }
+    },
+    {
+      "slug": "itati",
+      "fields": {
+        "meaning": {
+          "before": "Se interpreta como piedra blanca o punta de piedra (ita, piedra).",
+          "after": "Nombre vinculado a la advocación de la Virgen de Itatí."
+        },
+        "note": {
+          "before": "También es una advocación de la Virgen, la Virgen de Itatí.",
+          "after": "No afirmamos una traducción literal: las explicaciones del topónimo difieren."
+        }
+      }
+    },
+    {
+      "slug": "anahi",
+      "fields": {
+        "note": {
+          "before": "Su significado literal no es claro; se lo usa por la leyenda.",
+          "after": "La asociación proviene de la leyenda del ceibo; no se afirma una traducción literal."
+        }
+      }
+    },
+    {
+      "slug": "arai",
+      "fields": {
+        "meaning": {
+          "before": "Nube.",
+          "after": "Nombre tradicional relacionado con arai, «nube»."
+        },
+        "native_form": {
+          "before": null,
+          "after": "arai"
+        },
+        "note": {
+          "before": "Se pronuncia a-ra-Í.",
+          "after": "La tilde de Araí pertenece a la adaptación como nombre propio; la palabra guaraní es arai."
+        }
+      }
+    },
+    {
+      "slug": "maria-jose",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y José (Dios añadirá).",
+          "after": "María (de significado discutido) y José (Dios añadirá)."
+        }
+      }
+    },
+    {
+      "slug": "maria-paz",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Paz; alude a la Virgen de la Paz.",
+          "after": "María (de significado discutido) y Paz; alude a la Virgen de la Paz."
+        }
+      }
+    },
+    {
+      "slug": "maria-belen",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Belén (casa del pan).",
+          "after": "María (de significado discutido) y Belén (casa del pan)."
+        }
+      }
+    },
+    {
+      "slug": "maria-victoria",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Victoria (la vencedora).",
+          "after": "María (de significado discutido) y Victoria (la vencedora)."
+        }
+      }
+    },
+    {
+      "slug": "maria-sol",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Sol.",
+          "after": "María (de significado discutido) y Sol."
+        }
+      }
+    },
+    {
+      "slug": "maria-emilia",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Emilia (de la familia romana Emilia).",
+          "after": "María (de significado discutido) y Emilia (de la familia romana Emilia)."
+        }
+      }
+    },
+    {
+      "slug": "maria-fernanda",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Fernanda (viajera audaz).",
+          "after": "María (de significado discutido) y Fernanda (viajera audaz)."
+        }
+      }
+    },
+    {
+      "slug": "maria-luz",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Luz.",
+          "after": "María (de significado discutido) y Luz."
+        }
+      }
+    },
+    {
+      "slug": "maria-eugenia",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Eugenia (bien nacida).",
+          "after": "María (de significado discutido) y Eugenia (bien nacida)."
+        }
+      }
+    },
+    {
+      "slug": "maria-laura",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Laura (laurel).",
+          "after": "María (de significado discutido) y Laura (laurel)."
+        }
+      }
+    },
+    {
+      "slug": "maria-clara",
+      "fields": {
+        "meaning": {
+          "before": "María (amada) y Clara (luminosa).",
+          "after": "María (de significado discutido) y Clara (luminosa)."
+        }
+      }
+    },
+    {
+      "slug": "luz-maria",
+      "fields": {
+        "meaning": {
+          "before": "Luz y María (amada).",
+          "after": "Luz y María (de significado discutido)."
+        }
+      }
+    },
+    {
+      "slug": "rosa-maria",
+      "fields": {
+        "meaning": {
+          "before": "Rosa (la flor) y María (amada).",
+          "after": "Rosa (la flor) y María (de significado discutido)."
+        }
+      }
+    },
+    {
+      "slug": "jose-maria",
+      "fields": {
+        "meaning": {
+          "before": "José (Dios añadirá) y María (amada).",
+          "after": "José (Dios añadirá) y María (de significado discutido)."
+        }
+      }
+    },
+    {
+      "slug": "luis-maria",
+      "fields": {
+        "meaning": {
+          "before": "Luis (guerrero famoso) y María (amada).",
+          "after": "Luis (guerrero famoso) y María (de significado discutido)."
+        }
+      }
+    },
+    {
+      "slug": "francisco-javier",
+      "fields": {
+        "meaning": {
+          "before": "Por san Francisco Javier; Francisco (libre) y Javier (casa nueva).",
+          "after": "Por san Francisco Javier; Francisco (francés) y Javier (casa nueva)."
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Structural audit covers all 546 records.",
+    "Editorial corrections are not a complete documentary audit.",
+    "13 Guarani lexical senses checked against the cited Sugar Labs dictionary; no claim of personal-name usage verification.",
+    "Independent onomastic and Guarani specialist review remains outstanding."
+  ]
+}
