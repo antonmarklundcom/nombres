@@ -24,7 +24,7 @@ with sync_playwright() as p:
     # Check layout with overflow clipping disabled too; do not hide a width bug.
     for width in [360,375,768,1440]:
         page.set_viewport_size({'width':width,'height':900})
-        for path in ['/','/nombre/arami/','/nombre/maria-de-los-angeles/','/nombres-guaranies/','/elegir/','/mi-lista/','/nombres-para-gatos/']:
+        for path in ['/','/nombre/arami/','/nombre/yvoty/','/nombre/maria-de-los-angeles/','/nombres-guaranies/','/elegir/','/mi-lista/','/nombres-para-gatos/']:
             visit(path)
             page.add_style_tag(content='body { overflow-x: visible !important; }')
             check(not page.evaluate('document.documentElement.scrollWidth > innerWidth'),f'Unclipped width {width}: {path}')

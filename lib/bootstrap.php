@@ -5,7 +5,11 @@ $site = require __DIR__ . '/../content/site.php';
 $copy = require __DIR__ . '/../content/editorial.php';
 $names = require __DIR__ . '/../content/names.php';
 $bySlug = [];
-foreach ($names as $n) $bySlug[$n['slug']] = $n;
+$byDisplayName = [];
+foreach ($names as $n) {
+    $bySlug[$n['slug']] = $n;
+    $byDisplayName[fold($n['name'])] = $n;
+}
 $sorted = $names;
 usort($sorted, static fn($a, $b) => strcmp(fold($a['name']), fold($b['name'])) ?: strcmp($a['slug'], $b['slug']));
 $letters = array_values(array_unique(array_map(static fn($n) => $n['slug'][0], $sorted)));
@@ -18,6 +22,19 @@ function json_safe(mixed $v): string { return json_encode($v, JSON_UNESCAPED_UNI
 function asset(string $path): string { return $path . '?v=' . substr(hash_file('sha256', __DIR__ . '/..' . $path), 0, 10); }
 function matches(array $n, array $filter): bool { return (!isset($filter['gender']) || $n['gender'] === $filter['gender']) && (!isset($filter['tag']) || in_array($filter['tag'], $n['tags'], true)); }
 function name_url(array $n): string { return '/nombre/' . $n['slug'] . '/'; }
+function existing_name(string $label): ?array {
+    global $byDisplayName;
+    return $byDisplayName[fold($label)] ?? null;
+}
+function compound_parts(array $n): array {
+    if (!in_array('compuesto', $n['tags'], true)) return [];
+    $parts = [];
+    foreach (explode(' ', $n['name']) as $word) {
+        $part = existing_name($word);
+        if ($part && $part['slug'] !== $n['slug']) $parts[$part['slug']] = $part;
+    }
+    return array_values($parts);
+}
 function ulen(string $s): int { return preg_match_all('/./us', $s); }
 function truncate_text(string $s, int $limit): string { preg_match_all('/./us', $s, $m); return implode('', array_slice($m[0], 0, $limit)); }
 function description(string $base): string {

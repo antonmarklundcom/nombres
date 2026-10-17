@@ -316,6 +316,10 @@
     {
       "slug": "jasy",
       "fields": {
+        "context": {
+          "before": null,
+          "after": "Jasy tiene dos sentidos que conviene distinguir: luna y mes. El diccionario citado registra ambos. Si lo elegís por la luna, esa es la asociación que podés compartir con tu familia. Conservá la y final y no des por hecho que una adaptación escrita con i o con otra letra tiene la misma pronunciación. Para escucharlo, recurrí a una persona hablante de guaraní."
+        },
         "meaning": {
           "before": "Luna.",
           "after": "Luna; también mes, según el contexto guaraní."
@@ -340,6 +344,18 @@
     {
       "slug": "yvoty",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "flor",
+            "violeta",
+            "poty"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "La referencia léxica de Yvoty es la flor. Si te atraen los nombres inspirados en la naturaleza, podés compararlo con Flor o Violeta, que también están en el catálogo. Poty merece su propia ficha: el diccionario registra flor y florecer, y no lo tratamos como un simple diminutivo de Yvoty. Antes de decidir, practicá la escritura completa, incluida la y."
+        },
         "meaning": {
           "before": "Flor.",
           "after": "Flor, en guaraní."
@@ -363,6 +379,16 @@
     {
       "slug": "yeruti",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "mainumby"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "La entrada consultada escribe jeruti y la relaciona con una tórtola o palomita. Yerutí es la forma personal adaptada que conservamos en esta ficha. La diferencia entre ambas escrituras merece atención: no presentamos la y inicial y la j como intercambiables en cualquier palabra guaraní. Si te gustan las aves como inspiración, compará también Mainumby."
+        },
         "meaning": {
           "before": "Paloma torcaza, tortolita (jeruti).",
           "after": "Nombre tradicional vinculado a jeruti, una paloma."
@@ -386,6 +412,10 @@
     {
       "slug": "mainumby",
       "fields": {
+        "context": {
+          "before": null,
+          "after": "Mainumby remite al picaflor o colibrí en el diccionario consultado. Es una idea vinculada a un ave, distinta de los nombres que aluden a flores, como Yvoty. Al comparar, escribilo con los dos apellidos y fijate qué parte te gustaría usar al llamarlo. No proponemos una pronunciación castellana aproximada como si fuera una transcripción validada."
+        },
         "native_form": {
           "before": null,
           "after": "mainumby"
@@ -422,6 +452,16 @@
     {
       "slug": "kuarahy",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "sol"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "El significado léxico registrado para Kuarahy es sol. Podés compararlo con Sol si querés explorar la misma imagen en castellano: son opciones de distintas lenguas, no variantes ortográficas de un único nombre. Conservá las letras de la forma que elijas y conversá la pronunciación con una persona hablante antes de usar una adaptación."
+        },
         "native_form": {
           "before": null,
           "after": "kuarahy"
@@ -459,6 +499,10 @@
     {
       "slug": "arandu",
       "fields": {
+        "context": {
+          "before": null,
+          "after": "El diccionario registra arandu como sabiduría y ser sabio. La forma personal Arandú lleva una tilde que responde a la escritura castellana; la palabra guaraní de referencia es arandu. Si te gusta por su sentido, conservá esa distinción al buscar fuentes y consultá cómo querés inscribir el nombre. No lo presentamos como una predicción del carácter de tu bebé."
+        },
         "meaning": {
           "before": "Sabio, sabiduría, entendimiento.",
           "after": "Sabiduría, conocimiento; sabio, según el contexto guaraní."
@@ -482,6 +526,16 @@
     {
       "slug": "nasaindy",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "jasy"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "La entrada consultada relaciona Ñasaindy con la claridad lunar. Si buscás una imagen de la noche, podés compararlo con Jasy, que designa la luna, sin tratarlos como sinónimos exactos. La ñ y la y son parte de la escritura: vale la pena comprobar cómo lo lee y escribe tu familia antes de decidir."
+        },
         "meaning": {
           "before": "Claridad de la luna, luz de luna.",
           "after": "Luz de luna, claridad lunar."
@@ -499,6 +553,16 @@
     {
       "slug": "mbyja",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "estrella"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "El sentido léxico de Mbyja en la referencia citada es estrella. Podés compararlo con Estrella para explorar esa misma imagen en castellano. La escritura guaraní conserva la secuencia mby; no conviene reemplazar letras para que parezca una palabra castellana sin consultar primero cómo cambia la lectura."
+        },
         "native_form": {
           "before": null,
           "after": "mbyja"
@@ -512,6 +576,18 @@
     {
       "slug": "mburucuya",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "yvoty",
+            "flor",
+            "violeta"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "La palabra guaraní que registra la referencia es mburukuja, vinculada a la pasionaria. Mburucuyá es la adaptación castellana que conservamos como forma personal del catálogo. No confundas esa adaptación con la ortografía del idioma. Si te gusta la idea de una flor, compará también Yvoty, Flor o Violeta y probá cada opción con los apellidos."
+        },
         "meaning": {
           "before": "Pasionaria, la flor de la pasión (mburukuja).",
           "after": "Nombre tradicional vinculado a la pasionaria."
@@ -529,6 +605,10 @@
     {
       "slug": "ysapy",
       "fields": {
+        "context": {
+          "before": null,
+          "after": "El diccionario consultado registra Ysapy como rocío. Esa imagen es distinta de luna o flor, aunque todas puedan inspirar una lista de nombres de la naturaleza. La y aparece al principio y al final: fijate en la escritura completa y consultá la pronunciación antes de reemplazarla por una i castellana."
+        },
         "native_form": {
           "before": null,
           "after": "ysapy"
@@ -542,6 +622,17 @@
     {
       "slug": "arapoty",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "yvoty",
+            "poty"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "Arapoty remite a la primavera en el diccionario citado. Es una asociación con una estación, distinta de nombrar una flor concreta. Si lo comparás con otros nombres de la naturaleza, podés mirar también Yvoty y Poty. La estación puede ser una inspiración personal; no significa que el nombre deba reservarse para un mes de nacimiento."
+        },
         "native_form": {
           "before": null,
           "after": "arapoty"
@@ -555,6 +646,16 @@
     {
       "slug": "poty",
       "fields": {
+        "compare": {
+          "before": null,
+          "after": [
+            "yvoty"
+          ]
+        },
+        "context": {
+          "before": null,
+          "after": "La entrada de poty reúne flor y florecer. Por eso lo tratamos como una opción con su propia referencia léxica, no como un apodo automático de Yvoty. Si te gustan las formas breves, compará ambas por su escritura y por cómo quedan con tus apellidos. Elegir por el significado no elimina la necesidad de confirmar la pronunciación."
+        },
         "meaning": {
           "before": "Flor.",
           "after": "Flor, floración, según el contexto guaraní."
@@ -594,6 +695,10 @@
     {
       "slug": "arai",
       "fields": {
+        "context": {
+          "before": null,
+          "after": "El diccionario registra arai como nube. La ficha conserva Araí como forma personal tradicional y distingue la palabra de referencia, que no lleva esa tilde. Al elegir, decidí qué escritura querés usar y confirmala antes de la inscripción. Un parecido con Aramí no demuestra que los dos nombres tengan el mismo significado."
+        },
         "meaning": {
           "before": "Nube.",
           "after": "Nombre tradicional relacionado con arai, «nube»."

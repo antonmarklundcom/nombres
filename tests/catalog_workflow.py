@@ -24,7 +24,7 @@ with tempfile.TemporaryDirectory(prefix='nombres-catalog-') as tmp:
     entry.write_text(json.dumps([new]));run('upsert',str(entry),'--write');run('validate')
     route=subprocess.check_output(['php','tools/routes.php'],cwd=target,text=True)
     assert '/nombre/nombre-de-prueba/' in json.loads(route)['indexable'],'New name creates its route and sitemap membership'
-    for bad in [dict(new,slug='../escape'),dict(new,name='Mateo'),dict(new,tags=['invalid']),dict(new,meaning='<script>bad</script>'),dict(new,review={'status':'verified','sources':[]})]:
+    for bad in [dict(new,slug='../escape'),dict(new,name='Mateo'),dict(new,tags=['invalid']),dict(new,meaning='<script>bad</script>'),dict(new,context='<script>bad</script>'),dict(new,compare=['does-not-exist']),dict(new,review={'status':'verified','sources':[]})]:
         entry.write_text(json.dumps([bad]));before=file.read_bytes();run('upsert',str(entry),'--write',success=False);assert file.read_bytes()==before,'Invalid input must not mutate data'
     entry.write_text('{bad json');run('upsert',str(entry),success=False)
 print('PASS: catalog export, dry run, update, add, route inclusion, repeatability and rejected invalid imports')

@@ -16,7 +16,7 @@ Required keys:
 | `tags` | Any of `clasico`, `moderno`, `corto`, `compuesto`, `biblico`, `guarani`, `santo`, `unisex`; no duplicates |
 | `review` | `status`, `sources`, `note`; described below |
 
-Optional keys: `variants` (array of related display forms), `saint` (traditional date), `note` (specific editorial qualification), `native_form` (reference-language spelling, distinguished from a personal-name adaptation).
+Optional keys: `variants` (array of related display forms), `saint` (traditional date), `note` (specific editorial qualification), `native_form` (reference-language spelling, distinguished from a personal-name adaptation), `context` (specific, useful editorial explanation), and `compare` (explicit existing slugs to compare with that explanation). Comparisons must target actual records; a shared theme does not imply identical etymology or equivalent spelling. The browser's picker JSON intentionally omits these longer editorial fields.
 
 `review.status` is `legacy` (inherited, not independently verified), `qualified` (explicit uncertainty/correction or partial lexical evidence), or `verified` (requires documentary evidence). Every source requires `title`, an HTTPS `url`, and a `checked` date in `YYYY-MM-DD`. Optional `scope` states exactly what the reference supports. A dictionary word does not prove a name's popularity, gender or inscription history. Do not mark a whole personal-name record verified on that evidence alone.
 

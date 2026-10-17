@@ -6,8 +6,8 @@ return array (
   array (
     'title' => 'Nombres de bebé para Paraguay: significado y origen',
     'description' => 'Nombres de bebé para Paraguay con significado y origen: niñas, varones, guaraníes, cortos y compuestos. Guardá tus favoritos y probalos con tu apellido.',
-    'h1' => 'El primer regalo es su nombre',
-    'lead' => 'Un nombre para toda una vida. Explorá ideas de niña, de varón y en guaraní, descubrí sus historias y guardá los que te hacen imaginar a tu bebé.',
+    'h1' => 'Nombres de bebé para Paraguay',
+    'lead' => 'El primer regalo es su nombre. Explorá ideas de niña, de varón y en guaraní, compará significados y guardá los que te hacen imaginar a tu bebé.',
     'guide' =>
     array (
       0 =>

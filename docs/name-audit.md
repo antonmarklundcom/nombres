@@ -18,6 +18,8 @@ Direct requests to SPL, RAE, Wiktionary and Behind the Name were blocked by the 
 
 ## Content depth
 
+The SEO follow-up adds specific practical context to the thirteen lexically referenced Guaraní entries, preserves all review states, and links existing related forms and compound-name parts. It does not add unsourced names or mark incomplete research as verified.
+
 The old name pages relied heavily on a shared template. This release offers a useful individual meaning/origin summary, specific notes where available, source state, related forms, surname examples, local-only surname comparison, related names and category links. These are useful interactions, not proof that every page merits indexing. There is no automatic word-count padding or claim that related names share the same etymology. All old pages remain functional; no automatic mass noindex was applied without search evidence.
 
 Next editorial priority: verify all 20 Guaraní entries with a competent speaker and current dictionary; then disputed etymologies, compound names and saint dates; then all remaining records. Record exact source evidence and its scope. Merge equivalent variants only after considering existing URLs, user meaning and real search data. Add names because parents find them useful and their facts can be supported, not to reach an arbitrary page count.

@@ -4,6 +4,14 @@ declare(strict_types=1);
 function favorite(array $n, bool $large = false): void { ?>
 <button type="button" class="fav<?= $large ? ' fav-lg' : '' ?>" data-slug="<?= e($n['slug']) ?>" data-name="<?= e($n['name']) ?>" aria-pressed="false" aria-label="Guardar <?= e($n['name']) ?> en mi lista" hidden><svg aria-hidden="true" focusable="false"><use href="#h"/></svg></button>
 <?php }
+function related_forms(array $labels, string $currentSlug): void {
+    foreach ($labels as $i => $label) {
+        if ($i > 0) echo ', ';
+        $target = existing_name($label);
+        if ($target && $target['slug'] !== $currentSlug) echo '<a href="' . e(name_url($target)) . '">' . e($label) . '</a>';
+        else echo e($label);
+    }
+}
 function cards(array $list): void { ?>
 <ul class="cards"><?php foreach ($list as $n): ?><li class="card g-<?= e($n['gender']) ?>"><a class="card-link" href="<?= e(name_url($n)) ?>"><span class="card-name"><?= e($n['name']) ?></span><span class="card-mean"><?= e($n['meaning']) ?></span><span class="card-meta"><?= e($n['origin']) ?> · <?= e(['f'=>'niña','m'=>'varón','u'=>'unisex'][$n['gender']]) ?></span></a><?php favorite($n); ?></li><?php endforeach ?></ul>
 <?php }

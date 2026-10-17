@@ -63,6 +63,14 @@ for path in paths+['/mi-lista/']:
     check(not re.search(r'<b>(?:Warning|Notice|Fatal error)|Stack trace:|<br\s*/?>\s*(?:Warning|Fatal error)',text),f'{path}: no PHP errors')
     check(text.startswith('<!doctype html>') and '<html lang="es-PY">' in text,f'{path}: document language')
     check(len(page.h1)==1 and bool(page.h1[0].strip()),f'{path}: exactly one h1')
+    if path=='/':
+        check('Nombres de bebé para Paraguay' in page.h1[0], 'home clearly identifies baby-name and Paraguay intent')
+        nav=re.search(r'<header class="site-header">([\s\S]*?)</header>',text).group(1)
+        check('/nombres-para-perros/' not in nav and '/nombres-para-gatos/' not in nav,'pets stay out of primary navigation')
+    if path=='/nombre/yvoty/':
+        check('Antes de elegir Yvoty' in text and '/nombre/poty/' in text,'checked lexical entry has practical context and an intentional comparison link')
+    if path=='/nombre/ana-belen/':
+        check('Cada parte tiene su historia' in text and '/nombre/ana/' in text and '/nombre/belen/' in text,'compound names link to existing parts')
     check(0<len(page.title)<=60,f'{path}: title length {len(page.title)}')
     check(page.title not in titles,f'{path}: unique title');titles.add(page.title)
     desc=page.meta.get('description','');check(120<=len(desc)<=160,f'{path}: description length {len(desc)}')

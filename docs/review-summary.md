@@ -6,8 +6,9 @@ Replace the generated static pages with PHP 8.2 templates and one editable name 
 - Add a validated export/upsert workflow, source evidence and review states. Correct or qualify 53 records; link 13 Guaraní lexical senses to passages checked in the educational dictionary. Full specialist/data-source review is still outstanding.
 - Preserve browser-only favorites, surname previews, comparison and sharing. New share links use fragments. No analytics, tracking cookies, forms, WhatsApp CTA or third-party assets.
 - Include runtime-only ZIP tooling, CI, URL map, deployment checklist, review queue, Keyword Planner seeds and a proposed operations-manual handoff.
+- Make the home headline explicit about baby names for Paraguay; add practical context to 13 referenced Guaraní entries and links between existing variants, compound parts and intentional thematic comparisons. Pets stay outside primary navigation. The technical check count is not an SEO score or a promise of rankings.
 
-Validation: PHP 8.2 lint; catalog editing tests; 77,095 crawl checks over 588 pages against source, deployment artifact and local Apache/FastCGI; responsive/browser interaction tests at 360/375/768/1440. See `docs/validation.md` for scope and limits.
+Validation: PHP 8.2 lint; catalog editing tests; 77,321 crawl checks over 588 pages against source, deployment artifact and local Apache/FastCGI; responsive/browser interaction tests at 360/375/768/1440. See `docs/validation.md` for scope and limits.
 
 Screenshots:
 

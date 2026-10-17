@@ -6,10 +6,10 @@
 - PHP **8.2.34** syntax checks across the new PHP files.
 - Catalog validation: **546** records, unique slugs, consistent categories and source-state requirements.
 - Editing workflow tests in a disposable copy: export, no-write dry run, update, add, automatic route inclusion, repeated import, and rejection of duplicate/invalid/markup-containing or unsupported “verified” data.
-- Source checkout and unzipped runtime artifact: full `verify.sh` gate, **77,095 crawl checks**, **588 pages**, **587 sitemap URLs**. Counts are for the launch catalog and can change when names are added.
+- Source checkout and unzipped runtime artifact: full `verify.sh` gate, **77,321 crawl checks**, **588 pages**, **587 sitemap URLs**. Counts are for the launch catalog and can change when names are added.
 - Same full crawl through **Apache 2.4.68 + PHP 8.2 FastCGI**, using the actual repository `.htaccess`. Initial local FastCGI backend defaults and JSON authorization were diagnosed and corrected; the final complete crawl passed.
 - Production Host-header tests: HTTP apex and www redirect to HTTPS apex with path/query retained. Apache gzip and immutable cache headers checked on local assets.
-- Chromium through Apache: **69 explicit layout/privacy checks**, plus Playwright assertions for search with accents and ñ, filters, pagination, empty results, favorites, surname persistence, duel, fragment sharing, old query sharing, shared-list import, local-data clearing, escaped storage strings, unavailable localStorage and no-JavaScript server search.
+- Chromium through Apache: **77 explicit layout/privacy checks**, plus Playwright assertions for search with accents and ñ, filters, pagination, empty results, favorites, surname persistence, duel, fragment sharing, old query sharing, shared-list import, local-data clearing, escaped storage strings, unavailable localStorage and no-JavaScript server search.
 - Layout widths **360, 375, 768, 1440**: no horizontal document overflow, including with body clipping disabled. Home, a Guaraní name, a long compound name, a category, search, favorites and pets were covered.
 - Browser sessions observed no uncaught JavaScript errors, cookies, third-party resource requests or data-submission requests. Current screenshots and browser report are under `docs/screenshots/` and `docs/browser-report.json`.
 - Runtime ZIP is allowlisted: PHP, catalog, templates, local assets and `.htaccess`; no Git metadata, tools, tests, docs or old generated HTML. Final artifact details can be reproduced with `python3 deploy/make-zip.py`.
