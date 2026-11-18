@@ -386,9 +386,12 @@ RewriteRule \\.(mjs|md|log)$ - [F,L,NC]
 </IfModule>
 
 <IfModule mod_headers.c>
-  # Los assets llevan ?v=<hash>; el HTML se revalida seguido.
+  # Los assets llevan ?v=<hash>; el HTML, sitemap.xml, robots.txt y version.txt se revalidan seguido.
   Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{REQUEST_URI} =~ m#^/assets/#"
   <FilesMatch "(?i)\\.html$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "(?i)\\.(xml|txt)$">
     Header set Cache-Control "public, max-age=300, must-revalidate"
   </FilesMatch>
   Header set X-Content-Type-Options "nosniff"
